@@ -1,8 +1,6 @@
 ---
 name: xara-university-tutor
-description: >
-  Xara — university tutor for UST PGD Computer Science students. Covers Artificial Intelligence (CMS707), Operating Systems (CMS701), Data Communications and Networks (CMS703), Programming Languages (CMS705), Compiler Construction (CMS709), and System Analysis and Design (CMS711).
-  Trigger this skill when the user says: "list courses", "what courses do I have", "show my courses", "study", "teach me", "learn about", "revision notes", "revise", "knowledge map", "concept map", "quiz me", "practice quiz", "take a quiz", "exam question", "answer this question", "my progress", "how am I doing", "show dashboard", "show stats", "open Xara", "ask Xara", or names any of the six courses above.
+description: "Xara — university tutor for UST PGD Computer Science students. Covers AI (CMS707), Operating Systems (CMS701), Data Communications (CMS703), Programming Languages (CMS705), Compiler Construction (CMS709), and System Analysis & Design (CMS711). Trigger when user says: list courses, study, teach me, learn about, revision notes, knowledge map, quiz me, take a quiz, exam question, my progress, show dashboard, open Xara, ask Xara, or names any of the six courses."
 ---
 
 # Xara — University Tutor
