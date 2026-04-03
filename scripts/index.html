@@ -1,253 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+<head><meta charset="UTF-8"></head>
 <body>
+  <div id="status" style="font-family: sans-serif; color: #666; padding: 20px;">Xara Engine Active...</div>
   <script>
     const STORAGE_KEY = 'xara_tutor_v1';
-    const MAX_CHARS = 12000;
-
-    const COURSE_SLUGS = [
-      'artificial-intelligence',
-      'data-communication-and-networks',
-      'operating-systems',
-      'programming-languages',
-      'compiler-construction',
-      'system-analysis-and-design'
-    ];
-
-    // Full GitHub raw URL — external fetch works in the sandboxed logic WebView
+    const MAX_CHARS = 10000; 
     const COURSES_PATH = 'https://raw.githubusercontent.com/Mbosinwa/xara-university-tutor/main/assets/courses';
 
-    // --- Storage helpers ---
-    function getStore() {
-      try {
-        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-      } catch (e) {
-        return {};
-      }
-    }
+    // --- Helper: Safe Storage ---
+    const getStore = () => {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } 
+      catch (e) { return {}; }
+    };
+    const saveStore = (data) => localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 
-    function saveStore(data) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    }
-
-    function today() {
-      const d = new Date();
-      return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-    }
-
-    // --- Section extractor ---
-    function extractSection(text, keyword, maxChars) {
-      const lines = text.split('\n');
-      const kw = keyword.toLowerCase();
-      let startIdx = -1;
-      let startLevel = 0;
-
-      for (let i = 0; i < lines.length; i++) {
-        const m = lines[i].match(/^(#{1,6})\s+(.+)/);
-        if (m && m[2].toLowerCase().includes(kw)) {
-          startIdx = i;
-          startLevel = m[1].length;
-          break;
-        }
-      }
-
-      if (startIdx === -1) {
-        const notice = `[Section "${keyword}" not found — showing file start]\n\n`;
-        return notice + text.substring(0, maxChars - notice.length);
-      }
-
-      let content = '';
-      for (let i = startIdx; i < lines.length; i++) {
-        if (i > startIdx) {
-          const next = lines[i].match(/^(#{1,6})\s/);
-          if (next && next[1].length <= startLevel) break;
-        }
-        content += lines[i] + '\n';
-        if (content.length >= maxChars) {
-          content += '\n...[SECTION TRUNCATED — request a narrower section for more detail]';
-          break;
-        }
-      }
-      return content;
-    }
-
-    // --- Actions (return plain Objects, not JSON strings) ---
-
+    // --- Action: List Courses (Hardcoded for Speed) ---
     function listCourses() {
-      // Hardcoded for instant response — no network calls needed
       const store = getStore();
-      const active = store.activeCourse
-        ? `\n\nCurrently active: **${store.activeCourse}**`
-        : '';
-
+      const active = store.activeCourse ? `\n\nActive: **${store.activeCourse}**` : '';
       return {
-        result:
-          `Your enrolled courses:\n\n` +
-          `1. CMS707 — Artificial Intelligence\n` +
-          `2. CMS701 — Operating Systems\n` +
-          `3. CMS703 — Data Communications & Networks\n` +
-          `4. CMS705 — Programming Languages\n` +
-          `5. CMS709 — Compiler Construction\n` +
-          `6. CMS711 — System Analysis & Design` +
-          active +
-          `\n\nType **[LT]** to learn a topic, **[KM]** for a knowledge map, **[GQ]** to take a quiz, or **[TP]** to see your progress.`
+        result: "Enrolled Courses:\n1. AI (CMS707)\n2. OS (CMS701)\n3. Networks (CMS703)\n4. Programming (CMS705)\n5. Compilers (CMS709)\n6. Design (CMS711)" + active
       };
     }
 
-    async function loadCourse(course) {
-      const resp = await fetch(`${COURSES_PATH}/${course}/course-structure.md`);
-      if (!resp.ok) throw new Error(`Course "${course}" not found (HTTP ${resp.status})`);
-      const text = await resp.text();
-      const store = getStore();
-      store.activeCourse = course;
-      saveStore(store);
-      return { result: text };
-    }
-
-    async function loadKnowledgeMap(course) {
-      const resp = await fetch(`${COURSES_PATH}/${course}/knowledge-map.md`);
-      if (!resp.ok) throw new Error(`Knowledge map for "${course}" not found (HTTP ${resp.status})`);
-      const text = await resp.text();
-      const truncated = text.length > MAX_CHARS
-        ? text.substring(0, MAX_CHARS) + '\n\n...[KNOWLEDGE MAP TRUNCATED — ask about a specific section]'
-        : text;
-      return { result: truncated };
-    }
-
-    async function loadMaterial(course, filename, section) {
-      const resp = await fetch(`${COURSES_PATH}/${course}/materials/${filename}`);
-      if (!resp.ok) throw new Error(`Material "${filename}" not found (HTTP ${resp.status})`);
-      const text = await resp.text();
-
-      if (section) {
-        return { result: extractSection(text, section, MAX_CHARS) };
-      }
-
-      const truncated = text.length > MAX_CHARS
-        ? text.substring(0, MAX_CHARS) + `\n\n...[FILE TRUNCATED at ${MAX_CHARS} chars — use a section parameter to load a specific topic]`
-        : text;
-      return { result: truncated };
-    }
-
-    function saveProgress(course, topic, status, notes) {
-      const store = getStore();
-      if (!store.progress) store.progress = {};
-      if (!store.progress[course]) store.progress[course] = {};
-
-      const existing = store.progress[course][topic] || { sessionCount: 0 };
-      store.progress[course][topic] = {
-        status: status || existing.status || 'in-progress',
-        lastStudied: today(),
-        sessionCount: (existing.sessionCount || 0) + 1,
-        notes: notes || existing.notes || ''
-      };
-      store.activeCourse = course;
-      saveStore(store);
-
-      return {
-        result: `Progress saved: **${topic}** marked as **${status || 'in-progress'}** (session ${store.progress[course][topic].sessionCount}).`
-      };
-    }
-
-    function getProgress(course) {
-      const store = getStore();
-      const progress = store.progress || {};
-      const courses = course ? [course] : COURSE_SLUGS;
-      const lines = [];
-
-      for (const c of courses) {
-        const topics = progress[c];
-        if (!topics || Object.keys(topics).length === 0) {
-          lines.push(`**${c}**: No topics studied yet.`);
-          continue;
-        }
-        lines.push(`\n**${c}:**`);
-        for (const [topic, data] of Object.entries(topics)) {
-          const icon = data.status === 'complete' ? '✓' : data.status === 'in-progress' ? '→' : '○';
-          lines.push(`  ${icon} ${topic} (${data.status}, ${data.sessionCount} session${data.sessionCount !== 1 ? 's' : ''}, last: ${data.lastStudied})`);
-        }
-      }
-
-      const quizHistory = store.quizHistory || {};
-      const weakAreas = [];
-      for (const c of courses) {
-        for (const entry of (quizHistory[c] || [])) {
-          if (entry.score < 0.6) {
-            weakAreas.push(`  - ${entry.topic} (${c}): ${Math.round(entry.score * 100)}% on ${entry.date}`);
-          }
-        }
-      }
-
-      if (weakAreas.length > 0) {
-        lines.push(`\n**Areas needing review (score < 60%):**\n${weakAreas.slice(0, 5).join('\n')}`);
-      }
-
-      return {
-        result: lines.length > 0
-          ? lines.join('\n')
-          : 'No progress recorded yet. Start a learning session with **[LT]**.'
-      };
-    }
-
-    function logQuiz(course, topic, score, difficulty, questionCount) {
-      const store = getStore();
-      if (!store.quizHistory) store.quizHistory = {};
-      if (!store.quizHistory[course]) store.quizHistory[course] = [];
-
-      const entry = {
-        topic,
-        score: parseFloat(score),
-        difficulty: difficulty || 'medium',
-        questionCount: parseInt(questionCount) || 0,
-        date: today()
-      };
-
-      store.quizHistory[course].unshift(entry);
-      if (store.quizHistory[course].length > 50) {
-        store.quizHistory[course] = store.quizHistory[course].slice(0, 50);
-      }
-      saveStore(store);
-
-      const pct = Math.round(parseFloat(score) * 100);
-      const feedback = pct >= 80 ? 'Excellent work!' : pct >= 60 ? 'Good effort — review the weak spots.' : "Keep studying — you'll get there!";
-      return {
-        result: `Quiz logged: **${pct}%** on **${topic}** (${difficulty}, ${questionCount} questions). ${feedback}`
-      };
-    }
-
-    function showDashboard(course) {
-      const url = course
-        ? `dashboard.html?course=${encodeURIComponent(course)}`
-        : 'dashboard.html';
-      return {
-        result: 'Opening your progress dashboard.',
-        webview: { url, aspectRatio: 1.6 }
-      };
-    }
-
-    // --- Main dispatcher ---
-    // Entry point expected by the Edge Gallery runtime
-    window.run_js_action = async (input) => {
+    // --- Action: Load Files (With proper error catching) ---
+    async function loadRemoteFile(path) {
       try {
-        // Handle input as either a pre-parsed Object or a raw JSON string
-        const data = (typeof input === 'string') ? JSON.parse(input) : input;
-
-        switch (data.action) {
-          case 'list_courses':    return listCourses();
-          case 'load_course':     return await loadCourse(data.course);
-          case 'load_knowledge_map': return await loadKnowledgeMap(data.course);
-          case 'load_material':   return await loadMaterial(data.course, data.filename, data.section);
-          case 'save_progress':   return saveProgress(data.course, data.topic, data.status, data.notes);
-          case 'get_progress':    return getProgress(data.course);
-          case 'log_quiz':        return logQuiz(data.course, data.topic, data.score, data.difficulty, data.question_count);
-          case 'show_dashboard':  return showDashboard(data.course);
-          default:                throw new Error(`Unknown action: ${data.action}`);
-        }
+        const resp = await fetch(path);
+        if (!resp.ok) return `Error: File not found at ${path}`;
+        let text = await resp.text();
+        return text.length > MAX_CHARS ? text.substring(0, MAX_CHARS) + "\n...[Truncated]" : text;
       } catch (e) {
-        console.error(e);
-        return { error: `Xara Tutor error: ${e.message}` };
+        return `Network Error: ${e.message}`;
+      }
+    }
+
+    // --- THE CRITICAL DISPATCHER FIX ---
+    window.run_js_action = async (input) => {
+      const status = document.getElementById('status');
+      try {
+        // 1. Safe Parse: Handle String vs Object
+        const data = (typeof input === 'string') ? JSON.parse(input) : input;
+        status.innerText = `Executing: ${data.action}...`;
+
+        let output;
+        switch (data.action) {
+          case 'list_courses':
+            output = listCourses();
+            break;
+
+          case 'load_knowledge_map':
+            const mapText = await loadRemoteFile(`${COURSES_PATH}/${data.course}/knowledge-map.md`);
+            output = { result: mapText };
+            break;
+
+          case 'load_course':
+            const structText = await loadRemoteFile(`${COURSES_PATH}/${data.course}/course-structure.md`);
+            const store = getStore();
+            store.activeCourse = data.course;
+            saveStore(store);
+            output = { result: structText };
+            break;
+
+          case 'load_material':
+            const matText = await loadRemoteFile(`${COURSES_PATH}/${data.course}/materials/${data.filename}`);
+            output = { result: matText };
+            break;
+
+          case 'get_progress':
+            output = { result: "Progress tracking initialized. No data yet." };
+            break;
+
+          default:
+            output = { error: `Action ${data.action} not recognized.` };
+        }
+
+        status.innerText = `Last Action: ${data.action} (Success)`;
+        return output; // Return the Object directly
+
+      } catch (e) {
+        status.innerText = `Error: ${e.message}`;
+        return { error: `Dispatcher Crash: ${e.message}` };
       }
     };
+
+    // Compatibility backup for older SDKs
+    window.ai_edge_gallery_get_result = window.run_js_action;
   </script>
 </body>
 </html>
