@@ -14,9 +14,9 @@ lastUpdated: 2026-04-02
 
 ## Materials Index
 
-| # | Title | Type | Status |
-|---|-------|------|--------|
-| 1 | Lexical Analysis — Lecture Notes (Dr. Bennett & Dr. Omaegbu) | text/lecture notes | ✓ Processed |
+| # | Filename | Title | Type | Status |
+|---|----------|-------|------|--------|
+| 1 | lexical-analysis-lecture-notes.md | Lexical Analysis — Lecture Notes (Dr. Bennett & Dr. Omaegbu) | text/lecture notes | ✓ Processed |
 
 ---
 

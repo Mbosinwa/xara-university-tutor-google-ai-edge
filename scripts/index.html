@@ -15,9 +15,8 @@
       'system-analysis-and-design'
     ];
 
-    // Resolve the skill root URL from this script's location (skills/xara-university-tutor/scripts/index.html)
-    const SKILL_ROOT = window.location.href.replace(/\/scripts\/[^/]+(\?.*)?$/, '');
-    const COURSES_PATH = `${SKILL_ROOT}/courses`;
+    // Fetch course files from GitHub raw content (local fetch is blocked in the sandboxed WebView)
+    const COURSES_PATH = 'https://raw.githubusercontent.com/Mbosinwa/xara-university-tutor/main/assets/courses';
 
     // --- Storage helpers ---
     function getStore() {

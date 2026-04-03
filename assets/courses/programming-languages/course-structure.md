@@ -16,11 +16,11 @@ lastUpdated: 2026-04-01
 
 ## Materials Index
 
-| # | Title | Type | Status |
-|---|-------|------|--------|
-| 1 | Programming Languages — Lecture Notes (Dr. H. Okwu) | file | ✓ Processed |
-| 2 | Data Flow in Programming Languages — Lecture Notes (Dr. H. Okwu) | file | ✓ Processed |
-| 3 | CMS705 Programming Languages — Course Outline | text | ✓ Processed |
+| # | Filename | Title | Type | Status |
+|---|----------|-------|------|--------|
+| 1 | programming_lang.md | Programming Languages — Lecture Notes (Dr. H. Okwu) | file | ✓ Processed |
+| 2 | programming_lang2.md | Data Flow in Programming Languages — Lecture Notes (Dr. H. Okwu) | file | ✓ Processed |
+| 3 | course-outline.md | CMS705 Programming Languages — Course Outline | text | ✓ Processed |
 
 ---
 

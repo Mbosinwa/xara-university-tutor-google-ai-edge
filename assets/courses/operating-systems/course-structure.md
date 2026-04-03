@@ -13,12 +13,12 @@ lastUpdated: 2026-04-02
 
 ## Materials Index
 
-| # | Material | Type | Status |
-|---|----------|------|--------|
-| 1 | Course Outline — Operating Systems | Direct text | ✓ Processed → `materials/01-course-outline.md` |
-| 2 | Lecture Notes — OS Types, Kernels & System Calls (Dr. I.B. Cookey) | Direct text | ✓ Processed → `materials/02-lecture-notes-os-types-kernels-system-calls.md` |
-| 3 | Lecture Notes — Process State, PCB & Schedulers (Dr. I.B. Cookey) | Direct text | ✓ Processed → `materials/03-lecture-notes-process-state-pcb-schedulers.md` |
-| 4 | Lecture Notes — Multithreading, CPU Scheduling & Synchronization (Dr. I.B. Cookey) | Direct text | ✓ Processed → `materials/04-lecture-notes-multithreading-cpu-scheduling-synchronization.md` |
+| # | Filename | Title | Type | Status |
+|---|----------|-------|------|--------|
+| 1 | 01-course-outline.md | Course Outline — Operating Systems | Direct text | ✓ Processed |
+| 2 | 02-lecture-notes-os-types-kernels-system-calls.md | Lecture Notes — OS Types, Kernels & System Calls (Dr. I.B. Cookey) | Direct text | ✓ Processed |
+| 3 | 03-lecture-notes-process-state-pcb-schedulers.md | Lecture Notes — Process State, PCB & Schedulers (Dr. I.B. Cookey) | Direct text | ✓ Processed |
+| 4 | 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md | Lecture Notes — Multithreading, CPU Scheduling & Synchronization (Dr. I.B. Cookey) | Direct text | ✓ Processed |
 
 ---
 

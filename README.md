@@ -42,19 +42,19 @@ All progress is saved locally on your device via `localStorage`.
 xara-university-tutor/
 ├── SKILL.md                  # Skill definition (loaded by AI Edge Gallery)
 ├── scripts/
-│   └── index.html            # Backend: file loader + localStorage progress store
-├── assets/
-│   └── dashboard.html        # Visual progress dashboard
-└── courses/
-    ├── artificial-intelligence/
-    ├── compiler-construction/
-    ├── data-communication-and-networks/
-    ├── operating-systems/
-    ├── programming-languages/
-    └── system-analysis-and-design/
-        ├── course-structure.md
-        ├── knowledge-map.md
-        └── materials/        # Lecture notes, transcripts, outlines
+│   └── index.html            # Logic runner (file loader + localStorage)
+└── assets/
+    ├── dashboard.html        # Visual progress dashboard (served by Gallery)
+    └── courses/
+        ├── artificial-intelligence/
+        ├── compiler-construction/
+        ├── data-communication-and-networks/
+        ├── operating-systems/
+        ├── programming-languages/
+        └── system-analysis-and-design/
+            ├── course-structure.md
+            ├── knowledge-map.md
+            └── materials/    # Lecture notes, transcripts, outlines
 ```
 
 ## How to Use
