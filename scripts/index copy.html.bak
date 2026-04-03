@@ -1,0 +1,3510 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     EMBEDDED DATA — inert script blocks, read by JS below.
+     The model only receives content it explicitly requests via
+     ai_edge_gallery_get_result — nothing here enters its context
+     automatically.
+     ═══════════════════════════════════════════════════════════════ -->
+
+<script type="text/plain" id="km-artificial-intelligence">
+---
+course: Artificial Intelligence
+courseCode: CMS707
+generatedOn: 2026-04-02
+topicCount: 13
+conceptCount: 34
+relationshipCount: 31
+---
+
+# Knowledge Map: Artificial Intelligence (CMS707)
+
+> Generated: 2026-04-02 | Topics: 13 | Concepts: 34 | Relationships: 31
+> Lecturer: Dr. Friday Orji (friday.orji@ust.edu.ng)
+
+---
+
+## Course Overview
+
+CMS707 covers the theory and practice of Artificial Intelligence — from the foundational question of what intelligence is, through problem-solving via state space search, to knowledge representation using predicate logic and probabilistic reasoning. The course then extends to advanced application areas including machine learning, NLP, expert systems, fuzzy logic, and genetic algorithms. It is grounded in the AIMA (Russell & Norvig) framework and closely follows Dr. Friday Orji's lecture series.
+
+---
+
+## Concept Hierarchy
+
+```
+Artificial Intelligence (CMS707)
+│
+├── PART I: Problem-Solving and Search
+│   │
+│   ├── 1. Introduction to AI                          [5 concepts]
+│   │   ├── Key Concepts: Intelligence, Artificial Intelligence, Mundane Tasks, Formal Tasks, Turing Test
+│   │   ├── Central: Artificial Intelligence
+│   │   └── Note: Mundane tasks (perception, speech) are harder to compute than formal tasks (chess, logic)
+│   │
+│   ├── 2. AI Agents and Rational Agents               [6 concepts]
+│   │   ├── Key Concepts: Agent, Rational Agent, Percept Sequence, Agent Function, Agent Program, Performance Measure
+│   │   ├── Central: Rational Agent
+│   │   └── Note: Agent Function (abstract math) → implemented by → Agent Program (concrete code)
+│   │
+│   ├── 3. Problem-Solving and Search                  [10 concepts]
+│   │   ├── Key Concepts: State Space Representation, BFS, DFS, Iterative Deepening Search,
+│   │   │                 Best-First Search, A* Search, Heuristic, Water Jug Problem, Farmer Problem
+│   │   ├── Central: State Space Search, BFS/DFS
+│   │   └── 4-step method: Define → Analyse → Isolate/Represent → Choose technique
+│   │
+│   └── 4. Heuristic Search Techniques                 [3 concepts]
+│       ├── Key Concepts: Heuristic, Informed Search, Uninformed Search
+│       └── Best-First = hybrid of BFS completeness + DFS memory efficiency
+│
+├── PART II: Knowledge Representation and Reasoning
+│   │
+│   ├── 5. Knowledge Representation                    [5 concepts]
+│   │   ├── Key Concepts: Natural Language KR, Simple Relational KR, Inferential KR,
+│   │   │                 Hallucination, Facts vs Representations
+│   │   └── Central: Inferential KR (supports inheritance + logical inference)
+│   │
+│   ├── 6. Predicate Logic                             [6 concepts]
+│   │   ├── Key Concepts: Predicate Logic, Quantifiers (∀/∃), Constants/Variables/Predicates,
+│   │   │                 Inference Rules, Resolution, Forward/Backward Chaining
+│   │   ├── Central: Predicate Logic
+│   │   └── Example: Marcus/Caesar — 8 axioms → logical inference chain
+│   │
+│   ├── 7. Probabilistic Reasoning                     [3 concepts]
+│   │   ├── Key Concepts: Uncertainty, Bayesian Reasoning, Bayesian Networks
+│   │   └── Requires: Predicate Logic as prerequisite
+│   │
+│   └── 8. Semantic Nets                               [3 concepts]
+│       └── Key Concepts: Semantic Networks, Frames, Scripts
+│
+└── PART III: Advanced Topics and Application Areas
+    │
+    ├── 9. Learning                                     [6 concepts]
+    │   └── Supervised Learning, Unsupervised Learning, Reinforcement Learning,
+    │       Decision Trees, Neural Networks, Deep Learning
+    │
+    ├── 10. Natural Language Processing                 [4 concepts]
+    │   └── Speech Recognition, Machine Translation, Question Answering (Watson), Language Models
+    │
+    ├── 11. Expert Systems                              [2 concepts]
+    │   └── Knowledge-Based Systems, Inference Engines
+    │
+    ├── 12. Fuzzy Logic Systems                         [2 concepts]
+    │   └── Fuzzy Sets, Fuzzy Inference
+    │
+    └── 13. Genetic Algorithms                          [2 concepts]
+        └── Selection, Crossover, Mutation
+```
+
+---
+
+## Key Relationships
+
+### Hierarchical (Is-a / Part-of)
+- Deep Learning is a type of Machine Learning
+- Reinforcement Learning is a type of Machine Learning
+- Supervised Learning is a type of Machine Learning
+- Bayesian Reasoning is a type of Probabilistic Reasoning
+- Semantic Nets is a type of Knowledge Representation
+- Genetic Algorithm is a type of Evolutionary / Optimisation technique
+- Agent Program is the concrete implementation of Agent Function
+
+### Causal / Enables
+- Percept Sequence determines Agent behaviour
+- Performance Measure evaluates Rational Agent
+- Understanding State Space Representation enables Problem-Solving and Search
+- Predicate Logic enables Knowledge Representation
+- Predicate Logic is used in Inference (resolution, chaining)
+- Predicate Logic is used to express Inferential Knowledge
+- Neural Networks are the basis of Deep Learning
+- Perception enables Action in Robotics
+- Natural Language maps to Internal Representation (via KR)
+- NLP is an application of Knowledge Representation + Learning
+
+### Dependency / Prerequisite
+- Agent Function is implemented by Agent Program
+- A* Search uses Heuristic + path cost
+- Expert Systems depend on Knowledge Representation + Inference
+- Heuristic Search is an improvement of Uninformed Search
+
+### Contrast (Contrasts-with)
+- Fuzzy Logic contrasts with Classical Boolean Logic
+- DFS uses less memory than BFS (but risks getting trapped)
+- Mundane Tasks are harder to represent than Formal Tasks
+- Simple Relational KR has weaker inference than Inferential KR
+
+### Combines / Synthesises
+- Iterative Deepening Search combines advantages of BFS + DFS
+- Best-First Search combines advantages of BFS + DFS
+- Rational Agent is defined by Maximally achieving predefined goals
+
+### Solves
+- State Space Search solves Water Jug Problem
+- Constraint-based State Space Search solves Farmer Problem
+- Minimax is used in Adversarial Search / Game Playing
+- Alpha-Beta Pruning optimises Minimax Search
+
+---
+
+## Central Concepts
+
+These are the most connected concepts in the course — master these first:
+
+| Concept | Connections | Why Central |
+|---------|-------------|-------------|
+| Predicate Logic | 4 | Enables KR, used in inference, expresses inferential KR, bridges natural language and reasoning |
+| Rational Agent | 4 | Defined by goal maximisation, evaluated by performance measure, acts on percept sequence, foundation of all AI system design |
+| State Space Search | 4 | Foundation of problem-solving, solves classic problems, prerequisite for BFS/DFS/A*, underpins all search algorithms |
+| BFS / DFS | 5 | Combined by Iterative Deepening and Best-First, contrasted by memory/completeness trade-offs, basis of all uninformed search |
+| Machine Learning | 3 | Basis of Deep Learning, Reinforcement Learning, and Supervised Learning — connects to NLP, Robotics, Expert Systems |
+| Knowledge Representation | 5 | Subsumes Natural Language, Relational, Inferential KR; enables Expert Systems; tied to NLP and Predicate Logic |
+
+---
+
+## Prerequisite Learning Path
+
+Recommended study order based on concept dependencies:
+
+1. **Intelligence & AI** — What is AI? What counts as intelligent behaviour?
+2. **Mundane vs Formal Tasks** — Why mundane tasks are computationally harder
+3. **Agents & Rational Agents** — Percept Sequence, Agent Function, Performance Measure
+4. **State Space Representation** — Foundation of all problem-solving
+5. **Uninformed Search (BFS, DFS)** — How to navigate state spaces
+6. **Informed Search (Heuristic, Best-First, A*)** — Smarter navigation
+7. **Iterative Deepening** — Combining BFS completeness + DFS memory
+8. **Knowledge Representation (Natural Language → Relational → Inferential)** — Moving from data to reasoning
+9. **Predicate Logic** — Formal language for inference; Marcus/Caesar worked example
+10. **Probabilistic Reasoning & Bayesian Networks** — Handling uncertainty
+11. **Semantic Nets** — Graph-based KR
+12. **Machine Learning** (Supervised → Unsupervised → Reinforcement → Neural Networks → Deep Learning)
+13. **Application Areas** (NLP, Expert Systems, Fuzzy Logic, Genetic Algorithms, Robotics)
+
+---
+
+## Definitions Quick Reference
+
+| Term | Definition (brief) |
+|------|-------------------|
+| Intelligence | Capacity to think and comprehend the world — involving knowledge, experience and understanding |
+| Artificial Intelligence | Field of building systems that act rationally to maximally achieve predefined goals |
+| Agent | Entity that perceives its environment via sensors and acts via actuators; persists and adapts |
+| Rational Agent | Agent that acts to achieve the best/expected outcome, judged by a performance measure |
+| Percept Sequence | Complete history of everything an agent has ever perceived |
+| Agent Function | Abstract mapping from percept sequence to action |
+| Agent Program | Concrete implementation of the agent function |
+| Performance Measure | Criterion capturing best/expected outcome for a rational agent |
+| State Space | Set of all possible states in a problem, connected by operators |
+| BFS | Breadth-First Search — FIFO queue, explores level by level, complete and optimal |
+| DFS | Depth-First Search — LIFO stack, memory efficient, may get trapped |
+| Iterative Deepening | DFS with increasing depth limit; BFS completeness + DFS memory |
+| Best-First Search | Heuristic-guided search combining BFS and DFS advantages |
+| A* Search | Informed search using f(n) = g(n) + h(n); optimal if heuristic admissible |
+| Heuristic | Problem-specific knowledge estimating cost/distance to goal |
+| Knowledge Representation | Mapping of real-world facts into a formalism that can be manipulated |
+| Predicate Logic | Formal system with quantifiers (∀, ∃), predicates, constants, variables |
+| Hallucination (AI) | Representation of facts that may not exist; absence of self-aware grounding |
+| Bayesian Reasoning | Probabilistic inference using prior knowledge and conditional probabilities |
+| Fuzzy Logic | Truth values between 0 and 1; handles vagueness and degrees of truth |
+| Genetic Algorithm | Evolutionary optimisation via selection, crossover, and mutation |
+| Turing Test | Benchmark: can a machine converse indistinguishably from a human? |
+
+---
+
+## Tutor Reference Notes
+
+_For use by the tutor agent during learning sessions with Mbosinwa:_
+
+- **Best Socratic entry point:** Start with "What makes a task difficult for a computer?" — bridges Mundane vs Formal Tasks and leads naturally into State Space Search
+- **Most common misconceptions:**
+  - Conflating *Agent Function* (abstract) with *Agent Program* (concrete)
+  - Thinking BFS is always better than DFS — each has specific advantages
+  - Believing Rational Agent = "smart agent" rather than "goal-maximising agent"
+  - Confusing Iterative Deepening with repeated BFS
+  - Thinking Predicate Logic is just maths — it's a KR tool for real-world facts
+- **Concepts students typically conflate:**
+  - BFS (Breadth-First) vs Best-First Search — different algorithms, confusingly named
+  - Agent Function vs Agent Program
+  - Percept vs Percept Sequence
+  - Inferential KR vs Predicate Logic (the latter is a *form* of the former)
+  - Supervised vs Reinforcement Learning
+- **Mbosinwa context:** Strong engineering background, rusty on theory. Use real-world analogies. Over-explain — he will say when to stop.
+- **Exercises available:** Session 1 (5 questions on AI theory/philosophy) and Session 2 (2 problem formulation tasks including Missionaries & Cannibals)
+
+</script>
+
+<script type="text/plain" id="km-compiler-construction">
+---
+course: Compiler Construction
+courseCode: CMS709
+generatedOn: 2026-04-02
+topicCount: 8
+conceptCount: 17
+relationshipCount: 19
+---
+
+# Knowledge Map: Compiler Construction
+
+> Generated: 2026-04-02 | Topics: 8 | Concepts: 17 | Relationships: 19
+> Lecturers: Dr. E.O Bennett & Dr. E.E Omaegbu | Institution: Rivers State University
+
+---
+
+## Course Overview
+
+Compiler Construction (CMS709) covers the theory and practice of building a compiler — a program that translates source code into executable form. The course begins with **Lexical Analysis**, the first compiler phase, which converts raw character streams into structured tokens using formal language theory, finite automata, and transition diagrams. It establishes the foundational concepts of tokens, patterns, lexemes, regular expressions, and the formal Chomsky language hierarchy that underpin all subsequent compiler phases.
+
+---
+
+## Concept Hierarchy
+
+```
+Compiler Construction (CMS709)
+├── 1. Lexical Analysis                              [6 concepts]
+│   ├── Role: first phase of compiler
+│   │   ├── Key Concepts: Token, Lexeme, Pattern, Symbol Table
+│   │   └── Central: TOKEN ★
+│   ├── LA ↔ Parser interaction (subroutine model)
+│   │   └── Key Concepts: Lexical Analyser, Parser
+│   └── Secondary tasks: comment removal, error line tracking
+│
+├── 2. Tokens, Patterns and Lexemes                 [5 concepts]
+│   ├── Token — terminal symbol of grammar
+│   │   └── Key Concepts: Keywords, Operators, Identifiers, Constants
+│   ├── Pattern — regular expression rule
+│   │   └── Key Concepts: Regular Expression ★
+│   ├── Lexeme — actual matched character sequence
+│   └── Token attributes → Symbol Table pointer ★
+│
+├── 3. Difficulties and Errors in LA                [2 concepts]
+│   ├── Context-dependent keywords (FORTRAN examples)
+│   ├── Lookahead requirements
+│   └── Localized error detection (illegal symbols only)
+│
+├── 4. Specification and Recognition of Tokens      [4 concepts]
+│   ├── Regular Definitions → LEX / FLEX ★
+│   │   └── Key Concepts: Regular Expression, LEX/FLEX
+│   ├── Transition Diagrams ★
+│   │   └── Key Concepts: FSA, TD
+│   └── Token Priority Rules
+│       ├── Longest Match Rule ★
+│       └── First-Listed Pattern Rule
+│
+├── 5. Formal Language Theory                       [3 concepts]
+│   ├── Chomsky Hierarchy: Type 0–3
+│   │   ├── Type 3: Regular Language (Finite Automaton)
+│   │   ├── Type 2: Context-Free Language (Pushdown Automaton)
+│   │   └── Type 1: Context-Sensitive Language
+│   └── Alphabet (Σ), Σ*, language as subset of Σ*
+│
+├── 6. FSA and Transition Diagrams                  [5 concepts]
+│   ├── FSA: accepts/rejects strings
+│   ├── TD: reads until token found, returns it
+│   │   ├── Dead State ★
+│   │   └── Retraction (*)
+│   ├── Scanner (FSA-based stage) ★
+│   └── Evaluator (produces token value) ★
+│
+├── 7. Input Buffering                              [2 concepts]
+│   ├── Two-half buffer, N-character reads
+│   ├── Forward Pointer ★
+│   └── Beginning Pointer
+│
+└── 8. Implementation of Lexical Analyser           [3 concepts]
+    ├── Automatic: LEX/FLEX (easier, less efficient)
+    ├── HLL by hand (more efficient)
+    └── Low-level language (most efficient, hardest)
+```
+
+---
+
+## Key Relationships
+
+### Hierarchical (Is-a / Part-of)
+- **Transition Diagram** is a variant of **FSA**
+- **Scanner** is based on **FSA**
+- **Lexical Analyser** is a subroutine of **Parser**
+- **Context-Free Language** is a superset of **Regular Language**
+- **Context-Sensitive Language** is a superset of **Context-Free Language**
+- **Lexeme** is an instance of a **Token**
+
+### Causal / Enables
+- **Regular Expression** enables **Pattern** specification
+- **Pattern** describes/classifies a **Token**
+- **Scanner** feeds lexeme to **Evaluator**
+- **Evaluator** produces a **Token** (type + value)
+- **LEX/FLEX** generates a **Lexical Analyser**
+- **Dead State** triggers token acceptance at last valid state
+- **Forward Pointer** enables **Retraction**
+
+### Dependency (Requires / Reads-Writes)
+- **Lexical Analyser** reads from / writes to **Symbol Table**
+- **Token** attribute depends on **Symbol Table** pointer
+- **Lexical Analyser** depends on **Regular Expression** for specification
+- Prerequisite chain: **Regular Expression → Pattern → Token → Symbol Table**
+- Prerequisite chain: **FSA → Scanner → Evaluator → Token**
+
+### Priority / Contrast
+- **Longest Match Rule** takes priority over **First-Listed Pattern Rule**
+- **FSA** (accepts/rejects) contrasts with **TD** (reads until token found)
+- **Automatic LA** (LEX/FLEX) contrasts with **Hand-written LA** (efficiency vs ease)
+
+---
+
+## Central Concepts
+
+These are the most connected concepts — master these first:
+
+| Concept | Connections | Why Central |
+|---------|-------------|-------------|
+| **Token** | 4 | The fundamental output unit of LA; everything else produces, classifies, or attributes a token |
+| **Lexical Analyser** | 4 | Orchestrates the entire first compiler phase; connects to parser, symbol table, and all sub-stages |
+| **Regular Expression** | 3 | The formal language for specifying patterns; underpins both LEX tools and manual TD construction |
+| **FSA / Transition Diagram** | 3 | The computational model that drives recognition; FSA is theory, TD is its practical implementation |
+| **Symbol Table** | 3 | The shared data structure linking LA to the rest of the compiler; stores all token information |
+
+---
+
+## Prerequisite Learning Path
+
+Recommended study order based on dependencies:
+
+1. **Formal Language Theory** — understand alphabets, Σ*, and the Chomsky hierarchy (what kinds of languages exist)
+2. **Regular Expressions** — the notation used to describe token patterns (Type 3 / Regular Languages)
+3. **Tokens, Patterns, Lexemes** — the three core abstractions of lexical analysis
+4. **FSA (Finite State Automata)** — the mathematical model for recognising regular languages
+5. **Transition Diagrams** — practical FSA variant used to build lexers by hand
+6. **Input Buffering** — how the lexer reads characters efficiently (forward pointer, retraction)
+7. **Lexical Analysis** — the full LA phase combining all above into a working analyser
+8. **Specification and Recognition of Tokens** — regular definitions, TD construction, keyword recognition, priority rules
+9. **Implementation** — LEX/FLEX generators vs hand-written approaches
+
+---
+
+## Definitions Quick Reference
+
+| Term | Definition (brief) |
+|------|-------------------|
+| Lexical Analysis | First compiler phase; converts character stream to token sequence |
+| Token | A categorised unit (keyword, identifier, operator, etc.); terminal grammar symbol |
+| Pattern | A regular expression rule describing all strings that form a particular token |
+| Lexeme | The actual character sequence that matches a pattern — a concrete token instance |
+| Symbol Table | Compiler data structure storing token info (lexeme, line number, type) |
+| FSA | Finite State Automaton — mathematical model that accepts or rejects a string |
+| Transition Diagram | FSA variant used for lexers; reads characters until it finds and returns a token |
+| Dead State | Non-accepting state with no valid transitions; signals end of recognition |
+| Retraction | Rolling back the forward pointer after scanning past the valid lexeme |
+| Scanner | FSA-based LA stage that identifies token type and length |
+| Evaluator | LA stage that processes lexeme characters to produce a token value |
+| LEX / FLEX | Automatic lexical analyser generators from regular expression specifications |
+| Regular Language | Language recognisable by FSA; described by regular expressions (Chomsky Type 3) |
+| Context-Free Language | Language recognised by pushdown automaton; not regular (Chomsky Type 2) |
+| Longest Match Rule | When multiple patterns match, take the longest lexeme |
+| First-Listed Pattern Rule | When length is equal, the pattern listed first in specification wins |
+| Chomsky Hierarchy | Type 0–3 classification of formal languages by generative power |
+
+---
+
+## Tutor Reference Notes
+
+_For use during learning sessions on Compiler Construction:_
+
+- **Best entry point for Socratic sessions:** Start with *"What problem is Lexical Analysis solving, and why can't the parser do it itself?"* — this opens up the LA/parser separation rationale and naturally leads into tokens.
+- **Most common misconceptions:**
+  - Students confuse **token** (the category) with **lexeme** (the actual string) — always use a concrete example (e.g., `pi` is the lexeme; `identifier` is the token)
+  - Students confuse **FSA** (theory: accepts/rejects) with **TD** (practice: finds and returns token) — the key difference is what happens at accepting states
+  - Students think ALL errors are caught by LA — reinforce that LA has a very localized view and cannot detect semantic errors
+- **Concepts students typically conflate:**
+  - Token vs Lexeme vs Pattern (the holy trinity — needs repeated examples)
+  - FSA vs Transition Diagram (same structure, different behavior at accepting states)
+  - Scanner vs Evaluator (both stages of LA, but distinct roles)
+  - LEX/FLEX vs hand-written LA (trade-off: development speed vs runtime efficiency)
+- **Mbosinwa context:** Strong software engineering background — relate FSA/TD to state machines in software design patterns; relate Symbol Table to hash maps/dictionaries; relate LEX to parser generator tools like ANTLR he may have encountered.
+
+</script>
+
+<script type="text/plain" id="km-data-communication-and-networks">
+---
+course: Data Communication and Networks
+courseCode: CMS703
+generatedOn: 2026-03-30
+topicCount: 24
+conceptCount: 54
+relationshipCount: 67
+---
+
+# Knowledge Map: CMS 703 — Data Communication and Networks
+
+> Generated: 2026-03-30 | Topics: 24 | Concepts: 54 | Relationships: 67
+
+---
+
+## Course Overview
+
+This course covers the foundational principles of data communication and computer networking — from the five basic components of a communication system, through signal representation and Fourier analysis, to physical and wireless transmission media, network types and topologies, switching and routing techniques, and the OSI reference model. It also covers how data is encoded as bit patterns, how serial and parallel transmission work in practice, and how Fourier mathematics powers real-world technologies like OFDM in 5G and LTE.
+
+---
+
+## Concept Hierarchy
+
+```
+CMS 703: Data Communication and Networks
+│
+├── 1. Introduction to Data Communication                    [8 concepts]
+│   ├── Definition & Core Components
+│   │   ├── Key Concepts: Message, Sender, Receiver, Transmission Medium, Protocol
+│   │   └── Central: Protocol (required for all communication to function)
+│   ├── Data Representation Forms
+│   │   ├── Text: bit patterns, Unicode (32-bit), ASCII (127 chars = Basic Latin)
+│   │   ├── Images: pixel matrix, RGB and YCM colour models
+│   │   ├── Audio: continuous signal → sampling → quantization → encoding
+│   │   └── Video: analog or digital, encoding process
+│   └── Fundamental Principles
+│       └── Key Concepts: Delivery, Accuracy, Timeliness
+│
+├── 2. Fourier Analysis                                      [12 concepts]
+│   ├── Fourier Series (Periodic Signals)
+│   │   ├── Key Concepts: Periodic Signal, Fundamental Frequency (Ω), Harmonics
+│   │   ├── Key Concepts: Dirichlet Conditions, Orthogonality, Period, Amplitude
+│   │   ├── Formula: f(x) = a₀/2 + Σ[aₙcos(nπx/L) + bₙsin(nπx/L)]
+│   │   ├── Worked: Square wave → only odd harmonics survive (even cancel out)
+│   │   └── Central: bridges time domain ↔ frequency domain for periodic signals
+│   ├── Fourier Transform (Non-periodic Signals)
+│   │   ├── Forward: F(ω) = ∫f(t)e^{-iωt}dt
+│   │   ├── Inverse: f(t) = (1/2π)∫F(ω)e^{iωt}dω
+│   │   ├── Square Pulse: F(ω) = T·sinc(ωT/2) — wider pulse = narrower freq spread
+│   │   ├── Worked: f(t)=e^{-at}u(t) → F(ω) = 1/(a+iω), a>0
+│   │   └── Real-world: OFDM in 5G/LTE uses Fourier Transform for spectrum allocation
+│   └── Related Transforms
+│       ├── Laplace Transform — design tool for continuous-time systems
+│       └── Z Transform — discrete-time equivalent of Laplace
+│
+├── 3. Data Transmission Modes                               [3 concepts]
+│   ├── Simplex — unidirectional only (keyboard→PC, TV broadcast)
+│   ├── Half-Duplex — bidirectional, one direction at a time (walkie-talkie, WiFi)
+│   └── Full-Duplex — simultaneous bidirectional (telephone, live chat)
+│
+├── 4. Data Transmission Forms                               [2 concepts]
+│   ├── Analog — continuous waveform
+│   └── Digital — discrete 0/1 states
+│
+├── 5. Data Transmission Speed                               [2 concepts]
+│   ├── Bandwidth — data transfer capacity per unit time
+│   └── BPS (Bits Per Second) — rate of bit transmission
+│
+├── 6. Transmission Media                                    [9 concepts]
+│   ├── Guided Media (physical path)
+│   │   ├── Twisted Pair Wire — copper conductors twisted; STP and UTP types
+│   │   │   └── Used in: telephone, 10Base-T and 100Base-T LANs
+│   │   ├── Coaxial Cable — central copper core + insulated sheath + outer shield
+│   │   │   └── Used in: cable TV, satellite, CCTV, analog/digital telephony
+│   │   └── Fibre-Optic Cable — transmits light through glass/plastic core + cladding
+│   │       ├── Advantages: high bandwidth, low attenuation (50km vs 5km repeaters),
+│   │       │   immune to EM interference, corrosion-resistant, lightweight, hard to tap
+│   │       ├── Disadvantages: expensive, fragile, requires expert installation
+│   │       └── Used in: backbone networks, 100Base-FX, 1000Base-X, hybrid cable TV
+│   └── Unguided Media (wireless)
+│       ├── Radio Waves — 3 KHz to 1 GHz; omnidirectional; AM/FM radio, TV, paging
+│       ├── Microwaves — 1 to 300 GHz; unidirectional (parabolic dish/horn antenna)
+│       │   └── Line-of-sight; towers needed; restricted bands require regulatory approval
+│       └── Infrared — 300 GHz to 400 THz; short-distance; cannot penetrate walls
+│           └── Used in: remote controls, night vision, missile guidance, gas detectors
+│
+├── 7. Computer Networks                                     [7 concepts]
+│   ├── Network Types (by scope)
+│   │   ├── LAN — Local Area Network (office, home)
+│   │   ├── MAN — Metropolitan Area Network (city, large campus)
+│   │   └── WAN — Wide Area Network (global, e.g. Internet)
+│   └── Network Topologies
+│       ├── Bus — all nodes share single backbone cable
+│       ├── Star — all nodes connect to central hub/switch; most common
+│       ├── Ring — closed loop; sequential transmission
+│       └── Mesh — every node interconnected; most redundant
+│
+├── 8. Switching Techniques                                  [2 concepts]
+│   ├── Circuit Switching — dedicated physical path for full connection duration
+│   │   └── Example: PTCL telephone network; reliable but wastes idle bandwidth
+│   └── Packet Switching — data split into independently routed packets
+│       └── Example: Internet; efficient; Central concept for modern networking
+│
+├── 9. Routing Techniques                                    [2 concepts]
+│   ├── Source Routing — full path specified by source node
+│   └── Hop-by-Hop Routing — each node forwards to the next
+│
+├── 10. Communication Protocols & OSI Model                  [10 concepts]
+│    ├── Protocol Functions
+│    │   └── Packet size, numbering, error control, security, routing
+│    ├── Standards Organisations (ISO, IEEE, etc.)
+│    └── OSI Model — 7 layers (ISO, 1984)           ← CENTRAL
+│        ├── Layer 1: Physical — bit stream, hardware, NIC
+│        ├── Layer 2: Data Link — frames, physical addressing
+│        ├── Layer 3: Network — routing, logical addressing
+│        ├── Layer 4: Transport — end-to-end delivery, flow control  ← Central
+│        ├── Layer 5: Session — dialogue/session management
+│        ├── Layer 6: Presentation — encryption, compression, syntax
+│        └── Layer 7: Application — user interface and network services
+│
+├── 11. Modulation, Multiplexing & Channel Topics            [5 concepts]
+│    ├── Modulation / Demodulation — encoding info onto a carrier signal
+│    ├── TDM — Time Division Multiplexing
+│    ├── FDM — Frequency Division Multiplexing
+│    ├── FCM — Frequency Code Multiplexing
+│    └── Noise, Distortion, Channel Characteristics
+│
+├── 12. Serial vs Parallel Data Transmission                 [6 concepts]
+│    ├── Serial Transmission
+│    │   ├── One bit at a time, single channel; reliable over long distances
+│    │   ├── Less signal distortion; widely used in USB, Ethernet, RS-232
+│    │   └── Embedded/SCADA: RS-232, RS-485, SPI, DNP3
+│    └── Parallel Transmission
+│        ├── Multiple bits simultaneously, multiple channels; fast but short-distance
+│        └── Used in: CPU data bus, internal memory transfer, printer connections
+│
+├── 13. Asynchronous vs Synchronous Transmission             [6 concepts]
+│    ├── Asynchronous
+│    │   ├── Character-framed with Start + Stop bits; optional Parity bit
+│    │   ├── No shared clock; synchronization per character
+│    │   ├── Frame: [Start | D0 D1 D2 D3 D4 D5 D6 D7 | Parity | Stop]
+│    │   └── Apps: RS-232, keyboard/mouse, dial-up modems
+│    └── Synchronous
+│        ├── Block/frame-based; clock-synchronized; no Start/Stop overhead
+│        ├── Error detection: CRC or checksum
+│        ├── Frame: [Sync | Sync | Data Data Data Data Data Data]
+│        └── Apps: Ethernet, broadband, digital telephony, satellite
+│
+└── 14. Bandwidth Allocation & Real-World Applications       [3 concepts]
+     ├── Signal Modelling — represent digital data as square pulses
+     ├── Fourier Transform of Square Pulse → Sinc spectrum
+     │   └── Identifies dominant frequencies, bandwidth needed, interference zones
+     └── OFDM (Orthogonal Frequency Division Multiplexing)
+         └── Core technology in 5G and LTE — allocates frequency bands per FT principles
+```
+
+---
+
+## Key Relationships
+
+### Hierarchical (Is-a / Part-of)
+- `Protocol` is a required component of every `Data Communication System`
+- `Guided Media` and `Unguided Media` are types of `Transmission Media`
+- `Twisted Pair`, `Coaxial Cable`, `Fibre-Optic` are types of `Guided Media`
+- `Radio Waves`, `Microwaves`, `Infrared` are types of `Unguided Media`
+- `LAN`, `MAN`, `WAN` are types of `Computer Network`
+- `Bus`, `Star`, `Ring`, `Mesh` are types of `Network Topology`
+- `OSI Model` consists of 7 layers (Physical → Application)
+- `Circuit Switching` and `Packet Switching` are types of `Switching Technique`
+- `Serial Transmission` and `Parallel Transmission` are types of `Data Transmission`
+- `Asynchronous` and `Synchronous` are types of `Transmission Mode (timing)`
+- `Unicode` contains `ASCII` as a subset (Basic Latin, 127 characters)
+- `RGB` and `YCM` are methods for `representing colour images as bit patterns`
+- `Pixel` is the unit element of `digital image representation`
+- `OFDM` is an application of `Fourier Transform` in wireless networks
+
+### Causal (Causes / Enables)
+- `Full-Duplex` enables simultaneous bidirectional communication
+- `Packet Switching` enables Internet-scale networking
+- `Fibre-Optic Cable` enables high-capacity, long-distance, interference-immune transmission
+- `Fourier Transform` enables `Bandwidth Allocation` and `OFDM` design
+- `Protocol` enables devices to communicate meaningfully even when connected
+- `Quantization + Encoding` enables continuous audio/video to be transmitted digitally
+- `Odd harmonics` (only) survive Fourier Series decomposition of a square wave
+
+### Dependency (Requires)
+- `Fourier Transform` requires understanding of `Fourier Series` first
+- `OFDM` requires understanding of `Fourier Transform` and `Bandwidth` first
+- `Asynchronous/Synchronous Transmission` requires understanding of `Serial Transmission` first
+- `OSI Model layers` require understanding of lower layers first (bottom-up learning)
+- `Routing` requires `Switching` as conceptual prerequisite
+- `Multiplexing` requires understanding of `Transmission Modes` and `Bandwidth`
+
+**Prerequisite Chains:**
+1. `Data Communication Basics` → `Transmission Modes` → `Transmission Media` → `Network Types`
+2. `Data Representation` → `Periodic Signals` → `Fourier Series` → `Fourier Transform` → `Bandwidth Allocation` → `OFDM/5G`
+3. `Network Types` → `Topologies` → `Switching` → `Routing` → `Protocols` → `OSI Model`
+4. `Serial vs Parallel Transmission` → `Asynchronous vs Synchronous Transmission`
+5. `OSI Layer 1 (Physical)` → `Layer 2` → `Layer 3` → ... → `Layer 7 (Application)`
+
+### Contrast (Contrasts-with)
+- `Simplex` vs `Half-Duplex` vs `Full-Duplex` — direction and simultaneity of data flow
+- `Analog` vs `Digital` — continuous waveform vs discrete 0/1 states
+- `Circuit Switching` vs `Packet Switching` — dedicated path vs independent packets
+- `Guided Media` vs `Unguided Media` — physical cable vs wireless broadcast
+- `Fourier Series` vs `Fourier Transform` — periodic vs non-periodic signal analysis
+- `Source Routing` vs `Hop-by-Hop Routing` — full path known upfront vs incremental forwarding
+- `Serial Transmission` vs `Parallel Transmission` — one-bit-at-a-time vs multi-bit simultaneous
+- `Asynchronous` vs `Synchronous Transmission` — character-framed vs block-framed, no clock vs shared clock
+- `STP` vs `UTP` — shielded vs unshielded twisted pair
+- `Radio Waves` vs `Microwaves` vs `Infrared` — frequency range and directionality differences
+
+---
+
+## Central Concepts
+
+These are the most connected concepts — master these first:
+
+| Concept | Connections | Why Central |
+|---------|-------------|-------------|
+| **Protocol** | 7 | Governs ALL communication; required by every network layer and device |
+| **OSI Model** | 9 | Organises entire network architecture into 7 functional layers |
+| **Transmission Media** | 7 | Parent of all physical and wireless communication channels |
+| **Fourier Transform** | 6 | Bridges signal analysis (periodic + non-periodic) to real-world applications (OFDM) |
+| **Packet Switching** | 5 | Foundation of the Internet and all modern data networks |
+| **Serial Transmission** | 5 | Underpins long-distance comms, SCADA systems, USB, Ethernet, 4G/5G |
+| **Transport Layer (L4)** | 4 | Bridges the network and application worlds; handles end-to-end delivery |
+
+---
+
+## Prerequisite Learning Path
+
+Recommended study order based on dependencies:
+
+1. **Introduction to Data Communication** — 5 components, data representation (text/image/audio/video), principles
+2. **Data Transmission Modes** — simplex, half-duplex, full-duplex
+3. **Data Transmission Forms** — analog vs digital
+4. **Transmission Media** — guided (twisted pair, coaxial, fibre-optic) and unguided (radio, microwave, infrared)
+5. **Serial vs Parallel Transmission** — how bits actually travel; advantages and trade-offs
+6. **Asynchronous vs Synchronous Transmission** — timing and framing at character/block level
+7. **Fourier Analysis** — signal representation; Fourier Series for periodic signals, Fourier Transform for non-periodic
+8. **Bandwidth & Data Transmission Speed** — capacity, BPS, signal spectrum
+9. **Bandwidth Allocation & OFDM** — real-world application of Fourier in 5G/LTE
+10. **Computer Networks** — LAN/MAN/WAN, topologies (bus/star/ring/mesh)
+11. **Switching Techniques** — circuit switching vs packet switching
+12. **Routing Techniques** — source routing, hop-by-hop routing
+13. **Communication Protocols & OSI Model** — 7 layers, functions per layer
+14. **Modulation & Multiplexing** — encoding and combining signals (TDM, FDM)
+
+---
+
+## Definitions Quick Reference
+
+| Term | Definition |
+|------|-----------|
+| Data Communication | Sharing information locally or remotely via a system of 5 components |
+| Message | The information to be transmitted (text, image, audio, video, numbers) |
+| Sender | The originating device that sends the data |
+| Receiver | The destination device that receives the message |
+| Transmission Medium | The physical path a message travels from sender to receiver |
+| Protocol | A set of rules governing data communication; enables synchronization |
+| Simplex | Unidirectional data flow only |
+| Half-Duplex | Bidirectional but not simultaneous (walkie-talkie) |
+| Full-Duplex | Simultaneous bidirectional communication (telephone) |
+| Analog | Continuous waveform signal representation |
+| Digital | Discrete 0/1 electrical state representation |
+| Unicode | 32-bit global character encoding system; ASCII (127 chars) is a subset |
+| Pixel | Smallest unit of a digital image; assigned a bit pattern |
+| RGB / YCM | Methods for representing colour images as bit patterns |
+| Quantization | Approximating sampled analog values with finite set → encoding as bit patterns |
+| Twisted Pair | Copper conductors twisted together; STP (shielded) and UTP (unshielded) |
+| Coaxial Cable | Central copper core + insulation + outer shielding; used in cable TV, CCTV |
+| Fibre-Optic | Glass/plastic fibre transmitting data as light; high bandwidth, low attenuation |
+| Radio Waves | 3 KHz–1 GHz; omnidirectional; AM/FM, TV, maritime radio |
+| Microwaves | 1–300 GHz; unidirectional; line-of-sight; terrestrial and satellite links |
+| Infrared | 300 GHz–400 THz; short-distance; cannot penetrate walls; remote controls |
+| Bandwidth | Measure of data transfer capacity over a network per unit time |
+| LAN | Local Area Network — limited geographic area (office, home) |
+| MAN | Metropolitan Area Network — city or large campus |
+| WAN | Wide Area Network — global interconnection |
+| Star Topology | All nodes connect to a central hub/switch |
+| Ring Topology | Nodes connected in a closed loop |
+| Bus Topology | All nodes share a single backbone cable |
+| Mesh Topology | Every node interconnected with every other |
+| Circuit Switching | Dedicated physical path held for full connection duration |
+| Packet Switching | Data split into independently routed packets; basis of Internet |
+| Source Routing | Full path from source to destination specified by source node |
+| Hop-by-Hop Routing | Each node passes data to the next along the path |
+| OSI Model | 7-layer network reference model released by ISO in 1984 |
+| Physical Layer | Layer 1 — hardware, bit stream transmission, NIC |
+| Data Link Layer | Layer 2 — frames, physical addressing |
+| Network Layer | Layer 3 — routing, logical addressing |
+| Transport Layer | Layer 4 — end-to-end delivery, error control, flow control |
+| Session Layer | Layer 5 — session and dialogue management |
+| Presentation Layer | Layer 6 — encryption, compression, syntax translation |
+| Application Layer | Layer 7 — user-facing network services |
+| NIC | Network Interface Card — hardware connecting a device to a network |
+| Serial Transmission | Data sent one bit at a time over a single channel; reliable long-distance |
+| Parallel Transmission | Multiple bits sent simultaneously over multiple channels; fast, short-distance |
+| Asynchronous Transmission | Character-framed with Start/Stop bits; no shared clock |
+| Synchronous Transmission | Block/frame-based; clock-synchronized; CRC/checksum error detection |
+| Fourier Series | Represents periodic signals as a sum of sinusoidal harmonics |
+| Fourier Transform | Decomposes non-periodic signals from time domain to frequency domain |
+| Harmonic | Frequency component at an integral multiple of the fundamental frequency |
+| Dirichlet Conditions | Three conditions a periodic signal must meet for Fourier Series to exist |
+| Orthogonality | Property of harmonics — each is independent of the others |
+| OFDM | Orthogonal Frequency Division Multiplexing — core 5G/LTE technology using Fourier Transform |
+| Modulation | Encoding information onto a carrier signal |
+| Multiplexing | Combining multiple signals over a shared medium (TDM, FDM, FCM) |
+
+---
+
+## Tutor Reference Notes
+
+_For use by Dr. Sarah Joe during learning sessions:_
+
+- **Best entry-point concept:** Start with the 5 components of a data communication system (Message, Sender, Receiver, Transmission Medium, Protocol) — every other topic in this course builds from here.
+
+- **Most common misconceptions:**
+  - Confusing *half-duplex* with *simplex* — half-duplex CAN go both ways, just not simultaneously
+  - Thinking *digital* is always better than *analog* — depends entirely on context and medium
+  - Believing OSI layers are strict physical hardware boundaries — they are logical abstractions
+  - Confusing *routing* with *switching* — switching connects within a network; routing connects networks
+  - Thinking *serial* is always slower than *parallel* — not true over long distances (parallel suffers skew)
+  - Confusing *asynchronous* with *half-duplex* — they describe different aspects (timing vs direction)
+  - Thinking only even harmonics cancel in a square wave — it's the even harmonics that cancel, odd survive
+
+- **Concepts students typically conflate:**
+  - `Circuit Switching` ↔ `Packet Switching` (dedicated path vs shared packets)
+  - `Fourier Series` ↔ `Fourier Transform` (periodic vs non-periodic signals)
+  - `Serial Transmission` ↔ `Asynchronous Transmission` (physical method vs timing/framing method)
+  - `Parallel Transmission` ↔ `Full-Duplex` (multi-wire vs simultaneous bidirectional)
+  - `STP` ↔ `UTP` (shielded vs unshielded twisted pair)
+  - `Half-Duplex` ↔ `Full-Duplex` (sequential vs simultaneous)
+  - `LAN` ↔ `MAN` ↔ `WAN` (geographic scope differences)
+  - `Source Routing` ↔ `Hop-by-Hop Routing` (who decides the path)
+  - `Radio Waves` ↔ `Microwaves` (directionality: omni vs uni; frequency range)
+  - `Asynchronous` ↔ `Synchronous` Transmission (character-framed vs block-framed)
+
+- **Mbosinwa-specific notes:**
+  - Has strong software/systems engineering background — use analogies to protocols (HTTP, TCP), buses (USB, SPI), and embedded systems (RS-232, RS-485) when explaining networking concepts
+  - Over-explain by default; he will signal if something needs less detail
+  - Fourier mathematics may need extra scaffolding — connect abstract formulas to concrete examples (square wave, OFDM, 5G) to build intuition
+
+</script>
+
+<script type="text/plain" id="km-operating-systems">
+---
+course: Operating Systems
+courseCode: CMS701
+lecturer: Dr. I.B. Cookey
+generatedOn: 2026-04-02
+topicCount: 7
+conceptCount: 45
+relationshipCount: 39
+---
+
+# Knowledge Map: Operating Systems (CMS701)
+
+> Generated: 2026-04-02 | Topics: 7 | Concepts: 45+ | Relationships: 39
+
+---
+
+## Course Overview
+
+Operating Systems (CMS701) covers the fundamental principles of how an OS manages hardware and software resources. The course progresses from OS architecture (kernels, system calls) through process and thread management, CPU scheduling algorithms, multithreading models, and concludes with process synchronization — the mechanisms that keep concurrent processes safe and consistent. Two topics from the outline (Spooling, Mechanisms & Policies) are not yet covered in available lecture notes.
+
+---
+
+## Concept Hierarchy
+
+```
+Operating Systems (CMS701)
+│
+├── 1. Introduction to Operating Systems          [7 concepts]
+│   ├── Definition & Role
+│   │   ├── Key Concepts: Operating System, OS-as-bridge (user ↔ hardware)
+│   │   └── Central: Operating System
+│   └── Types of Operating Systems
+│       ├── Key Concepts: Batch OS, Multiprogramming OS, Time-Sharing OS
+│       │                  Network OS, Real-Time OS
+│       └── Central: Time-Sharing OS (most relevant to modern systems)
+│
+├── 2. OS Structures                              [12 concepts]
+│   ├── Kernel Architecture
+│   │   ├── Key Concepts: Kernel, Monolithic Kernel, Microkernel,
+│   │   │                  Hybrid Kernel, Exokernel, Nanokernel
+│   │   └── Central: Kernel ★
+│   ├── System Calls
+│   │   ├── Key Concepts: System Call, Process Control (fork/wait/exit),
+│   │   │                  File Management (open/read/write/close),
+│   │   │                  Device Management (ioctl), Information Maintenance,
+│   │   │                  Communication (pipe/socket), Memory Management (mmap)
+│   │   └── Central: System Call ★
+│   └── ⚠ Pending Topics
+│       └── Spooling, System Programs, Mechanisms & Policies
+│
+├── 3. Process Management                         [15 concepts]
+│   ├── Process Definition & Attributes
+│   │   ├── Key Concepts: Process, PID, Process Attributes (7 components)
+│   │   └── Central: Process ★
+│   ├── Process Creation
+│   │   ├── Key Concepts: Parent Process, Child Process, fork(),
+│   │   │                  Resource Allocation (Direct/Shared),
+│   │   │                  Execution Models (Concurrent/Wait)
+│   │   └── Central: fork()
+│   ├── Context Switching
+│   │   ├── Key Concepts: Context Switch, Dispatcher, Time Quantum, Overhead
+│   │   └── Central: Context Switch ★
+│   ├── Process State Models
+│   │   ├── Key Concepts: Two-State Model, Five-State Model, Seven-State Model
+│   │   │                  Running, Ready, Blocked/Waiting, New, Terminated,
+│   │   │                  Suspend Ready, Suspend Blocked
+│   │   └── Central: Five-State Model (most commonly examined)
+│   └── Process Control Block (PCB)
+│       ├── Key Concepts: PCB, PID, PPID, Program Counter, CPU Registers,
+│       │                  Memory Management Info, Scheduling Info,
+│       │                  I/O & File Info, Zombie Process
+│       └── Central: PCB ★
+│
+├── 4. CPU Scheduling                             [12 concepts]
+│   ├── Schedulers
+│   │   ├── Key Concepts: Long-Term Scheduler (degree of multiprogramming),
+│   │   │                  Short-Term Scheduler (ready queue),
+│   │   │                  Medium-Term Scheduler (swapping)
+│   │   └── Central: Short-Term Scheduler
+│   ├── Preemptive vs. Non-Preemptive
+│   │   ├── Key Concepts: Preemptive Scheduling, Non-Preemptive Scheduling
+│   │   └── Central: Preemptive Scheduling
+│   ├── Scheduling Terminologies
+│   │   └── Key Concepts: Arrival Time, Burst Time, Completion Time,
+│   │                      Turnaround Time, Waiting Time
+│   └── Scheduling Algorithms
+│       ├── Key Concepts: FCFS (Convoy Effect), SJF (Starvation risk),
+│       │                  Priority Scheduling (Aging fix), Round Robin (Time Quantum),
+│       │                  Multilevel Queue, Multilevel Feedback Queue
+│       └── Central: Round Robin (dominant in modern OS)
+│
+├── 5. Thread Management                          [8 concepts]
+│   ├── Thread Definition
+│   │   ├── Key Concepts: Thread, Lightweight Process
+│   │   └── Central: Thread ★
+│   ├── Thread Components
+│   │   └── Key Concepts: Stack Space, Register Set, Program Counter
+│   └── Types of Threads
+│       ├── Key Concepts: User-Level Thread, Kernel-Level Thread
+│       └── Central: Kernel-Level Thread (more powerful; OS-managed)
+│
+├── 6. Multithreading                             [8 concepts]
+│   ├── Multithreading Models
+│   │   ├── Key Concepts: Many-to-Many Model ★ (best),
+│   │   │                  Many-to-One Model, One-to-One Model
+│   │   └── Central: Many-to-Many Model
+│   ├── Multithreading vs. Multitasking vs. Multiprocessing
+│   │   └── Key Concepts: Multithreading, Multitasking, Multiprocessing
+│   └── Common Issues
+│       └── Key Concepts: Race Condition, Deadlock, Starvation
+│
+└── 7. Process Synchronization                   [9 concepts]
+    ├── Critical Section Problem
+    │   ├── Key Concepts: Critical Section, Race Condition
+    │   └── Central: Critical Section ★
+    ├── Synchronization Requirements
+    │   └── Key Concepts: Mutual Exclusion, Progress, Bounded Waiting
+    ├── Synchronization Mechanisms
+    │   ├── Key Concepts: Semaphore (Binary/Counting), Monitor,
+    │   │                  Condition Variable, Mutex
+    │   └── Central: Semaphore ★
+    └── Synchronization Problems
+        └── Key Concepts: Deadlock, Starvation, Data Inconsistency
+```
+
+---
+
+## Key Relationships
+
+### Hierarchical (Is-a / Part-of)
+
+- **Kernel** is the core component of **Operating System**
+- **Thread** is a lightweight version of **Process**
+- **Monolithic Kernel** is a type of **Kernel** (all-in-one, fast, fragile)
+- **Microkernel** is a type of **Kernel** (minimal, stable, slower IPC)
+- **Hybrid Kernel** is a type of **Kernel** (balances both)
+- **Exokernel / Nanokernel** are extreme minimal types of **Kernel**
+- **User-Level Thread** is a type of **Thread** (app-managed)
+- **Kernel-Level Thread** is a type of **Thread** (OS-managed)
+- **Semaphore** is a type of **Synchronization Mechanism**
+- **Monitor** is a type of **Synchronization Mechanism**
+- **PCB** is a data structure that is part of **Process Management**
+- **Program Counter** is a field of **PCB**
+- **CPU Registers** are fields of **PCB**
+- **PID** is an identifier field of **PCB**
+
+### Causal (Causes / Enables)
+
+- **Race Condition** causes **Data Inconsistency**
+- **Circular Resource Wait** causes **Deadlock**
+- **Priority bias** causes **Starvation**
+- **FCFS with long jobs first** causes **Convoy Effect**
+- **SJF with continuous short arrivals** causes **Starvation** for long jobs
+- **Mutual Exclusion** enables safe **Critical Section** access
+- **Semaphore** enables **Mutual Exclusion**
+- **Aging** enables prevention of **Starvation**
+- **Context Switch** enables **Multitasking** (CPU sharing)
+- **Process Scheduling** enables **Multiprogramming**
+
+### Dependency (Requires / Prerequisite)
+
+- **System Call** requires **Kernel** to execute
+- **Context Switch** requires **PCB** to save/restore state
+- **CPU Scheduling** requires understanding of **Process States** (Ready Queue)
+- **Round Robin** performance depends on **Time Quantum** size
+- **Multithreading Models** depend on understanding **Thread Types**
+- **Synchronization Mechanisms** depend on understanding **Race Conditions**
+
+### Contrast (Contrasts-with)
+
+- **Monolithic Kernel** vs **Microkernel** — performance vs. stability/modularity
+- **Preemptive** vs **Non-Preemptive** Scheduling — OS control vs. process control
+- **User-Level Thread** vs **Kernel-Level Thread** — speed vs. multiprocessor power
+- **Many-to-One** vs **One-to-One** Model — efficiency vs. true parallelism
+- **Process** vs **Thread** — heavyweight/isolated vs. lightweight/shared
+
+---
+
+## Central Concepts
+
+These are the most connected concepts in the course — master these first:
+
+| Concept | Connections | Why Central |
+|---------|-------------|-------------|
+| **Process** | 8 | Foundation of all process management, scheduling, synchronization, and threading |
+| **Kernel** | 7 | Core OS component; all system calls, thread management, and hardware access pass through it |
+| **PCB (Process Control Block)** | 6 | The OS's complete record of a process; essential for context switching and scheduling |
+| **Context Switch** | 6 | The mechanism that makes multitasking possible; connects PCB, schedulers, and CPU |
+| **CPU Scheduling** | 6 | Governs all 6 scheduling algorithms and 3 scheduler types; directly affects performance |
+| **Thread** | 5 | Lightweight execution unit; central to multithreading models and synchronization issues |
+| **Deadlock** | 4 | Connects synchronization failures, resource management, and starvation |
+
+---
+
+## Prerequisite Learning Path
+
+Recommended study order based on concept dependencies:
+
+```
+1. Operating System Basics (definition, types)
+        ↓
+2. Kernel Architecture (monolithic → microkernel → hybrid)
+        ↓
+3. System Calls (how user mode requests kernel services)
+        ↓
+4. Process Fundamentals (definition, attributes, creation)
+        ↓
+5. Process State Models (2-state → 5-state → 7-state)
+        ↓
+6. Process Control Block — PCB (what data the OS tracks)
+        ↓
+7. Context Switching (how the OS switches between processes)
+        ↓
+8. Process Schedulers (Long-Term, Short-Term, Medium-Term)
+        ↓
+9. CPU Scheduling Algorithms (FCFS → SJF → Priority → RR → Multilevel)
+        ↓
+10. Thread Management (what threads are, types, components)
+        ↓
+11. Multithreading & Models (Many-to-Many, Many-to-One, One-to-One)
+        ↓
+12. Race Conditions & Critical Section (why synchronization is needed)
+        ↓
+13. Process Synchronization Mechanisms (semaphores, monitors, mutexes)
+```
+
+---
+
+## Definitions Quick Reference
+
+| Term | Definition (brief) |
+|------|-------------------|
+| **Operating System** | Software bridge between user and hardware; manages all resources |
+| **Kernel** | Core OS component bridging applications and hardware |
+| **Monolithic Kernel** | Single large program with all OS functions; fast but fragile |
+| **Microkernel** | Minimal kernel; drivers/services in user space; stable but slower |
+| **Hybrid Kernel** | Combines monolithic speed with microkernel modularity (e.g., Windows NT) |
+| **System Call** | Program's request to kernel for privileged operations; bridges user/kernel mode |
+| **Process** | A program in execution with its own code, state, and resources |
+| **PID** | Unique numeric identifier assigned to each process by the OS |
+| **PCB** | OS data structure holding all info to manage a process |
+| **Context Switch** | OS saving one process's state and loading another's to share CPU |
+| **Program Counter** | Register holding address of the next instruction to execute |
+| **Thread** | Smallest execution unit within a process; shares memory with siblings |
+| **User-Level Thread** | Thread managed by app library; fast but no multiprocessor advantage |
+| **Kernel-Level Thread** | Thread managed by OS; slower but true parallelism on multiprocessors |
+| **Multithreading** | Single process running multiple concurrent threads |
+| **Many-to-Many Model** | Multiple user threads mapped to equal or fewer kernel threads (best model) |
+| **One-to-One Model** | Each user thread mapped to its own kernel thread; true parallelism |
+| **CPU Scheduling** | OS mechanism deciding which process/thread runs on CPU next |
+| **Preemptive Scheduling** | OS can interrupt a running process for a higher-priority one |
+| **Time Quantum** | Fixed CPU time slice per process in Round Robin scheduling |
+| **Turnaround Time** | Completion Time − Arrival Time |
+| **Waiting Time** | Turnaround Time − Burst Time |
+| **FCFS** | First-Come, First-Served; simple but causes convoy effect |
+| **SJF** | Shortest Job First; optimal avg wait time but risks starvation |
+| **Round Robin** | Fair time-slice scheduling; performance depends on quantum size |
+| **Aging** | Gradually increasing waiting process priority to prevent starvation |
+| **Critical Section** | Code segment accessing shared resources; one process at a time only |
+| **Race Condition** | Simultaneous shared-data access leading to unpredictable results |
+| **Mutual Exclusion** | Guarantee only one process is in the critical section at a time |
+| **Deadlock** | Two+ processes in circular wait for each other's resources; all stuck |
+| **Starvation** | Process perpetually denied resource/CPU due to others' priority |
+| **Semaphore** | Sync object using count to allow/block resource access |
+| **Monitor** | High-level construct ensuring only one process executes shared code at a time |
+| **Zombie Process** | Finished process whose PCB still exists (parent hasn't read exit status) |
+| **Convoy Effect** | FCFS problem: short processes stuck behind a long one |
+| **Spooling** | ⚠ Pending — not yet covered in available lecture notes |
+
+---
+
+## Tutor Reference Notes
+
+*For use during learning sessions:*
+
+- **Best entry-point concept:** Start with *Process* — it anchors topics 3 through 7 and gives Mbosinwa (a software engineer) an immediately relatable mental model (every app he has built runs as processes).
+
+- **Most common misconceptions in this course:**
+  1. Confusing *context switch* with *process switch* — a context switch is the mechanism; a process switch is the event that triggers it.
+  2. Thinking *multithreading* = *multiprocessing* — threads share memory; processes do not.
+  3. Assuming *Shortest Job First* is always best — it causes starvation in practice.
+  4. Thinking *deadlock* and *starvation* are the same — deadlock is a circular wait (no one proceeds); starvation is unfair scheduling (one never proceeds).
+
+- **Concepts students typically conflate:**
+  - **Deadlock** vs **Starvation** — both mean a process never runs, but deadlock is a circular dependency; starvation is a scheduling fairness failure.
+  - **Preemptive** vs **Non-Preemptive** — easy to mix up which is "interruptible."
+  - **User-Level Thread** vs **Kernel-Level Thread** — both are threads; difference is *who manages them*.
+  - **Many-to-One** vs **One-to-One** — the naming is intuitive but the trade-offs (efficiency vs. parallelism) are what matter.
+  - **PCB** vs **Process** — PCB is the *record* of a process, not the process itself.
+  - **Short-Term Scheduler** vs **Dispatcher** — scheduler *decides*; dispatcher *executes* the switch.
+
+- **⚠ Coverage gaps to flag during tutoring:**
+  - Spooling, System Programs, Mechanisms & Policies not yet in lecture notes — flag if exam questions arise on these.
+
+</script>
+
+<script type="text/plain" id="km-programming-languages">
+---
+course: Programming Languages
+courseCode: CMS705
+generatedOn: 2026-04-01
+topicCount: 5
+conceptCount: 45
+relationshipCount: 28
+---
+
+# Knowledge Map: Programming Languages (CMS705)
+
+> Generated: 2026-04-01 | Topics: 5 | Concepts: 45+ | Relationships: 28
+> Lecturer: Dr. H. Okwu | Institution: Rivers State University | Session: 2024/2025
+
+---
+
+## Course Overview
+
+CMS705 Programming Languages examines how programming languages are designed, defined, and implemented — from the linguistic foundations that describe their structure, to the runtime mechanisms that execute them. The course spans language theory (syntax, semantics, pragmatics), data representation (types and data structures), program control (control structures and data flow), and language processing (lexical analysis, parsing, interpretation, and compilation). It provides the theoretical grounding behind every programming language a software engineer uses in practice.
+
+---
+
+## Concept Hierarchy
+
+```
+Programming Languages (CMS705)
+│
+├── 1. Language Definition Structure                          [12 concepts]
+│   ├── What is a Language?
+│   │   ├── Key Concepts: Language, Formal System, Phoneme
+│   │   └── Central: Language (root of everything)
+│   ├── Language Structure (system of systems)
+│   │   ├── Phonology      → study of sound/token patterns
+│   │   ├── Morphology     → how tokens/words are formed
+│   │   ├── Syntax         → rules for arrangement ★ CENTRAL
+│   │   ├── Semantics      → meaning of programs
+│   │   └── Pragmatics     → context and practical usage
+│   ├── Language Definition Semantics
+│   │   ├── Static Semantics  → compile-time rules ★ CENTRAL
+│   │   └── Dynamic Semantics → runtime behaviour ★ CENTRAL
+│   └── Types of Language (Levels of Abstraction)
+│       ├── Machine Language    → binary, CPU-direct
+│       ├── Assembly Language   → mnemonics, assembler-translated
+│       ├── Middle-level Language → C; hardware + structure
+│       └── High-level Language → Python, Java, C++; human-readable
+│
+├── 2. Data Types and Structure                               [18 concepts]
+│   ├── Primitive Data Types
+│   │   ├── Key Concepts: int, float, char, bool, void
+│   │   └── Note: fixed size, stored directly in memory (stack)
+│   ├── Non-Primitive Data Types
+│   │   ├── Key Concepts: String, Array, Struct, Class, Pointer, Enum
+│   │   └── Note: dynamic size, reference-based, heap-allocated
+│   ├── Memory Model
+│   │   ├── Stack Memory  → LIFO; local variables; automatic
+│   │   └── Heap Memory   → dynamic allocation; new/delete
+│   ├── Linear Data Structures
+│   │   ├── Array         → contiguous, fixed-size, same type
+│   │   ├── Linked List   → nodes + pointers; dynamic; singly/doubly/circular
+│   │   ├── Stack         → LIFO; push/pop
+│   │   └── Queue         → FIFO; enqueue/dequeue
+│   ├── Non-linear Data Structures
+│   │   ├── Tree          → hierarchical; root/parent/child/leaf
+│   │   │   ├── Binary Tree, BST, AVL Tree, B-Tree
+│   │   ├── Graph         → vertices + edges; directed/undirected
+│   │   ├── Heap          → max-heap / min-heap
+│   │   ├── Hash Table    → key-value; fast lookup
+│   │   └── Trie          → string tree; autocomplete/spellcheck
+│   └── Control Structures                                    ★ CENTRAL
+│       ├── Sequential    → top-to-bottom; default
+│       ├── Selection     → if, if-else, else-if, switch
+│       ├── Iteration     → for, while, do-while, for-each
+│       └── Jump          → break, continue, return, goto
+│
+├── 3. Runtime Considerations                                 [8 concepts]
+│   ├── Implementation Methods
+│   │   ├── Assembly      → assembly → machine code
+│   │   ├── Compilation   → whole program → executable ★ CENTRAL
+│   │   ├── Interpretation → line-by-line at runtime ★ CENTRAL
+│   │   └── JIT           → bytecode → machine code on demand ★ CENTRAL
+│   ├── Data Flow in Memory
+│   │   ├── Stack         → local/primary; function call data
+│   │   └── Heap          → global/dynamic; new/delete
+│   └── Core Structural Elements
+│       ├── Variables     → named memory locations
+│       ├── Functions     → reusable blocks; parameters + return values
+│       └── Comments      → non-executable; human-readable
+│
+├── 4. Interpretative Language                                [5 concepts]
+│   ├── Interpretation    → translate + execute line by line (Python, JS)
+│   ├── Compiler          → translates entire source; faster execution
+│   ├── Interpreter       → no pre-compilation; portable; slower
+│   ├── JIT Compilation   → hybrid; compile on demand at runtime
+│   └── JVM / Bytecode    → Java's intermediate representation
+│
+└── 5. Lexical Analysis and Parsing                           [8 concepts]
+    ├── Phonology         → token-level; smallest units (keywords, identifiers)
+    ├── Morphology        → token formation rules (how identifiers are built)
+    ├── Syntax / Parsing  → grammar rules; well-formed programs
+    ├── Tokens            → atomic units of a program (keywords, operators, literals)
+    ├── Identifiers       → programmer-named elements (variables, functions, classes)
+    ├── Readability       → clarity of syntax design
+    ├── Writability       → ease of writing correct code
+    └── Reliability       → syntax's ability to prevent errors
+```
+
+---
+
+## Key Relationships
+
+### Hierarchical (Is-a / Part-of)
+- Phonology, Morphology, Syntax, Semantics, Pragmatics are all **components of** Language Structure
+- Static Semantics and Dynamic Semantics are **components of** Language Definition Semantics
+- Machine Language < Assembly Language < Middle-level Language < High-level Language *(abstraction hierarchy)*
+- Sequential, Conditional, Iterative, Procedural Data Flow are **types of** Data Flow (by execution)
+- Explicit and Implicit Data Flow are **types of** Data Flow (by visibility)
+- Linear Data Structures include: Array, Linked List, Stack, Queue
+- Non-linear Data Structures include: Tree, Graph, Heap, Hash Table, Trie
+
+### Causal / Enables
+- Understanding **Phonology → Morphology → Syntax** enables full Lexical Analysis and Parsing
+- Understanding **Language Definition** enables understanding **Implementation Methods**
+- Understanding **Primitive Types** enables understanding **Non-Primitive Types**
+- **Control Structures** determine the direction and behaviour of **Data Flow**
+- **Compilation / Interpretation / JIT** enable programs to run on hardware
+
+### Dependency (Requires)
+- **Prerequisite Chain 1:** Phonology → Morphology → Syntax → Semantics
+  *(understand tokens before grammar, grammar before meaning)*
+- **Prerequisite Chain 2:** Primitive Data Types → Non-Primitive Data Types
+  *(primitives are the building blocks of complex types)*
+- **Prerequisite Chain 3:** Language Definition Structure → Implementation Methods → Runtime Behaviour
+  *(theory of languages before how they are run)*
+
+### Contrast (Contrasts-with)
+- **Compilation** vs **Interpretation**: Compilation translates the whole program up-front; Interpretation translates and executes line by line at runtime
+- **Static Semantics** vs **Dynamic Semantics**: Static = compile-time checks; Dynamic = runtime behaviour
+- **Explicit Data Flow** vs **Implicit Data Flow**: Explicit = visible in code via parameters/returns; Implicit = hidden through global/shared variables
+- **Stack Memory** vs **Heap Memory**: Stack = automatic, LIFO, local; Heap = manual, dynamic, global
+- **Linear** vs **Non-linear** Data Structures: Linear = single-level, sequential; Non-linear = multi-level, hierarchical
+
+---
+
+## Central Concepts
+
+These are the most connected concepts in the course — master these first:
+
+| Concept | Connections | Why Central |
+|---------|-------------|-------------|
+| **Syntax** | 5 | Core of language structure, lexical analysis, parsing, readability/writability — appears in every topic |
+| **Data Flow** | 6 | Ties together control structures, memory, functions, runtime — underpins all of computer science |
+| **Control Structures** | 5 | Directly determines how data flows; connects selection, iteration, jump, and sequential logic |
+| **Compilation vs Interpretation** | 5 | Core of runtime considerations and interpretative language topics; determines execution model |
+| **Static vs Dynamic Semantics** | 4 | Bridges language definition theory with runtime behaviour; essential for understanding type systems |
+| **Primitive vs Non-Primitive Types** | 4 | Foundation of all data representation; prerequisite for data structures |
+
+---
+
+## Prerequisite Learning Path
+
+Recommended study order based on dependencies:
+
+1. **What is a Language?** — establish the conceptual foundation
+2. **Language Structure** (Phonology, Morphology, Syntax, Semantics, Pragmatics) — understand the components
+3. **Static vs Dynamic Semantics** — understand how languages are precisely defined
+4. **Types of Language** (Machine → Assembly → Middle → High-level) — understand abstraction levels
+5. **Lexical Analysis and Parsing** — apply Phonology, Morphology, Syntax to language processing
+6. **Primitive Data Types** — foundation of all data representation
+7. **Non-Primitive Data Types** — built from primitives; adds complexity
+8. **Stack and Heap Memory** — understand how data is stored at runtime
+9. **Linear Data Structures** (Array, Linked List, Stack, Queue) — sequential organisation
+10. **Non-linear Data Structures** (Tree, Graph, Heap) — hierarchical and complex organisation
+11. **Control Structures** — how programs direct execution flow
+12. **Data Flow** (Sequential, Conditional, Iterative, Procedural) — how data moves through programs
+13. **Explicit vs Implicit Data Flow** — visibility and traceability of data movement
+14. **Implementation Methods** (Assembly, Compilation, Interpretation) — translating programs to machine code
+15. **JIT Compilation and Interpretative Languages** — hybrid execution models; Java/JVM
+
+---
+
+## Definitions Quick Reference
+
+| Term | Definition (brief) |
+|------|-------------------|
+| Language | Formal system of symbols and rules for communicating instructions to a computer |
+| Phonology | Study of smallest units (tokens/phonemes) in a language |
+| Morphology | Study of how tokens/words are formed from root elements |
+| Syntax | Rules governing how tokens are arranged into valid programs |
+| Semantics | The meaning of programs — what they actually do |
+| Pragmatics | Practical usage of a language; readability, writability, efficiency |
+| Static Semantics | Compile-time checks — type compatibility, variable declarations |
+| Dynamic Semantics | Runtime behaviour — how values are computed and change during execution |
+| Data Type | Classification of what kind of data a variable holds and what operations are allowed |
+| Primitive Type | Built-in, fixed-size type (int, float, char, bool, void) |
+| Non-Primitive Type | Complex, reference-based type built from primitives (String, Array, Class) |
+| Stack Memory | LIFO region of RAM; stores local variables and function call data |
+| Heap Memory | Dynamic memory region; used for runtime allocation (new/delete) |
+| Data Structure | A method of organising data for efficient access and manipulation |
+| Control Structure | Mechanism that determines the order of statement execution |
+| Data Flow | Movement, transformation, and usage of data within a program during execution |
+| Explicit Data Flow | Data movement clearly visible in code via parameters and returns |
+| Implicit Data Flow | Data movement through global/shared variables; hidden and hard to trace |
+| Compilation | Whole-program translation to machine code by a compiler |
+| Interpretation | Line-by-line translation and execution by an interpreter at runtime |
+| JIT Compilation | Hybrid: bytecode compiled to machine code on-demand at runtime (e.g. Java/JVM) |
+| Token | Atomic unit of a program (keyword, identifier, operator, literal) |
+| Identifier | Programmer-defined name for a variable, function, class, or module |
+
+---
+
+## Tutor Reference Notes
+
+*For use by Dr. Sarah Joe during learning sessions:*
+
+- **Best entry-point concept:** Start with *Language Structure* (Phonology → Morphology → Syntax) — it unifies linguistics and programming language theory and is the backbone of topics 1 and 5
+- **Most common misconceptions:**
+  - Confusing *Syntax errors* (Static Semantics) with *Logic errors* (Dynamic Semantics)
+  - Thinking *Interpretation* is always slower than *Compilation* — JIT narrows this gap significantly
+  - Conflating *Stack (data structure)* with *Stack Memory* — same LIFO principle, different contexts
+  - Assuming *Non-primitive types* are always on the Heap — compiler/language dependent
+- **Concepts students typically conflate:**
+  - Static Semantics ↔ Dynamic Semantics
+  - Stack (data structure) ↔ Stack Memory
+  - Compilation ↔ JIT Compilation
+  - Explicit Data Flow ↔ Implicit Data Flow
+  - Middle-level Language ↔ Low-level Language
+- **Mbosinwa's context:** Strong software engineering background — connect theoretical concepts to practical tools he already uses (e.g. JIT → JVM in Java, Heap → `new`/`delete` in C++, Syntax → compiler errors he's seen). Over-explain by default; he will say if he needs less detail.
+
+</script>
+
+<script type="text/plain" id="km-system-analysis-and-design">
+---
+course: System Analysis & Design
+courseCode: CMS711
+generatedOn: 2026-04-02
+topicCount: 9
+conceptCount: 28
+relationshipCount: 21
+status: Generated
+---
+
+# Knowledge Map: System Analysis & Design (CMS711)
+
+> Generated: 2026-04-02 | Topics: 9 | Concepts: 28 | Relationships: 21
+> Lecturer: Dr. Deedam | Programme: PGD Computer Science
+
+---
+
+## Course Overview
+
+System Analysis & Design (CMS711) covers the full lifecycle of information system development — from understanding what a system is, through gathering requirements, designing the system architecture, and building user interfaces. The course equips students with the analytical tools (DFD, ERD, flowcharts) and methodological frameworks (Waterfall, Agile, RAD, Spiral) needed to plan, build, and maintain information systems. It bridges business problem identification with technical solution design.
+
+---
+
+## Concept Hierarchy
+
+```
+System Analysis & Design (CMS711)
+│
+├── 1. Overview of Systems & Components                    [8 concepts]
+│   ├── Definition & Nature of Systems
+│   │   ├── Key Concepts: System, Systema (Greek origin), Organized relationship
+│   │   └── Central: SYSTEM
+│   ├── System Components
+│   │   ├── Key Concepts: Input, Process, Output, Feedback, Control, Environment, Boundary, Interface
+│   │   └── Central: INPUT → PROCESS → OUTPUT loop
+│   ├── Types of Systems
+│   │   └── Key Concepts: Open System, Closed System, Manual System, Automated System
+│   └── Information Systems
+│       └── Key Concepts: Hardware, Software, People, Data, Network
+│
+├── 2. Introduction to System Analysis & Design           [3 concepts]
+│   ├── Purpose of SA&D
+│   │   └── Key Concepts: Problem solving, System development, Business needs
+│   └── The System Analyst
+│       └── Key Concepts: System Analyst, Bridge role, Business ↔ Technology
+│
+├── 3. System Development Life Cycle (SDLC)              [6 concepts]
+│   ├── SDLC Fundamentals
+│   │   ├── Key Concepts: SDLC, Gradual refinement, Deliverable
+│   │   └── Central: SDLC
+│   ├── Four Phases
+│   │   └── Key Concepts: Planning, Analysis, Design, Implementation
+│   ├── Seven Steps
+│   │   └── Key Concepts: Project Planning, Requirements & Analysis, Design,
+│   │       Coding, Testing, Deployment, Maintenance
+│   └── Phase Deliverables
+│       └── Key Concepts: Project Charter, SRS, Design Documents, Source Code,
+│           Test Plans, Deployed System, Maintenance Reports
+│
+├── 4. System Development Methodologies                   [7 concepts]
+│   ├── Methodology Categories
+│   │   └── Key Concepts: Process-Centred, Data-Centred, Object-Oriented
+│   └── SDLC Models
+│       ├── Key Concepts: Waterfall, V-Model, RAD, Iterative, Spiral, Agile
+│       └── Central: WATERFALL (most foundational); AGILE (most current)
+│
+├── 5. Requirements Gathering                             [5 concepts]
+│   ├── What is a Requirement
+│   │   └── Key Concepts: Requirement, Business Requirements, System Requirements
+│   ├── Types of Requirements
+│   │   ├── Key Concepts: Functional Requirements, Non-Functional Requirements
+│   │   └── Central: FUNCTIONAL REQUIREMENTS
+│   └── Gathering Techniques
+│       └── Key Concepts: Interviews, Questionnaires, JAD/RAP, Brainstorming, Workshops
+│
+├── 6. System Design                                      [5 concepts]
+│   ├── What is System Design
+│   │   └── Key Concepts: System Design, Logical Model (Analysis), Physical Model (Design)
+│   ├── Design Approaches
+│   │   └── Key Concepts: General/Preliminary Approach, Structured/Detailed Approach
+│   ├── Design Goals
+│   │   └── Key Concepts: Effective, Reliable, Maintainable
+│   └── Design Tools
+│       └── Key Concepts: Flowcharts, DFD, ERD, Architectural Diagrams, IPO Specifications
+│
+├── 7. Interface, Input & Output Design                   [8 concepts]
+│   ├── User Interface
+│   │   ├── Key Concepts: User Interface, Navigation Mechanism, Input Mechanism, Output Mechanism
+│   │   └── Central: USER INTERFACE
+│   ├── UI Design Principles
+│   │   └── Key Concepts: Layout, Content Awareness, Aesthetics, UX, Consistency, Minimal Effort
+│   ├── Screen Design Types
+│   │   └── Key Concepts: Menu Display, Dialogue Display, Data Entry Display
+│   ├── UI Evolution
+│   │   └── Key Concepts: CLI → PCUI → HCI → GUI
+│   ├── Control Functions
+│   │   └── Key Concepts: Text Box, Number Box, Selection Box, Check Box, Radio Buttons, Drop Down
+│   ├── Data Validation
+│   │   └── Key Concepts: Presence Check, Range Check, Length Check, Type Check, Format Check,
+│   │       Consistency Check, Database Check
+│   ├── Data Verification
+│   │   └── Key Concepts: Proof Reading, Double-Entry Verification
+│   └── Output Design
+│       └── Key Concepts: On-Screen Reports, Printed Reports, Detail/Summary/Exception Reports
+│
+├── 8. Tools & Techniques for System Development          [4 concepts]
+│   └── Key Concepts: DFD, ERD, Flowcharts, Process Flow Diagrams, Database Design
+│       └── ⚠️ NOTE: These tools are referenced but not yet demonstrated in materials
+│
+└── 9. Security and Maintenance                           [2 concepts]
+    └── Key Concepts: Bug Fixing, System Updates, Performance Tuning, Enhancement Specifications
+        └── ⚠️ CRITICAL GAP: No dedicated security content in current materials
+```
+
+---
+
+## Key Relationships
+
+### Hierarchical (Is-a / Part-of)
+
+- **Input, Process, Output, Feedback, Control, Environment, Boundary, Interface** are all part-of a **System**
+- **Hardware, Software, People, Data, Network** are components of an **Information System**
+- **Planning, Analysis, Design, Implementation** are the four phases of **SDLC**
+- **Waterfall, V-Model, RAD, Iterative, Spiral, Agile** are all types of **SDLC Methodology**
+- **Navigation, Input, Output Mechanism** are parts of a **User Interface**
+- **Functional Requirements** and **Non-Functional Requirements** are types of **Requirements**
+- **V-Model** is-an-extension-of **Waterfall Model**
+
+### Causal / Enables
+
+- Understanding **Systems & Components** enables understanding **SDLC**
+- Understanding **SDLC** enables understanding **Methodologies**
+- **Functional Requirements** flow directly into → **Functional, Structural & Behavioural Models**
+- Understanding **Requirements** enables **System Design**
+- Understanding **System Design** enables **Interface Design**
+- **Analysis Phase (What?)** produces Logical Model → feeds into → **Design Phase (How?)**
+
+### Dependency (Requires / Prerequisite)
+
+- **System Design** requires **Requirements Gathering** as prerequisite
+- **Interface Design** requires **System Design** as prerequisite
+- **Business Requirements** must be gathered before they evolve into **System Requirements**
+- **Data Verification** complements and depends on **Data Validation**
+- Prerequisite chain: **Systems Fundamentals → SDLC → Requirements → System Design → Interface Design**
+
+### Contrast (Contrasts-with)
+
+- **Waterfall** (linear, rigid) contrasts with **Agile** (iterative, flexible)
+- **Functional Requirements** (what the system does) contrasts with **Non-Functional Requirements** (how the system behaves)
+- **Analysis Phase** (What?) contrasts with **Design Phase** (How?)
+- **Open System** (interacts with environment) contrasts with **Closed System** (self-contained)
+- **Data Validation** (checks sensibility) contrasts with **Data Verification** (confirms correctness)
+- **Business Requirements** (analyst perspective) contrasts with **System Requirements** (technical perspective)
+- **General Design Approach** (features + costs) contrasts with **Structured Design Approach** (detailed blueprint)
+
+---
+
+## Central Concepts
+
+These are the most connected concepts — master these first:
+
+| Concept | Connections | Why Central |
+|---------|-------------|-------------|
+| **SDLC** | 8 | The backbone of the entire course — all methodologies, phases, deliverables, and analyst roles connect through it |
+| **System** | 7 | The foundational definition everything else builds on — components, types, IS all derive from it |
+| **Requirements** | 6 | The pivot between business needs and technical design — functional vs non-functional split drives the whole design phase |
+| **System Design** | 5 | Bridges requirements analysis to implementation — determines interface, input, output, database |
+| **User Interface** | 5 | The visible output of system design — connects UI principles, screen design, validation, verification, controls |
+| **System Analyst** | 4 | The human centre of the SDLC — bridges business problems and technology solutions across all phases |
+
+---
+
+## Prerequisite Learning Path
+
+Recommended study order based on concept dependencies:
+
+1. **Systems & Components** — foundational vocabulary; everything else uses these terms
+2. **Information Systems** — specialisation of systems relevant to the course domain
+3. **Introduction to SA&D + System Analyst role** — sets context and purpose for the discipline
+4. **SDLC — Phases & Steps** — the process framework all methodologies implement
+5. **SDLC Methodologies & Models** — how the framework is applied in different contexts (Waterfall, Agile, RAD, Spiral)
+6. **Requirements Gathering** — first major phase deliverable; functional vs non-functional
+7. **System Design** — translating requirements into blueprints
+8. **Interface, Input & Output Design** — detailed design of the human-facing layer
+9. **Tools & Techniques** — DFD, ERD, Flowcharts applied across design phases
+10. **Security & Maintenance** — post-deployment concerns *(materials pending)*
+
+---
+
+## Definitions Quick Reference
+
+| Term | Definition (brief) |
+|------|-------------------|
+| System | Organized collection of components working together toward a common goal |
+| SDLC | Structured process for designing, building, and delivering information systems |
+| Requirement | A statement of what a system must do or what characteristics it must have |
+| Functional Requirement | What the system must do — user/business needs |
+| Non-Functional Requirement | How the system must behave — performance, reliability, security properties |
+| System Design | The process of planning how to build a system (the "How" after analysis answers "What") |
+| Deliverable | A specific document or file produced at the completion of an SDLC phase |
+| Waterfall Model | Linear sequential SDLC model; each phase completes before the next begins |
+| Agile | Iterative SDLC methodology using sprints; adaptive to changing requirements |
+| RAD | Rapid Application Development — iterative prototyping with minimal up-front planning |
+| V-Model | Extension of Waterfall with matched testing phases for each development stage |
+| Spiral Model | Iterative model combining development with structured risk assessment |
+| Methodology | A formalized approach to implementing the SDLC |
+| System Analyst | Professional bridging business problems and technology solutions |
+| User Interface | The part of the system users interact with — "to the user, the interface IS the system" |
+| Legacy System | Outdated computing system (hardware/software/formats) requiring integration consideration |
+| Data Validation | Checks that data entered is sensible (correct type, format, range) |
+| Data Verification | Confirms data entered matches the intended value (proof reading or double-entry) |
+| Feedback | System output information used to adjust the process or input |
+| Information System | System that manages and processes data to produce useful organizational information |
+
+---
+
+## Tutor Reference Notes
+
+*For use during learning sessions on CMS711:*
+
+- **Best Socratic entry point:** Start with "What is a system? Give me a real-world example from your life." — this activates prior knowledge and leads naturally into components, types, and SDLC.
+- **Most common misconceptions:**
+  - Confusing *validation* (is the data sensible?) with *verification* (is it the right value?)
+  - Treating SDLC phases as strictly waterfall by default — students often don't realise all models implement the same phases differently
+  - Confusing *functional* (what the system does) with *non-functional* (how it performs) requirements
+- **Concepts students typically conflate:**
+  - Functional Requirements ↔ Non-Functional Requirements
+  - Data Validation ↔ Data Verification
+  - Analysis Phase ↔ Design Phase (both produce documents — students mix up deliverables)
+  - Business Requirements ↔ System Requirements
+  - SDLC phases (4) ↔ SDLC steps (7)
+- **Mbosinwa's context:** Strong software engineering background — use analogies to product development (sprints, APIs, deployment pipelines) when explaining SDLC models. He will grasp Agile/DevOps quickly; lean in on the formal academic framing of concepts he already knows practically.
+- **Material gaps to flag during tutoring:** Security & Maintenance, System Modelling (DFD/ERD), System Analyst roles/types — do not test on these until materials are onboarded.
+
+</script>
+
+<script type="text/plain" id="cs-artificial-intelligence">
+---
+courseName: Artificial Intelligence
+courseCode: CMS707
+subjectDomain: Computer Science
+materialsCount: 6
+status: Active
+created: 2026-03-09
+lastUpdated: 2026-04-02
+---
+
+# Course Structure: Artificial Intelligence
+
+## Materials Index
+
+| # | Material | Type | Status |
+|---|----------|------|--------|
+| 1 | cms707-ai-course-outline.md | Course Outline | ✓ Processed |
+| 2 | cms707-class-jottings-problem-solving.md | Class Notes (Partial) | ✓ Processed |
+| 3 | ai-modern-approach-book-summary-transcript.md | YouTube Transcript | ✓ Processed |
+| 4 | peter-norvig-lex-fridman-podcast-transcript.md | YouTube Transcript | ✓ Processed |
+| 5 | cs188-lecture-1-introduction-transcript.md | Lecture Transcript (UC Berkeley CS188) | ✓ Processed |
+| 6 | cms707-full-class-notes-dr-friday-orji.md | Full Class Notes — Dr. Friday Orji | ✓ Processed |
+
+---
+
+## Topics
+
+### Part I — Problem-Solving and Search
+
+1. **Introduction to Artificial Intelligence**
+   - Definition of Intelligence (formal definition — Dr. Orji)
+   - Definition and goals of AI
+   - Machines vs humans: computation vs creativity
+   - Limits of Computational Power — learning order (Perception → Engineering)
+   - Mundane Tasks vs Formal Tasks (explicit table)
+   - History of AI (1950s to present)
+   - Four approaches to AI (thinking/acting humanly/rationally)
+   - AI Winters and resurgence
+   - What AI can and cannot do
+
+2. **AI Agents and Rational Agents**
+   - Definition of an agent (operates automatically, perceives, persists, adapts, creates goals)
+   - Rational agent (technically defined)
+   - Percept Sequence — complete history of perceived inputs
+   - Agent Function (abstract) vs Agent Program (concrete implementation)
+   - Performance Measure — captures best/expected outcome
+   - Types of agents: reactive, deliberative, hybrid
+   - Rationality = maximally achieving predefined goals
+
+3. **Problem-Solving and Search**
+   - State Space Representation
+   - 4-step problem-solving method (Define → Analyse → Isolate/Represent → Choose technique)
+   - Problem formulation
+   - Classic AI problems (Water Jug, Farmer-Lion-Goat-Yam)
+   - Search strategies: Breadth-First Search (FIFO), Depth-First Search (LIFO/Stack)
+   - Iterative Deepening Search (depth-limited DFS)
+   - Best-First Search (combines BFS + DFS advantages)
+   - Advantages of DFS (memory efficiency, early termination)
+   - Informed search: A* search
+   - Local search algorithms
+   - Constraint Satisfaction Problems
+   - Adversarial search and games: game trees, Minimax, Alpha-Beta Pruning
+
+4. **Heuristic Search Techniques**
+   - Heuristic functions
+   - Informed vs uninformed search
+   - Best-First Search as hybrid approach
+   - Local search and optimisation
+
+### Part II — Knowledge Representation and Reasoning
+
+5. **Knowledge Representation**
+   - Forms of KR: Natural Language, Simple Relational, Inheritance/Inferential
+   - Mapping between Facts and Representations
+   - Hallucination in AI — facts that may not be there
+   - Inferential Knowledge — predicate logic axioms over real-world domains
+
+6. **Using Predicate Logic**
+   - Propositional logic
+   - First-order (predicate) logic — formal grammar (Sentence, AtomicSentence, Term, Quantifiers)
+   - Quantifiers (∀, ∃), constants, variables, predicates, functions
+   - Skolemisation, unification
+   - Inference rules
+   - Resolution, forward and backward chaining
+   - Marcus/Caesar example (8 axioms → inference)
+
+6. **Probabilistic Reasoning**
+   - Uncertainty in AI
+   - Bayesian reasoning
+   - Bayesian networks
+   - Probabilistic inference
+
+7. **Semantic Nets**
+   - Knowledge representation techniques
+   - Semantic networks
+   - Frames and scripts
+
+### Part III — Advanced Topics and Application Areas
+
+8. **Learning**
+   - Types of learning: supervised, unsupervised, reinforcement
+   - Decision trees
+   - Artificial neural networks
+   - Deep learning
+   - Bayesian learning
+   - Exploitation of experience vs exploration
+
+9. **Perception and Action**
+   - Computer vision: object recognition, face detection
+   - Robotics: motion planning, manipulation, control
+   - Multi-agent systems
+   - Biomimetic vs optimal solutions
+
+10. **Natural Language Processing**
+    - Speech recognition
+    - Machine translation
+    - Question answering (e.g. IBM Watson)
+    - Language models
+    - Parsing and semantic analysis
+
+11. **Expert Systems**
+    - Knowledge-based systems
+    - Inference engines
+    - Rule-based reasoning
+
+12. **Fuzzy Logic Systems**
+    - Fuzzy sets and membership functions
+    - Fuzzy inference
+    - Applications of fuzzy logic
+
+13. **Genetic Algorithms**
+    - Evolutionary computation
+    - Selection, crossover, mutation
+    - Optimisation using genetic algorithms
+
+---
+
+## Key Concepts
+
+| Concept | Brief Description | Source |
+|---------|-------------------|--------|
+| Artificial Intelligence | Field of building systems that exhibit intelligent behaviour | course-outline, cs188-lecture-1 |
+| Rational Agent | System that maximally achieves predefined goals; judged on actions not thought process | cs188-lecture-1, class-jottings |
+| State Space Representation | Formal representation of a problem as states, operators, initial state, goal state | class-jottings |
+| Search | Process of finding a sequence of actions/states leading from initial to goal state | course-outline, ai-book-summary |
+| Heuristic | Problem-specific knowledge used to guide search more efficiently | course-outline |
+| Predicate Logic | Formal language for knowledge representation using predicates, quantifiers | course-outline, ai-book-summary |
+| Probabilistic Reasoning | Handling uncertainty using probability theory and Bayesian methods | course-outline |
+| Semantic Net | Graph-based knowledge representation showing concepts and relationships | course-outline |
+| Supervised Learning | Learning from labelled training data | ai-book-summary |
+| Unsupervised Learning | Finding patterns in data without labels | ai-book-summary |
+| Reinforcement Learning | Learning from rewards and punishments through interaction | ai-book-summary |
+| Neural Networks | ML models inspired by biological neurons | ai-book-summary |
+| Deep Learning | Multi-layer neural networks for large-scale learning | ai-book-summary |
+| NLP | Field enabling computers to understand and generate human language | course-outline, cs188-lecture-1 |
+| Expert Systems | AI systems encoding expert knowledge for decision making | course-outline |
+| Fuzzy Logic | Logic that handles degrees of truth rather than binary true/false | course-outline |
+| Genetic Algorithm | Evolutionary optimisation technique inspired by natural selection | course-outline |
+| Water Jug Problem | Classic AI search problem: achieve target measurement using unmarked jugs | class-jottings |
+| Farmer-Lion-Goat-Yam | Classic constraint-based river crossing problem | class-jottings |
+| Minimax | Game tree search algorithm for adversarial two-player games | ai-book-summary |
+| Alpha-Beta Pruning | Optimisation of Minimax that eliminates unnecessary branches | ai-book-summary |
+| A* Search | Informed search using heuristic + path cost to find optimal solution | ai-book-summary |
+| Exploitation vs Exploration | Tension between using known knowledge vs seeking new information | cs188-lecture-1 |
+| Turing Test | Benchmark for machine intelligence via indistinguishable conversation | cs188-lecture-1 |
+| Intelligence | Capacity to think and comprehend the world in an elaborate way, involving knowledge, experience and understanding | full-class-notes |
+| Mundane Tasks | Human-natural tasks (perception, speech, common sense) that are computationally hard to represent | full-class-notes |
+| Formal Tasks | Well-defined tasks (chess, maths, logic) that are easier to encode in a computer | full-class-notes |
+| Percept Sequence | Complete history of everything an agent has ever perceived; determines agent behaviour | full-class-notes |
+| Agent Function | Abstract mathematical mapping from percept sequence to action | full-class-notes |
+| Agent Program | Concrete implementation of the agent function | full-class-notes |
+| Performance Measure | Criterion that captures best/expected outcome for evaluating rational agent behaviour | full-class-notes |
+| Best-First Search | Search strategy combining advantages of BFS (no dead ends) and DFS (memory efficiency) | full-class-notes |
+| Iterative Deepening Search | DFS variant that increases depth limit incrementally; combines BFS completeness with DFS memory use | full-class-notes |
+| Simple Relational KR | Table-based knowledge representation; weak inferential capability (e.g. database) | full-class-notes |
+| Inferential KR | Knowledge representation that supports inheritance and logical inference across class hierarchies | full-class-notes |
+| Hallucination (AI) | Facts introduced by a system that may not exist in reality; linked to lack of consciousness/self-awareness | full-class-notes |
+
+---
+
+## Definitions
+
+### Artificial Intelligence
+The field concerned with building systems that act rationally — maximally achieving their predefined goals — across a wide range of tasks that require intelligence.
+*Source: cs188-lecture-1, ai-book-summary*
+
+### Rational Agent
+An agent that selects actions to maximally achieve its predefined goals. Rationality is about optimality of decisions, not the thought process, emotions, or nature of the goals themselves.
+*Source: cs188-lecture-1*
+
+### State Space Representation
+A formal way to represent a problem using: (1) a set of possible states, (2) operators/actions that transition between states, (3) an initial state, and (4) a goal state or goal test.
+*Source: class-jottings*
+
+### Heuristic Search
+Search that uses domain-specific knowledge (heuristic functions) to estimate the cost/distance to the goal, guiding search more efficiently than uninformed strategies.
+*Source: course-outline*
+
+### Predicate Logic (First-Order Logic)
+A formal logical system that extends propositional logic with quantifiers (∀, ∃) and predicates, allowing representation of objects, properties, and relationships.
+*Source: ai-book-summary*
+
+### Fuzzy Logic
+A logic system where truth values are continuous between 0 and 1 (degrees of truth), rather than binary, allowing handling of vague or imprecise information.
+*Source: course-outline*
+
+### Genetic Algorithm
+An optimisation technique inspired by biological evolution — uses a population of candidate solutions that evolve through selection, crossover, and mutation operators.
+*Source: course-outline*
+
+### Intelligence
+"The capacity to think and comprehend the world in an elaborate way, involving knowledge, experience and understanding." AI is concerned with building entities with at least human-level cognition — doing creative things humans do, but faster.
+*Source: full-class-notes (Dr. Friday Orji)*
+
+### Agent
+Something that operates automatically, perceives its environment, persists over a prolonged time period, adapts to changes, and creates and pursues goals. Concretely: perceives environment through sensors and acts through actuators.
+*Source: full-class-notes*
+
+### Rational Agent
+An agent that acts so as to achieve the best outcome or expected outcome when there is uncertainty. The notion of best/expected outcome is captured by a performance measure.
+*Source: full-class-notes*
+
+### Percept Sequence
+The complete history of everything an agent has ever perceived. An agent's choice of action at any instant can depend on built-in knowledge and the entire percept sequence observed to date.
+*Source: full-class-notes*
+
+### Agent Function
+An abstract mathematical description of how an agent maps any given percept sequence to an action. Distinguished from the agent program, which is its concrete implementation.
+*Source: full-class-notes*
+
+### Performance Measure
+The criterion used to evaluate how well a rational agent is achieving its goals. Captures the notion of best or expected outcome, especially under uncertainty.
+*Source: full-class-notes*
+
+### Hallucination (AI)
+Facts that may not be there — representations that do not correspond to truth in the real world. Humans avoid this through consciousness and self-awareness; AI systems lack this safeguard by default.
+*Source: full-class-notes*
+
+### Iterative Deepening Search
+A DFS variant that runs depth-limited search with increasing depth limit (0, 1, 2, … ∞) until a solution is found. Combines BFS's completeness with DFS's memory efficiency.
+*Source: full-class-notes*
+
+---
+
+## Examples
+
+### Water Jug Problem (State Space)
+- **Initial state:** Both jugs empty (0, 0)
+- **Goal state:** 4-gallon jug contains exactly 2 gallons (2, ?)
+- **Operators:** Fill jug, empty jug, pour from one to another
+*Source: class-jottings*
+
+### Farmer-Lion-Goat-Yam Problem
+- **Notation:** FLGY| = all on left bank; |FLGY = all on right bank
+- **Constraints:** Lion+Goat alone → Lion eats Goat; Goat+Yam alone → Goat eats Yam
+- **Solution requires:** Careful sequencing of crossings to avoid unsafe states
+*Source: class-jottings*
+
+### TailSpin Story Generator (Early AI Failure)
+"Joe Bear was hungry. He asked Irving Bird where some honey was. Joe walked to the oak tree. He ate the beehive."
+The system lacked knowledge that eating something in a container requires first removing it — illustrates limits of early knowledge representation.
+*Source: cs188-lecture-1*
+
+### Water Jug Problem — Full State Space (Dr. Orji)
+- **State:** (x, y) where x = gallons in 4-gal jug, y = gallons in 3-gal jug
+- **Start:** (0,0) → **Goal:** (2,3) via path: (0,0)→(4,0)→(3,0)[pour]→(3,3)→(4,2)→(2,0)→(2,3)✓
+*Source: full-class-notes*
+
+### Predicate Logic — Marcus and Caesar
+8 axioms used to infer whether Marcus was loyal to Caesar:
+`Man(Marcus)`, `Pompeian(Marcus)`, `∀x Pompeian(x)→Roman(x)`, `Ruler(Caesar)`,
+`∀x Roman(x)→[loyal(x,Caesar) ∨ hate(x,Caesar)]`, `∀x∃y loyal_to(x,y)`,
+`∀x∀y person(x)∧ruler(y)∧try_assassinate(x,y)→loyal_to(x,y)`, `try_assassinate(Marcus,Caesar)`
+*Source: full-class-notes*
+
+### Knowledge Representation — Natural Language Chain
+Facts → Internal Representation → Reasoning → English Generation
+Example: `Man(Socrates)` + `∀x man(x)→mortal(x)` → infer `mortal(Socrates)` → "Socrates is mortal"
+*Source: full-class-notes*
+
+### Simple Relational KR — Football Players Table
+Database table of player stats (Ronaldinho, Messi, etc.) with height, weight, position.
+Supports queries like "Who is the heaviest player?" but has weak inferential capability.
+*Source: full-class-notes*
+
+### IBM Watson — Jeopardy! (NLP Success)
+Watson combined: question parsing, knowledge retrieval from Wikipedia, confidence estimation, and Jeopardy-specific strategies to beat human champions.
+*Source: cs188-lecture-1*
+
+---
+
+## Relationships
+
+| From | Relationship | To |
+|------|-------------|----|
+| Rational Agent | is defined by | Maximally achieving predefined goals |
+| State Space Search | is the foundation of | Problem-Solving and Search |
+| Heuristic Search | is an improvement of | Uninformed Search |
+| A* Search | uses | Heuristic + path cost |
+| Minimax | is used in | Adversarial Search / Game Playing |
+| Alpha-Beta Pruning | optimises | Minimax Search |
+| Predicate Logic | enables | Knowledge Representation |
+| Predicate Logic | is used in | Inference (resolution, chaining) |
+| Bayesian Reasoning | is a type of | Probabilistic Reasoning |
+| Semantic Nets | is a type of | Knowledge Representation |
+| Expert Systems | depend on | Knowledge Representation + Inference |
+| Neural Networks | are the basis of | Deep Learning |
+| Deep Learning | is a type of | Machine Learning |
+| Reinforcement Learning | is a type of | Machine Learning |
+| Genetic Algorithm | is a type of | Evolutionary / Optimisation technique |
+| Fuzzy Logic | contrasts-with | Classical Boolean Logic |
+| NLP | is an application of | Knowledge Representation + Learning |
+| Perception | enables | Action in Robotics |
+| Exploitation of experience | is-a type of | Learning |
+| Exploitation of simulation | is-a type of | Modeling |
+| Water Jug Problem | is solved by | State Space Search |
+| Farmer Problem | is solved by | Constraint-based State Space Search |
+| Mundane Tasks | are harder to represent than | Formal Tasks |
+| Agent Function | is implemented by | Agent Program |
+| Percept Sequence | determines | Agent behaviour |
+| Performance Measure | evaluates | Rational Agent |
+| Iterative Deepening Search | combines advantages of | BFS + DFS |
+| Best-First Search | combines advantages of | BFS + DFS |
+| DFS | uses less memory than | BFS |
+| Simple Relational KR | has weaker inference than | Inferential KR |
+| Hallucination | is caused by | Absence of consciousness / self-awareness in AI |
+| Predicate Logic | is used to express | Inferential Knowledge |
+| Natural Language | maps to | Internal Representation (via KR) |
+
+---
+
+## Exercises
+
+### Session 1: Introduction
+1. Can introspection — reporting on inner thoughts — be accurate? Could you be wrong about what you're thinking?
+2. "Computers can only do what programmers tell them" — is this true, and does it mean they can't be intelligent?
+3. "Animals can only do what their genes tell them" — is this true, and does it imply animals can't be intelligent?
+4. Examine which tasks can currently be solved by computers: table tennis, driving in Port Harcourt, writing a funny story, legal advice, real-time English-French translation, complex surgery. What makes the infeasible ones hard?
+5. Describe a shark and octopus to a child who has never seen one. What mechanisms does the child use to comprehend them?
+
+### Session 2: Problem Solving and Search
+1. Give precise problem formulations for: (a) 4-colour map colouring, (b) monkey and bananas (3ft monkey, 8ft ceiling, movable chair), (c) debugging an "Illegal input record" message, (d) 3-jug problem (12gal, 8gal, 1gal — measure exactly 1 gallon).
+2. Missionaries and Cannibals: 3 missionaries + 3 cannibals, boat holds 1–2. Get all across without missionaries being outnumbered on either side. (a) Formulate and draw complete state space. (b) Implement and solve optimally — is checking for repeated states useful?
+*Source: full-class-notes (Dr. Friday Orji)*
+
+</script>
+
+<script type="text/plain" id="cs-compiler-construction">
+---
+courseName: Compiler Construction
+courseCode: CMS709
+subjectDomain: Computer Science
+institution: Rivers State University, Nkpolu-Oroworukwo, Port Harcourt
+lecturers: Dr. E.O Bennett, Dr. E.E Omaegbu
+materialsCount: 1
+status: Active
+created: 2026-04-02
+lastUpdated: 2026-04-02
+---
+
+# Course Structure: Compiler Construction
+
+## Materials Index
+
+| # | Filename | Title | Type | Status |
+|---|----------|-------|------|--------|
+| 1 | lexical-analysis-lecture-notes.md | Lexical Analysis — Lecture Notes (Dr. Bennett & Dr. Omaegbu) | text/lecture notes | ✓ Processed |
+
+---
+
+## Topics
+
+### Primary Topics
+
+1. **Lexical Analysis**
+   - Definition and role of the Lexical Analyser
+   - Interaction of LA with the Parser
+   - Why separate LA from Syntax Analysis
+   - Secondary tasks of LA (comment elimination, error correlation)
+
+2. **Tokens, Patterns and Lexemes**
+   - Token definition and classification
+   - Pattern specification (regular expressions)
+   - Lexeme as a concrete token instance
+   - Token attributes and symbol table pointers
+   - Tokens in programming languages (keywords, operators, identifiers, etc.)
+
+3. **Difficulties and Errors in Lexical Analysis**
+   - Reserved words and context-dependent keywords (FORTRAN)
+   - Significance of blanks across languages
+   - Error detection limits of LA
+   - Lookahead requirements
+
+4. **Specification and Recognition of Tokens**
+   - Regular Definitions (via regular expressions / LEX)
+   - Transition Diagrams (TD)
+   - Recognising keywords: two approaches
+   - Priority of tokens (longest match, first-listed pattern)
+
+5. **Formal Language Theory**
+   - Type 0–3 language hierarchy (Chomsky hierarchy)
+   - Regular, Context-Free, Context-Sensitive languages
+   - Alphabet, strings, and language representations
+   - Σ\* — countably infinite set of all strings
+
+6. **Finite State Automata and Transition Diagrams**
+   - FSA vs TD distinctions
+   - Scanner stage (FSA-based)
+   - Evaluator stage
+   - Dead states and retraction
+   - Merging multiple DFAs/TDs into a combined diagram
+
+7. **Input Buffering**
+   - Two-half buffer design
+   - Forward pointer and beginning pointer
+   - Handling EOF and special characters
+   - Retraction mechanism
+
+8. **Implementation of Lexical Analyser**
+   - Automatic generators (LEX / FLEX)
+   - Hand-written LA in HLL
+   - Hand-written LA in low-level language
+   - Trade-offs of each approach
+
+---
+
+## Key Concepts
+
+| Concept | Brief Description | Source Material |
+|---------|-------------------|-----------------|
+| Lexical Analysis | First phase of a compiler; converts character stream to token stream | lexical-analysis-lecture-notes.md |
+| Token | A categorised unit of source text (keyword, identifier, operator, etc.) | lexical-analysis-lecture-notes.md |
+| Pattern | A regular expression rule describing the set of strings that form a token | lexical-analysis-lecture-notes.md |
+| Lexeme | The actual character sequence that matches a pattern and forms a token | lexical-analysis-lecture-notes.md |
+| Symbol Table | Data structure storing token information (lexeme, line number, type) | lexical-analysis-lecture-notes.md |
+| Transition Diagram (TD) | A variant of FSA used to model the lexer; reads until a token is found | lexical-analysis-lecture-notes.md |
+| Finite State Automaton (FSA) | Accepts or rejects a string; basis for scanner design | lexical-analysis-lecture-notes.md |
+| Regular Expression | Formal notation for specifying token patterns | lexical-analysis-lecture-notes.md |
+| Forward Pointer | Input buffer pointer that scans ahead to determine the next lexeme | lexical-analysis-lecture-notes.md |
+| Retraction | Rolling back the forward pointer after overshooting an accepting state | lexical-analysis-lecture-notes.md |
+| Dead State | A non-accepting state with no valid transitions; signals end of scan | lexical-analysis-lecture-notes.md |
+| Scanner | FSA-based stage that identifies token type and position | lexical-analysis-lecture-notes.md |
+| Evaluator | Stage that processes lexeme characters to produce a token value | lexical-analysis-lecture-notes.md |
+| LEX / FLEX | Automatic lexical analyser generator tools based on regular expressions | lexical-analysis-lecture-notes.md |
+| Chomsky Hierarchy | Type 0–3 classification of formal languages (RL, CFL, CSL, unrestricted) | lexical-analysis-lecture-notes.md |
+| Longest Match Rule | Lexer prefers the longest valid lexeme when multiple patterns match | lexical-analysis-lecture-notes.md |
+| First-Listed Pattern Rule | When length is equal, the pattern listed first in specification wins | lexical-analysis-lecture-notes.md |
+
+---
+
+## Definitions
+
+### Lexical Analysis
+The process of taking an input string of characters (such as source code) and producing a sequence of symbols called lexical tokens (or tokens). It is the first phase of a compiler.
+*Source: lexical-analysis-lecture-notes.md*
+
+### Token
+A string of characters that logically belong together — e.g., float, identifier, operator, constant. Treated as terminal symbols of the grammar specifying the source language. Also called "word".
+*Source: lexical-analysis-lecture-notes.md*
+
+### Pattern
+A rule (expressed as a regular expression) that describes the set of strings associated with a particular token. The pattern "matches" every lexeme in that set.
+*Source: lexical-analysis-lecture-notes.md*
+
+### Lexeme
+The actual sequence of characters forming a specific instance of a token — e.g., `"abs_zero_kelvin"`, `273`, `"float"`.
+*Source: lexical-analysis-lecture-notes.md*
+
+### Transition Diagram (TD)
+A variant of FSA used to model lexical analysers. Unlike FSA, TD reads characters until finding a token, then returns that token and repositions the input buffer. Accepting states typically have no out-transitions.
+*Source: lexical-analysis-lecture-notes.md*
+
+### Finite State Automaton (FSA)
+A mathematical model that accepts or rejects an input string. Used as the basis for the scanner stage of a lexer.
+*Source: lexical-analysis-lecture-notes.md*
+
+### Dead State
+A non-accepting state from which there are no valid transitions. When the scanner reaches a dead state, it is done; the last accepting state is used to determine the token type and length.
+*Source: lexical-analysis-lecture-notes.md*
+
+### Retraction
+The act of returning the forward input pointer to the character immediately after the accepted lexeme, when the scanner has read beyond it (marked with `*` on TD transitions).
+*Source: lexical-analysis-lecture-notes.md*
+
+### Regular Language
+A formal language that can be described by a regular expression and recognised by a finite automaton. Example: L1 = {aᵐbⁿ | m, n > 0}.
+*Source: lexical-analysis-lecture-notes.md*
+
+### Context-Free Language (CFL)
+A formal language generated by a context-free grammar and recognised by a pushdown automaton. Example: L2 = {aⁿbⁿ | n > 0}.
+*Source: lexical-analysis-lecture-notes.md*
+
+### Context-Sensitive Language (CSL)
+A formal language that is neither regular nor context-free. Example: L3 = {aⁿbⁿcⁿ | n ≥ 0}.
+*Source: lexical-analysis-lecture-notes.md*
+
+---
+
+## Examples
+
+### Token, Lexeme, Pattern — Table Example
+| Token | Sample Lexeme | Pattern |
+|-------|---------------|---------|
+| const | const | const |
+| id | pi, count, D | letter · (letter\|digit)* |
+| num | 3.1426, 0, 6 | any numeric constant |
+| relation | <, <=, >=, != | `< \| <= \| = \| > \| >= \| !=` |
+*Source: lexical-analysis-lecture-notes.md*
+
+### Token Attributes — FORTRAN Statement
+For `E = M * C ** 2`, the tokens and attributes are:
+- `<id, ptr→E>`, `<assignOp>`, `<id, ptr→M>`, `<multiOp>`, `<id, ptr→C>`, `<multiOp>`
+*Source: lexical-analysis-lecture-notes.md*
+
+### TD Example 1 — Identifiers, Keywords, Numbers
+A combined transition diagram with states for IDENTIFIER (states 0→1→2), INTEGER (states 0→3→4), and keyword "one" (states 0→5→7→9→10), with retraction on accepting transitions.
+*Source: lexical-analysis-lecture-notes.md*
+
+### TD Example 2 — Integers, ADD (+), INCR (++)
+Transition diagram handles: `digit` → INTEGER; `+` → ADD (with retraction); `++` → INCR; `digit+` → INTEGER with potential signed continuation.
+*Source: lexical-analysis-lecture-notes.md*
+
+### Transition Table — TD Example 2
+| State | + | − | D | Token | Retraction |
+|-------|---|---|---|-------|------------|
+| 0 | 1 | 8 | 6 | — | — |
+| 1 | 3 | 2 | 2 | — | — |
+| 2 | — | — | — | ADD | 1 |
+| 5 | — | — | — | INCR | 2 (or 0) |
+| 7 | — | — | — | INTEGER | 1 |
+*Source: lexical-analysis-lecture-notes.md*
+
+### Keyword Recognition — Symbol Table Approach
+Keywords (`do`, `end`, `for`, `while`) are pre-loaded into the symbol table. When the TD recognises a string, the symbol table is checked: if found → Keyword, else → Identifier.
+*Source: lexical-analysis-lecture-notes.md*
+
+### Token Priority — Longest Match
+- `DO` vs `DOT` → `DOT` is chosen (longer match)
+- `>` vs `>=` → `>=` is chosen (longer match)
+*Source: lexical-analysis-lecture-notes.md*
+
+---
+
+## Relationships
+
+| From | Relationship | To |
+|------|-------------|-----|
+| Lexical Analyser | is a subroutine of | Parser |
+| Lexical Analyser | reads/writes | Symbol Table |
+| Token | is described by | Pattern |
+| Token | is instantiated by | Lexeme |
+| Token | has attribute pointing to | Symbol Table entry |
+| Transition Diagram | is a variant of | Finite State Automaton |
+| Scanner | is based on | FSA |
+| Scanner | feeds lexeme to | Evaluator |
+| Evaluator | produces | Token (type + value) |
+| Regular Expression | is used to specify | Pattern |
+| LEX/FLEX | generates | Lexical Analyser |
+| Regular Language | is recognised by | Finite Automaton |
+| Context-Free Language | is recognised by | Pushdown Automaton |
+| Context-Free Language | is a superset of | Regular Language |
+| Context-Sensitive Language | is a superset of | Context-Free Language |
+| Forward Pointer | enables | Retraction |
+| Dead State | triggers | Token acceptance (last valid state) |
+| Longest Match Rule | takes priority over | First-Listed Pattern Rule |
+
+</script>
+
+<script type="text/plain" id="cs-data-communication-and-networks">
+---
+courseName: Data Communication and Networks
+courseCode: CMS703
+subjectDomain: Computer Science
+materialsCount: 6
+status: Active
+created: 2026-03-09
+lastUpdated: 2026-03-30
+---
+
+# Course Structure: Data Communication and Networks
+
+## Materials Index
+
+| # | Material | Type | Status |
+|---|----------|------|--------|
+| 1 | cms703-course-outline.md | Direct Text | ✓ Processed |
+| 2 | introduction-to-fourier-series-transcript.md | YouTube Transcript | ✓ Processed |
+| 3 | data-communications-lecture-1-section-1-introduction-transcript.md | YouTube Transcript | ✓ Processed |
+| 4 | introduction-to-data-communication-networks-lecture-1-transcript.md | YouTube Transcript | ✓ Processed |
+| 5 | what-is-networking-osi-model-transcript.md | YouTube Transcript | ✓ Processed |
+| 6 | cms703-lecture-notes-dr-saturday.md | Lecture Notes (File) | ✓ Processed |
+
+---
+
+## Topics
+
+### Primary Topics
+
+1. **Introduction to Data Communication**
+   - Definition of Data Communication
+   - Components of a Data Communication System
+     - Message
+     - Sender
+     - Receiver
+     - Transmission Medium
+     - Protocol
+   - Data Representation Forms (Text/Numbers, Images, Audio, Video)
+   - Fundamental Principles: Delivery, Accuracy, Timeliness
+
+2. **Fourier Analysis**
+   - Fourier Series Expansion
+     - Continuous Time Fourier Series
+     - Discrete Time Fourier Series
+   - Fourier Transform
+     - Continuous Time Fourier Transform
+     - Discrete Time Fourier Transform
+   - Types of Fourier Series: Trigonometric, Complex Exponential, Polar/Harmonic
+   - Dirichlet Conditions (existence of Fourier Series)
+   - Harmonics (odd and even)
+   - Periodic vs Non-periodic Signals
+
+3. **Data Transmission Modes**
+   - Simplex Mode
+   - Half-Duplex Mode
+   - Full-Duplex Mode
+
+4. **Data Transmission Forms**
+   - Analog Transmission
+   - Digital Transmission
+
+5. **Data Transmission Speed**
+   - Bandwidth
+   - Bits per Second (BPS)
+
+6. **Transmission Media**
+   - Guided Media
+     - Twisted Pair Wire (STP, UTP)
+     - Coaxial Cable
+     - Optical Fiber
+   - Unguided Media
+     - Microwave Systems (Terrestrial, Satellite)
+     - Communication Satellites
+
+7. **Computer Networks**
+   - Types of Networks
+     - LAN (Local Area Network)
+     - MAN (Metropolitan Area Network)
+     - WAN (Wide Area Network)
+   - Network Topologies
+     - Star Topology
+     - Ring Topology
+     - Bus Topology
+     - Mesh Topology
+
+8. **Switching Techniques**
+   - Circuit Switching
+   - Packet Switching
+
+9. **Routing Techniques**
+   - Source Routing
+   - Hop-by-Hop Routing
+   - Difference between Switching and Routing
+
+10. **Communication Protocols**
+    - Definition and Purpose
+    - Protocol Functions (packet size, numbering, error control, security, routing)
+    - Standards and Standards Organisations
+
+11. **OSI Model**
+    - Layer 1: Physical Layer
+    - Layer 2: Data Link Layer
+    - Layer 3: Network Layer
+    - Layer 4: Transport Layer
+    - Layer 5: Session Layer
+    - Layer 6: Presentation Layer
+    - Layer 7: Application Layer
+    - Network Interface Card (NIC)
+
+12. **Measures of Communication**
+13. **Channel Characteristics**
+14. **Noise and Distortion**
+15. **Modulation and Demodulation**
+16. **Multiplexing**
+    - TDM (Time Division Multiplexing)
+    - FDM (Frequency Division Multiplexing)
+    - FCM (Frequency Code Multiplexing)
+17. **Parallel and Serial Transmission**
+18. **Bus Structure and Loop System**
+19. **Broadcast Techniques**
+20. **Network Structure for Packet Switching**
+21. **Serial vs Parallel Data Transmission**
+    - Serial Transmission (bit-by-bit, single channel)
+    - Parallel Transmission (multiple bits simultaneously, multiple channels)
+    - Advantages and Disadvantages of each
+    - Long-distance communication examples (telephony, fibre, satellite, WiFi)
+    - Embedded systems serial applications (RS-232, RS-485, SPI, DNP3)
+22. **Asynchronous and Synchronous Transmission**
+    - Asynchronous: character-by-character framing, Start/Stop bits
+    - Synchronous: block/frame transmission, clock-based synchronization
+    - Frame structures for both modes
+    - Error detection: Parity bit (async), CRC/checksum (sync)
+23. **Data Representation (Detailed)**
+    - Text: Unicode (32-bit), ASCII (127 chars / Basic Latin)
+    - Images: Pixel matrix, RGB and YCM colour models
+    - Audio: Continuous signal, sampling and quantization
+    - Video: Analog or digital, encoding process
+24. **Bandwidth Allocation in Communication (Real-World OFDM/5G)**
+    - Modeling signals as square pulses
+    - Applying Fourier Transform → Sinc spectrum
+    - OFDM (Orthogonal Frequency Division Multiplexing) in 5G and LTE
+
+---
+
+## Key Concepts
+
+| Concept | Brief Description | Source Material |
+|---------|-------------------|-----------------|
+| Data Communication | Process of transferring electronic/digital data between two or more nodes | lecture transcripts |
+| Message | The information to be communicated (text, numbers, images, audio, video) | lecture transcripts |
+| Sender | Device that sends the data message | lecture transcripts |
+| Receiver | Device that receives the message | lecture transcripts |
+| Transmission Medium | Physical path by which a message travels from sender to receiver | lecture transcripts |
+| Protocol | Set of rules governing data communication between devices | lecture transcripts |
+| Simplex | Data flows in one direction only | lecture transcripts |
+| Half-Duplex | Data flows in both directions but not simultaneously | lecture transcripts |
+| Full-Duplex | Data flows in both directions simultaneously | lecture transcripts |
+| Analog Transmission | Transmission of data in a continuous waveform | what-is-networking-osi-model-transcript.md |
+| Digital Transmission | Transmission using distinct on/off electrical states (0 or 1) | what-is-networking-osi-model-transcript.md |
+| LAN | Local Area Network — connects devices within a limited geographical area | what-is-networking-osi-model-transcript.md |
+| MAN | Metropolitan Area Network — covers a large city or area | what-is-networking-osi-model-transcript.md |
+| WAN | Wide Area Network — interconnects LANs and MANs over unrestricted geography | what-is-networking-osi-model-transcript.md |
+| Star Topology | All computers connected to a central hub/switch | what-is-networking-osi-model-transcript.md |
+| Ring Topology | Computers connected in a closed cable loop | what-is-networking-osi-model-transcript.md |
+| Bus Topology | All nodes connected to a single backbone cable | what-is-networking-osi-model-transcript.md |
+| Mesh Topology | Every node interconnected with every other node | what-is-networking-osi-model-transcript.md |
+| Twisted Pair Wire | Copper wires twisted together; two types: STP and UTP | what-is-networking-osi-model-transcript.md |
+| Coaxial Cable | Single copper conductor with shield; used for longer distances | what-is-networking-osi-model-transcript.md |
+| Optical Fiber | Glass fiber transmitting data as light signals | what-is-networking-osi-model-transcript.md |
+| Circuit Switching | Dedicated physical path established for duration of connection | what-is-networking-osi-model-transcript.md |
+| Packet Switching | Data divided into packets; each routed independently | what-is-networking-osi-model-transcript.md |
+| OSI Model | 7-layer reference model for network communication (ISO, 1984) | what-is-networking-osi-model-transcript.md |
+| Physical Layer | Layer 1 — deals with bit stream over physical medium | what-is-networking-osi-model-transcript.md |
+| Data Link Layer | Layer 2 — responsible for frame transmission over network | what-is-networking-osi-model-transcript.md |
+| Network Layer | Layer 3 — routing from source to destination | what-is-networking-osi-model-transcript.md |
+| Transport Layer | Layer 4 — end-to-end delivery, error control, flow control | what-is-networking-osi-model-transcript.md |
+| Session Layer | Layer 5 — manages sessions/dialogues between computers | what-is-networking-osi-model-transcript.md |
+| Presentation Layer | Layer 6 — syntax, encryption, compression | what-is-networking-osi-model-transcript.md |
+| Application Layer | Layer 7 — user interface and network services | what-is-networking-osi-model-transcript.md |
+| NIC | Network Interface Card — hardware connecting computer to network | what-is-networking-osi-model-transcript.md |
+| Fourier Series | Expands periodic signals into sinusoidal harmonics | introduction-to-fourier-series-transcript.md |
+| Fourier Transform | Analysis tool for non-periodic signals | introduction-to-fourier-series-transcript.md |
+| Laplace Transform | Design tool for continuous-time systems (transfer functions) | introduction-to-fourier-series-transcript.md |
+| Z Transform | Discrete-time equivalent of Laplace transform | introduction-to-fourier-series-transcript.md |
+| Periodic Signal | Signal that repeats itself at regular time intervals | introduction-to-fourier-series-transcript.md |
+| Fundamental Frequency | The base frequency (Ω) from which harmonics are derived | introduction-to-fourier-series-transcript.md |
+| Harmonic | Frequency component at an integral multiple of the fundamental frequency | introduction-to-fourier-series-transcript.md |
+| Dirichlet Conditions | Three conditions required for Fourier Series to exist | introduction-to-fourier-series-transcript.md |
+| Orthogonality | Property of harmonics — independent of one another | introduction-to-fourier-series-transcript.md |
+| Modulation | Encoding information onto a carrier signal | cms703-course-outline.md |
+| Serial Transmission | Bits sent one-at-a-time over a single channel; reliable over long distances | cms703-lecture-notes-dr-saturday.md |
+| Parallel Transmission | Multiple bits sent simultaneously over multiple channels; fast but short-distance only | cms703-lecture-notes-dr-saturday.md |
+| Asynchronous Transmission | Character-framed with Start/Stop bits; no shared clock; simple but overhead-heavy | cms703-lecture-notes-dr-saturday.md |
+| Synchronous Transmission | Block/frame-based; clock-synchronized; efficient for bulk data | cms703-lecture-notes-dr-saturday.md |
+| Unicode | 32-bit character encoding system used globally; ASCII (127 chars) is a subset (Basic Latin) | cms703-lecture-notes-dr-saturday.md |
+| Pixel | Smallest unit in a digital image; assigned a bit pattern based on colour/intensity | cms703-lecture-notes-dr-saturday.md |
+| Quantization | Approximating a sampled analog signal with a finite set of values then encoding as bit patterns | cms703-lecture-notes-dr-saturday.md |
+| OFDM | Orthogonal Frequency Division Multiplexing — core 5G/LTE technology based on Fourier Transform principles | cms703-lecture-notes-dr-saturday.md |
+| Fourier Transform of Square Pulse | F(ω) = T·sinc(ωT/2) — shows signal contains many frequencies; wider pulse = narrower frequency spread | cms703-lecture-notes-dr-saturday.md |
+| Multiplexing | Combining multiple signals over a shared medium | cms703-course-outline.md |
+| Bandwidth | Measure of data transfer capacity over a network per unit time | what-is-networking-osi-model-transcript.md |
+
+---
+
+## Definitions
+
+### Data Communication
+The process of using computing and communication technologies to transfer data from one place to another; enables the movement of electronic or digital data between two or more network nodes regardless of geographical location, transmission medium, or data content.
+*Source: data-communications-lecture-1-section-1-introduction-transcript.md*
+
+### Protocol
+A set of rules that governs data communication. It represents the agreement between communication devices; without a protocol, two devices may be connected but not communicating.
+*Source: lecture transcripts*
+
+### Simplex Mode
+Data communication is unidirectional — the sender can only send, the receiver can only receive. Examples: keyboard → computer, computer → monitor, radio/TV broadcast.
+*Source: data-communications-lecture-1-section-1-introduction-transcript.md*
+
+### Half-Duplex Mode
+Data can flow in both directions but only one direction at a time. Examples: walkie-talkies, citizens band radios, Ethernet hubs, USB 2.0.
+*Source: data-communications-lecture-1-section-1-introduction-transcript.md*
+
+### Full-Duplex Mode
+Data flows in both directions simultaneously. Examples: telephone, router with switches, duplex fiber optic cable, USB 3.0.
+*Source: data-communications-lecture-1-section-1-introduction-transcript.md*
+
+### OSI Model
+The Open System Interconnection model — released 1984 by ISO. Describes data transmission in 7 layers from Physical (hardware) to Application (user interface).
+*Source: what-is-networking-osi-model-transcript.md*
+
+### Circuit Switching
+A dedicated circuit is built during transmission. A physical path is created for a single connection for the entire duration. Example: PTCL public telephone network.
+*Source: what-is-networking-osi-model-transcript.md*
+
+### Packet Switching
+Data converted into small packets each containing routing header information; packets are independent and routed separately. Example: the Internet.
+*Source: what-is-networking-osi-model-transcript.md*
+
+### Optical Fiber
+A slim, flexible glass fiber medium transmitting data as light signals. Features: low attenuation, immune to electromagnetic interference, small size, high capacity.
+*Source: what-is-networking-osi-model-transcript.md*
+
+### Fourier Series
+Expansion used for periodic signals to represent them as a sum of sinusoidal harmonics that are orthogonal to one another.
+*Source: introduction-to-fourier-series-transcript.md*
+
+### Periodic Signal
+A signal in which a particular structure repeats itself from minus infinity to infinity; formally: X(T ± T₀) = X(T), where T₀ is the time period.
+*Source: introduction-to-fourier-series-transcript.md*
+
+### Fundamental Time Period (T₀)
+The smallest time interval for which a given signal is periodic.
+*Source: introduction-to-fourier-series-transcript.md*
+
+### Harmonic
+A frequency component whose frequency is an integral multiple of the fundamental frequency Ω. Odd harmonics have odd integer multipliers; even harmonics have even integer multipliers.
+*Source: introduction-to-fourier-series-transcript.md*
+
+### Serial Data Transmission
+Data transmitted one bit after another over a single communication channel. Sequential travel of bits. Reliable over long distances (less signal distortion). Used in USB, Ethernet, RS-232, fibre optic backbones.
+*Source: cms703-lecture-notes-dr-saturday.md*
+
+### Parallel Data Transmission
+Multiple bits transmitted simultaneously across multiple channels/wires. Transfers an entire word (byte) at once. Fast but only suitable for short distances due to interference and skew.
+*Source: cms703-lecture-notes-dr-saturday.md*
+
+### Asynchronous Transmission
+Character-by-character framing using Start and Stop bits. No shared clock — synchronization happens at the character level. Frame: [Start bit | D0–D7 | Parity | Stop bit].
+*Source: cms703-lecture-notes-dr-saturday.md*
+
+### Synchronous Transmission
+Data transferred in blocks/frames without Start/Stop bits. Sender and receiver synchronized by a shared clock or special signals. Error detection via CRC or checksum.
+*Source: cms703-lecture-notes-dr-saturday.md*
+
+### OFDM (Orthogonal Frequency Division Multiplexing)
+A core technology in 5G and LTE (Long Term Evolution) that allocates frequency bands based on the Fourier Transform of digital signals — enables efficient use of spectrum by distributing data across many subcarriers.
+*Source: cms703-lecture-notes-dr-saturday.md*
+
+### Dirichlet Conditions
+Three necessary conditions that a periodic signal must satisfy for its Fourier Series expansion to exist.
+*Source: introduction-to-fourier-series-transcript.md*
+
+---
+
+## Examples
+
+### Simplex Examples
+Keyboard/mouse → computer (input only); computer → monitor (output only); computer → printer; radio/TV broadcast.
+*Source: data-communications-lecture-1-section-1-introduction-transcript.md*
+
+### Half-Duplex Examples
+Walkie-talkies (say "over" to hand over); Ethernet hubs (shared medium, one device transmits at a time); USB 2.0.
+*Source: data-communications-lecture-1-section-1-introduction-transcript.md*
+
+### Full-Duplex Examples
+Telephone (both parties speak/listen simultaneously); router + switches with duplex fiber; USB 3.0.
+*Source: data-communications-lecture-1-section-1-introduction-transcript.md*
+
+### Circuit Switching Example
+PTCL public telephone network — a physical path is reserved for the call duration.
+*Source: what-is-networking-osi-model-transcript.md*
+
+### Packet Switching Example
+The Internet — data split into packets each routed independently to the destination.
+*Source: what-is-networking-osi-model-transcript.md*
+
+### Harmonic Decomposition Example
+Signal X(T) = 2sin(ΩT) + sin(2ΩT) + 7sin(3ΩT). 2sin(ΩT) is the fundamental; sin(2ΩT) is 2nd (even) harmonic; 7sin(3ΩT) is 3rd (odd) harmonic — dominant due to coefficient 7.
+*Source: introduction-to-fourier-series-transcript.md*
+
+### Serial Transmission Examples
+Telephone Network (T1/E1 lines), Fibre Optic backbone, Satellite communication, WiFi/4G/5G.
+*Source: cms703-lecture-notes-dr-saturday.md*
+
+### Parallel Transmission Examples
+Computer buses, CPU data bus, internal memory transfer, printer connections.
+*Source: cms703-lecture-notes-dr-saturday.md*
+
+### Asynchronous Transmission Applications
+RS-232 serial ports, keyboard/mouse communication, early dial-up modems.
+*Source: cms703-lecture-notes-dr-saturday.md*
+
+### Synchronous Transmission Applications
+Ethernet networks, broadband communication, digital telephony, satellite/wireless systems.
+*Source: cms703-lecture-notes-dr-saturday.md*
+
+### Non-periodic Signal Example
+Human voice captured by microphone — non-periodic, requires Fourier Transform not Fourier Series.
+*Source: introduction-to-fourier-series-transcript.md*
+
+---
+
+## Relationships
+
+| From | Relationship | To |
+|------|-------------|----|
+| Protocol | governs communication in | Computer Networks |
+| Protocol | is required for | Data Communication between devices |
+| Simplex | contrasts-with | Half-Duplex and Full-Duplex |
+| Half-Duplex | contrasts-with | Full-Duplex |
+| Full-Duplex | enables | Simultaneous Bidirectional Communication |
+| Transmission Medium | is-a part-of | Data Communication System |
+| Guided Media | is-a type-of | Transmission Media |
+| Unguided Media | is-a type-of | Transmission Media |
+| Twisted Pair | is-a type-of | Guided Media |
+| Coaxial Cable | is-a type-of | Guided Media |
+| Optical Fiber | is-a type-of | Guided Media |
+| Microwave | is-a type-of | Unguided Media |
+| Satellite | is-a type-of | Unguided Media |
+| LAN | is-a type-of | Computer Network |
+| MAN | is-a type-of | Computer Network |
+| WAN | is-a type-of | Computer Network |
+| Star Topology | is-a type-of | Network Topology |
+| Ring Topology | is-a type-of | Network Topology |
+| Bus Topology | is-a type-of | Network Topology |
+| Mesh Topology | is-a type-of | Network Topology |
+| Circuit Switching | contrasts-with | Packet Switching |
+| Circuit Switching | requires | Dedicated path for connection |
+| Packet Switching | enables | Internet communication |
+| OSI Model | consists-of | 7 Layers (Physical to Application) |
+| Physical Layer | is Layer 1 of | OSI Model |
+| Data Link Layer | is Layer 2 of | OSI Model |
+| Network Layer | is Layer 3 of | OSI Model |
+| Transport Layer | is Layer 4 of | OSI Model |
+| Session Layer | is Layer 5 of | OSI Model |
+| Presentation Layer | is Layer 6 of | OSI Model |
+| Application Layer | is Layer 7 of | OSI Model |
+| Network Layer | handles | Routing |
+| Transport Layer | handles | End-to-end delivery and flow control |
+| Presentation Layer | handles | Encryption and data compression |
+| Routing | is-a type-of | Switching Technique |
+| Fourier Series | is used for analysis of | Periodic Signals |
+| Fourier Transform | is used for analysis of | Non-periodic Signals |
+| Laplace Transform | is used for design of | Continuous-time Systems |
+| Z Transform | is the discrete-time equivalent of | Laplace Transform |
+| Harmonic | is an integral multiple of | Fundamental Frequency |
+| Periodic Signal | must satisfy | Dirichlet Conditions |
+| Modulation | is the encoding mechanism for | Transmission Media |
+| Multiplexing | combines signals for | Shared Channel Transmission |
+| Packet Switching | is the basis of | Network Structure |
+| Analog Transmission | contrasts-with | Digital Transmission |
+| Bandwidth | measures | Data Transmission Speed |
+| Serial Transmission | transmits data | one bit at a time over a single channel |
+| Parallel Transmission | transmits data | multiple bits simultaneously over multiple channels |
+| Asynchronous Transmission | uses | Start/Stop bits per character frame |
+| Synchronous Transmission | uses | block/frame structure with clock synchronization |
+| Unicode | encodes | text using 32-bit patterns (includes ASCII as Basic Latin) |
+| RGB | is a method for | representing colour images using bit patterns |
+| YCM | is a method for | representing colour images using bit patterns |
+| Pixel | is the unit of | image representation in digital images |
+| Sampling/Quantization | converts | continuous audio/video signals to digital |
+| OFDM | is-a application-of | Fourier Transform in 5G and LTE networks |
+| RS-232 / RS-485 | are types-of | serial communication protocols used in embedded/SCADA systems |
+
+</script>
+
+<script type="text/plain" id="cs-operating-systems">
+---
+courseName: Operating Systems
+courseCode: CMS701
+subjectDomain: Computer Science
+lecturer: Dr. I.B. Cookey
+materialsCount: 4
+status: Active
+created: 2026-04-02
+lastUpdated: 2026-04-02
+---
+
+# Course Structure: Operating Systems (CMS701)
+
+## Materials Index
+
+| # | Filename | Title | Type | Status |
+|---|----------|-------|------|--------|
+| 1 | 01-course-outline.md | Course Outline — Operating Systems | Direct text | ✓ Processed |
+| 2 | 02-lecture-notes-os-types-kernels-system-calls.md | Lecture Notes — OS Types, Kernels & System Calls (Dr. I.B. Cookey) | Direct text | ✓ Processed |
+| 3 | 03-lecture-notes-process-state-pcb-schedulers.md | Lecture Notes — Process State, PCB & Schedulers (Dr. I.B. Cookey) | Direct text | ✓ Processed |
+| 4 | 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md | Lecture Notes — Multithreading, CPU Scheduling & Synchronization (Dr. I.B. Cookey) | Direct text | ✓ Processed |
+
+---
+
+## Topics
+
+### Primary Topics
+
+1. **Introduction to Operating Systems**
+   - Definition and role of an OS
+   - OS as bridge between user and hardware
+   - Types of OS: Batch, Multiprogramming, Time Sharing, Network, Real-Time
+
+2. **OS Structures** *(Course Outline Topic)*
+   - Kernel Architecture (Monolithic, Microkernel, Hybrid, Exokernel, Nanokernel)
+   - System Calls — types and mechanics
+   - System Programs
+   - Spooling *(outline topic — not yet in lecture notes)*
+   - Mechanisms and Policies *(outline topic — not yet in lecture notes)*
+
+3. **Process Management** *(Course Outline Topic)*
+   - Definition of a Process
+   - Process Attributes and Components
+   - Process Creation (Parent/Child, Resource Allocation, Execution Models)
+   - Context Switching
+   - Process State Models (Two-State, Five-State, Seven-State)
+   - Process Control Block (PCB) — anatomy and fields
+   - Process Schedulers (Long-Term, Short-Term, Medium-Term)
+
+4. **CPU Scheduling**
+   - Preemptive vs. Non-Preemptive Scheduling
+   - Scheduling Terminologies (Arrival Time, Burst Time, Turnaround Time, Waiting Time)
+   - Scheduling Algorithms: FCFS, SJF, Priority, Round Robin, Multilevel Queue, Multilevel Feedback Queue
+
+5. **Thread Management**
+   - Definition of a Thread (Lightweight Process)
+   - Thread Characteristics and Components (Stack, Registers, Program Counter)
+   - Types of Threads: User-Level vs. Kernel-Level
+   - Advantages of Threads
+
+6. **Multithreading**
+   - What is Multithreading
+   - Multithreading Models: Many-to-Many, Many-to-One, One-to-One
+   - Multithreading vs. Multitasking vs. Multiprocessing
+   - Common Issues: Race Conditions, Deadlocks, Starvation
+
+7. **Process Synchronization**
+   - Race Conditions
+   - Critical Section Problem
+   - Synchronization Requirements: Mutual Exclusion, Progress, Bounded Waiting
+   - Synchronization Mechanisms: Mutexes, Semaphores, Monitors, Condition Variables
+   - Synchronization Problems: Deadlock, Starvation, Data Inconsistency
+
+---
+
+## Key Concepts
+
+| Concept | Brief Description | Source Material |
+|---------|-------------------|-----------------|
+| Operating System | Software bridge between user and hardware; manages all resources | 02-lecture-notes |
+| Kernel | Core of the OS; manages CPU, memory, devices | 02-lecture-notes |
+| System Call | Request from user-mode program to kernel for privileged operations | 02-lecture-notes |
+| Process | A program in execution with its own code, state, and resources | 02-lecture-notes |
+| Thread | Smallest unit of execution within a process; lightweight process | 02, 04-lecture-notes |
+| Process Control Block (PCB) | OS data structure storing all info needed to manage a process | 03-lecture-notes |
+| Context Switch | OS saving state of one process and loading another to share CPU | 02-lecture-notes |
+| CPU Scheduling | OS decision-making on which process/thread runs on CPU next | 03, 04-lecture-notes |
+| Preemptive Scheduling | OS can interrupt a running process for a higher-priority one | 03, 04-lecture-notes |
+| Non-Preemptive Scheduling | Process holds CPU until finished or voluntarily waiting for I/O | 03, 04-lecture-notes |
+| Race Condition | Two+ processes access shared data simultaneously → unpredictable results | 04-lecture-notes |
+| Critical Section | Code segment accessing shared resources; only one process at a time | 04-lecture-notes |
+| Mutual Exclusion | Only one process may be in the critical section at any time | 04-lecture-notes |
+| Deadlock | Two+ processes stuck in circular wait for each other's resources | 04-lecture-notes |
+| Starvation | A process perpetually denied CPU/resource due to priority | 04-lecture-notes |
+| Semaphore | Synchronization object using a count to control resource access | 04-lecture-notes |
+| Multithreading | Single process running multiple concurrent threads | 04-lecture-notes |
+| Time Quantum | Small CPU time slice allocated per process in Round Robin scheduling | 03, 04-lecture-notes |
+| Program Counter (PC) | Holds address of next instruction to execute in a process/thread | 02, 03-lecture-notes |
+| Dispatcher | Component that performs the actual CPU context switch | 03-lecture-notes |
+| Zombie Process | Finished process whose PCB remains because parent hasn't read its exit status | 03-lecture-notes |
+| Aging | Gradually increasing priority of long-waiting processes to prevent starvation | 04-lecture-notes |
+| Convoy Effect | FCFS problem: short jobs stuck behind a long job | 04-lecture-notes |
+| IPC | Mechanism for processes/threads to communicate and share data | 02-lecture-notes |
+
+---
+
+## Definitions
+
+### Operating System
+The main software that makes the computer or mobile device work. It acts as a bridge between the user and the computer hardware. Examples: Windows, Linux, Unix, macOS, Android.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Kernel
+The core part of an Operating System. Acts as a bridge between software applications and the hardware of a computer. Manages system resources — CPU, memory, and devices.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Monolithic Kernel
+A single large program containing all OS core functions including device drivers, file system management, and system calls. High performance but crash-vulnerable.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Microkernel
+Keeps only the absolute essentials in kernel space (basic process scheduling, IPC). Everything else — drivers, file systems — runs in User Space. More stable and modular; slower due to IPC overhead.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Hybrid Kernel
+Combines monolithic and microkernel approaches — modular like a microkernel, but runs most services in kernel space for monolithic-level speed. Examples: Windows NT, macOS XNU.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Exokernel
+Gives applications direct hardware access, letting them manage resources themselves. Maximum efficiency for specialized apps; applications must be more complex.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Nanokernel
+An extreme microkernel — handles only hardware interrupts. Tiny memory footprint; used in embedded/IoT systems.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### System Call
+A request made by a program to the kernel to perform a task the program cannot perform directly. The bridge between user mode and kernel mode.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Process
+A program in execution, including the program code, current activity, and state information.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Thread
+The smallest unit of execution within a process. A lightweight process with its own program counter, registers, and stack. Shares memory and resources with other threads in the same process.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Process Control Block (PCB)
+A data structure maintained by the OS containing all information needed to manage a process: PID, state, program counter, CPU registers, memory info, scheduling info, and I/O info. The OS's "identity card" for each process.
+*Source: 03-lecture-notes-process-state-pcb-schedulers.md*
+
+### Context Switch
+The process by which the OS saves the state of a running process and loads the state of another, enabling multiple processes to share the CPU effectively.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Critical Section
+A segment of code where a process accesses shared resources. Only one process should execute in the critical section at a time to prevent race conditions.
+*Source: 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md*
+
+### Semaphore
+A synchronization object that maintains a count and allows or restricts resource access. Binary semaphore (0 or 1) acts as a lock; counting semaphore allows multiple concurrent accesses up to a limit.
+*Source: 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md*
+
+### Deadlock
+A situation where two or more processes are stuck in a circular wait — each holding a resource the other needs, and neither can proceed.
+*Source: 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md*
+
+### Turnaround Time
+Time difference between process completion and arrival: `Turnaround Time = Completion Time − Arrival Time`
+*Source: 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md*
+
+### Waiting Time
+Time a process spends waiting in the ready queue: `Waiting Time = Turnaround Time − Burst Time`
+*Source: 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md*
+
+### Spooling
+*(Defined in course outline; lecture notes pending)* — A technique where data is temporarily held in a buffer (typically on disk) to be used and executed by a device, program, or system. Common example: print spooling.
+
+### Multithreading
+A technique where a process is divided into smaller execution units (threads) that run concurrently, allowing different parts of a program to run simultaneously.
+*Source: 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md*
+
+---
+
+## Examples
+
+### OS Types — Bank Teller (System Call Analogy)
+You (application) cannot walk behind the bank counter (kernel mode) to grab cash (hardware access) yourself. You fill a withdrawal slip (system call), hand it to the teller (kernel), who validates and executes it, then returns the result to you.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Kernel Types — Monolithic (Startup Analogy)
+Everyone in one big room — fast communication (high performance), but one sick employee (buggy driver) can infect the whole office (crash the OS).
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Kernel Types — Microkernel (Government Agency Analogy)
+Each department in a separate building — one department burns down (driver crashes), the rest of the government keeps running. But formal letters (IPC) are slower than shouting across a room.
+*Source: 02-lecture-notes-os-types-kernels-system-calls.md*
+
+### Context Switch — Student Multitasking
+A student runs C++ program, listens to music, downloads lecture slides, and runs antivirus. The scheduler assigns CPU to each in rapid succession (milliseconds), giving the illusion of simultaneous execution.
+*Source: 03-lecture-notes-process-state-pcb-schedulers.md*
+
+### PCB — Zombie Process
+A child process finishes, but its PCB remains because the parent hasn't read its exit status. Consumes no CPU but occupies a slot in the OS process table.
+*Source: 03-lecture-notes-process-state-pcb-schedulers.md*
+
+### Race Condition — Bank Account
+Balance ₦10,000. Process A withdraws ₦7,000; Process B withdraws ₦5,000. Without sync: both read ₦10,000, both succeed → incorrect balance. With sync: A goes first → balance ₦3,000 → B denied (insufficient funds).
+*Source: 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md*
+
+### Deadlock — Circular Wait
+Process A holds Resource 1 and waits for Resource 2. Process B holds Resource 2 and waits for Resource 1. Both stuck forever.
+*Source: 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md*
+
+### Round Robin — Shared Computer
+Students take turns on a shared computer — 5 minutes each. If not done, move to back of queue. Fair but frequent context switches.
+*Source: 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md*
+
+### Multithreading — Banking System
+Many users perform transfers, deposits, payments simultaneously on bank servers. Each activity is a separate thread — no user waits for another to finish.
+*Source: 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md*
+
+### Many-to-Many Model — Large Server
+100 user threads handle requests; OS maps them to 10 kernel threads. Some run in parallel, others wait without blocking the entire system.
+*Source: 04-lecture-notes-multithreading-cpu-scheduling-synchronization.md*
+
+---
+
+## Relationships
+
+| From | Relationship | To |
+|------|-------------|-----|
+| Operating System | contains as core component | Kernel |
+| Kernel | bridges | Software Applications ↔ Hardware |
+| User Mode | requires system call to access | Kernel Mode |
+| System Call | transfers control to | Kernel |
+| Process | is managed via | Process Control Block (PCB) |
+| Process | transitions through | Process States (New → Ready → Running → Blocked → Terminated) |
+| Context Switch | is triggered by | Time Quantum Expiration / Interrupt / Mode Switch |
+| Context Switch | saves and restores | PCB (CPU Registers, Program Counter) |
+| Thread | is lightweight version of | Process |
+| Thread | shares memory space with | Sibling Threads (same process) |
+| Multithreading | is an extension of | Multitasking |
+| Many-to-One Model | maps | Multiple User Threads → One Kernel Thread |
+| One-to-One Model | maps | Each User Thread → Dedicated Kernel Thread |
+| Many-to-Many Model | multiplexes | Many User Threads → Equal or Fewer Kernel Threads |
+| Race Condition | requires solution via | Process Synchronization |
+| Critical Section | protected by | Mutual Exclusion |
+| Mutual Exclusion | implemented with | Semaphores / Mutexes / Monitors |
+| Starvation | prevented by | Aging (in Priority Scheduling) |
+| Deadlock | caused by | Circular Resource Wait |
+| FCFS | suffers from | Convoy Effect |
+| SJF | risks causing | Starvation (long jobs never run) |
+| Round Robin | performance depends on | Time Quantum size |
+| Priority Scheduling | prevents starvation via | Aging |
+| Long-Term Scheduler | controls | Degree of Multiprogramming |
+| Short-Term Scheduler | selects from | Ready Queue |
+| Medium-Term Scheduler | performs | Swapping (Main Memory ↔ Secondary Storage) |
+| Monolithic Kernel | trades stability for | Performance |
+| Microkernel | trades performance for | Stability and Modularity |
+| Hybrid Kernel | balances | Monolithic Performance + Microkernel Modularity |
+
+</script>
+
+<script type="text/plain" id="cs-programming-languages">
+---
+courseName: Programming Languages
+courseCode: CMS705
+subjectDomain: Computer Science
+materialsCount: 3
+status: Active
+created: 2026-03-31
+lastUpdated: 2026-04-01
+---
+
+# Course Structure: Programming Languages
+
+**Institution:** Rivers State University | **Lecturer:** Dr. H. Okwu | **Session:** 2024/2025
+
+---
+
+## Materials Index
+
+| # | Filename | Title | Type | Status |
+|---|----------|-------|------|--------|
+| 1 | programming_lang.md | Programming Languages — Lecture Notes (Dr. H. Okwu) | file | ✓ Processed |
+| 2 | programming_lang2.md | Data Flow in Programming Languages — Lecture Notes (Dr. H. Okwu) | file | ✓ Processed |
+| 3 | course-outline.md | CMS705 Programming Languages — Course Outline | text | ✓ Processed |
+
+---
+
+## Topics
+
+### Primary Topics (from Course Outline)
+
+1. **Language Definition Structure**
+   - What is a language?
+   - Language structure as a "system of systems"
+   - Core linguistic components: Phonology, Morphology, Syntax, Semantics, Pragmatics
+   - Language definition semantics in computer science
+   - Static Semantics vs Dynamic Semantics
+   - Types of programming languages (levels of abstraction)
+
+2. **Data Types and Structure**
+   - Primitive data types: Integer, Float, Character, Boolean, Void
+   - Non-primitive data types: String, Array, Struct, Class, Pointer, Enum
+   - Stack memory vs Heap memory
+   - Linear data structures: Array, Linked List, Stack, Queue
+   - Non-linear data structures: Tree, Graph, Heap, Hash Table, Trie
+   - Basic operations on data structures: Insertion, Deletion, Traversal, Searching, Updating, Sorting, Merging
+   - Control structures: Sequential, Selection, Iteration, Jump
+   - Data flow: model, types, visibility
+
+3. **Runtime Considerations**
+   - Implementation methods: Assembly, Compilation, Interpretation, JIT
+   - Data flow in memory (Stack vs Heap at runtime)
+   - Dynamic Semantics (behaviour at runtime)
+   - Core structural elements: Variables, Control Structures, Functions, Comments
+
+4. **Interpretative Language**
+   - Interpretation: line-by-line execution
+   - Compiled vs interpreted languages
+   - Just-in-Time (JIT) compilation (e.g. Java/JVM)
+   - Bytecode and runtime translation
+
+5. **Lexical Analysis and Parsing**
+   - Phonology: smallest units of a language (tokens, phonemes)
+   - Morphology: how tokens/words are formed (keywords, identifiers, operators)
+   - Syntax: grammar rules for well-formed programs
+   - Lexical elements: keywords, identifiers, operators, numeric constants
+   - Readability, writability, reliability of syntax
+
+---
+
+## Key Concepts
+
+| Concept | Brief Description | Source Material |
+|---------|-------------------|-----------------|
+| Language | Formal system of symbols and rules for communicating instructions | programming_lang.md |
+| Phonology | Study of sound/token patterns; smallest units of a language | programming_lang.md |
+| Morphology | How tokens/words are formed from root elements | programming_lang.md |
+| Syntax | Rules governing arrangement of words/tokens into valid sentences/programs | programming_lang.md |
+| Semantics | The meaning of programs — what they do | programming_lang.md |
+| Pragmatics | Context and practical usage of a language | programming_lang.md |
+| Static Semantics | Compile-time checks (e.g. type compatibility, variable declarations) | programming_lang.md |
+| Dynamic Semantics | Runtime behaviour — what actually happens when code executes | programming_lang.md |
+| Machine Language | Binary (0s and 1s) — directly executed by CPU; machine dependent | programming_lang.md |
+| Assembly Language | Mnemonic codes (MOV, ADD); requires assembler; hardware-close | programming_lang.md |
+| Middle-level Language | Combines low and high-level features; e.g. C; used in OS/compilers | programming_lang.md |
+| High-level Language | Human-readable, machine-independent; e.g. Python, Java, C++ | programming_lang.md |
+| Primitive Data Types | Built-in, fixed-size types stored directly in memory (int, float, char, bool, void) | programming_lang.md |
+| Non-primitive Data Types | Complex, dynamic-size types built from primitives (String, Array, Class, Struct) | programming_lang.md |
+| Stack Memory | LIFO region of RAM; stores local variables and function call data | programming_lang.md |
+| Heap Memory | Dynamic memory region; used for runtime allocation (new/delete) | programming_lang.md |
+| Linear Data Structure | Elements arranged sequentially; single-level (Array, Linked List, Stack, Queue) | programming_lang.md |
+| Non-linear Data Structure | Elements arranged hierarchically or graph-like; multi-level (Tree, Graph, Heap) | programming_lang.md |
+| Control Structures | Mechanisms that determine the order of statement execution | programming_lang.md |
+| Sequential Control | Default top-to-bottom execution; no branching | programming_lang.md |
+| Selection Control | Decision-making (if, if-else, else-if, switch) | programming_lang.md |
+| Iteration Control | Looping (for, while, do-while, for-each) | programming_lang.md |
+| Jump Control | Unconditional transfer of control (break, continue, return, goto) | programming_lang.md |
+| Data Flow | Movement, transformation, and usage of data within a program during execution | programming_lang2.md |
+| Sequential Data Flow | Data moves line by line in order | programming_lang2.md |
+| Conditional Data Flow | Data flows differently depending on a condition | programming_lang2.md |
+| Iterative Data Flow | Data flows repeatedly through a loop | programming_lang2.md |
+| Procedural Data Flow | Data moves between functions via parameters and return values | programming_lang2.md |
+| Explicit Data Flow | Data movement clearly written and visible in code | programming_lang2.md |
+| Implicit Data Flow | Data movement through shared/global memory; harder to trace | programming_lang2.md |
+| Compilation | Entire program translated at once to machine code; produces executable | programming_lang.md |
+| Interpretation | Code translated and executed line by line at runtime | programming_lang.md |
+| JIT Compilation | Bytecode compiled to machine code on demand at runtime (e.g. Java/JVM) | programming_lang.md |
+
+---
+
+## Definitions
+
+### Language
+A formal system of symbols and rules used to transmit information and instructions between a sender (human or program) and a receiver (computer or hardware). Every instruction must have a precise, single meaning in computer language.
+*Source: programming_lang.md*
+
+### Phonology
+The study of sound patterns — the smallest unit of sound called a **phoneme** (analogous to tokens, keywords, operators, identifiers, and numeric constants in programming).
+*Source: programming_lang.md*
+
+### Morphology
+The study of how words/tokens are derived and constructed; deals with the smallest units of meaning including root words, prefixes, and suffixes. In programming: how keywords, operators, and identifiers form meaningful units.
+*Source: programming_lang.md*
+
+### Syntax
+A set of rules governing how words/tokens and phrases are arranged to create well-formed, legal sentences/programs. Determines the order of elements and how they relate to one another.
+*Source: programming_lang.md*
+
+### Semantics
+The meaning of programs. Divided into: **Lexical Semantics** (meaning of individual words/tokens), **Compositional Semantics** (meaning of sentences/expressions).
+*Source: programming_lang.md*
+
+### Pragmatics
+The study of language in context; how context, speaker intention, and cultural/usage norms influence interpretation beyond literal meaning. In programming: readability, writability, reliability, and efficiency.
+*Source: programming_lang.md*
+
+### Static Semantics
+Checking rules applied at **compile time** to prevent execution errors — e.g. ensuring a variable is declared before use, or that types are compatible.
+*Source: programming_lang.md*
+
+### Dynamic Semantics
+The action or behaviour of code at **runtime** — how expressions are evaluated, how values are computed, and how they change during execution.
+*Source: programming_lang.md*
+
+### Data Type
+A classification that tells the compiler what kind of data a variable can hold — how much memory to allocate and what operations are allowed on that data.
+*Source: programming_lang.md*
+
+### Primitive Data Types
+The most basic building blocks of a programming language — provided by the language and representing single simple values directly understood by the CPU. Stored directly in memory in binary form.
+*Source: programming_lang.md*
+
+### Non-Primitive Data Types
+Also called reference or derived types; more complex structures built using other data types. Defined by the programmer or standard library. Can store multiple values; have dynamic size.
+*Source: programming_lang.md*
+
+### Data Structure
+A method of organising, storing, and managing data in a computer so that it can be accessed and manipulated efficiently.
+*Source: programming_lang.md*
+
+### Stack (Data Structure)
+A linear data structure following the **LIFO (Last-in-First-out)** principle. Operations: push (insert) and pop (remove).
+*Source: programming_lang.md*
+
+### Queue (Data Structure)
+A linear data structure following the **FIFO (First-in-First-out)** principle. Elements added to rear (enqueue) and removed from front (dequeue).
+*Source: programming_lang.md*
+
+### Linked List
+A sequence of nodes where each node contains data and a pointer to the next node. Allows dynamic sizing and efficient insertion/deletion.
+*Source: programming_lang.md*
+
+### Data Flow
+The movement, transformation, and usage of data within a program during execution. Describes how data moves from input → storage → processing → output.
+*Source: programming_lang2.md*
+
+### Explicit Data Flow
+Data movement clearly written and visible in code — passed as parameters, returned from functions, and assigned directly. Easy to trace and debug.
+*Source: programming_lang2.md*
+
+### Implicit Data Flow
+Data movement that occurs indirectly through shared memory or global variables. Not clearly visible — harder to trace.
+*Source: programming_lang2.md*
+
+### Compilation
+An implementation method where the **entire program** is translated at once into an executable file (e.g. `.exe`) by a compiler.
+*Source: programming_lang.md*
+
+### Interpretation
+An implementation method where code is translated and executed **line by line** at runtime using an interpreter (e.g. Python, JavaScript).
+*Source: programming_lang.md*
+
+### JIT (Just-in-Time) Compilation
+A hybrid approach that compiles bytecode to machine code **on demand at runtime**. Used by the Java Virtual Machine (JVM).
+*Source: programming_lang.md*
+
+---
+
+## Examples
+
+### Language Structure — Phonology in Programming
+`int age;` — `cout << "Enter age: ";` — `cin >> age;` — tokens are the phonemes of a programming language.
+*Source: programming_lang.md*
+
+### Morphology in Programming
+`whitespace = a + b` | `Walked = Walk + ed` — identifiers built from root components like natural language words.
+*Source: programming_lang.md*
+
+### Static Semantics — Compile-time Type Error
+```cpp
+x = "hello"; // Compile error: cannot assign string to integer type
+```
+*Source: programming_lang.md*
+
+### Primitive Data Types — Integer
+```cpp
+int count = 10; // stores -2,147,483,648 to 2,147,483,647
+```
+*Source: programming_lang.md*
+
+### Procedural Data Flow — Grade Calculator
+Three functions (`calculateTotal`, `calculateAverage`, `determineGrade`) each receive data as parameters and return results — explicit chain of data movement.
+*Source: programming_lang2.md*
+
+### Implicit Data Flow — Global Variable
+```cpp
+int total = 0; // global variable modified by multiple functions without passing as parameter
+```
+*Source: programming_lang2.md*
+
+### Stack vs Heap at Runtime
+```cpp
+int localVar = value * 2;   // Stack
+int* heapVar = new int(5);  // Heap — must be freed with delete
+```
+*Source: programming_lang2.md*
+
+### Control Structure — Switch Statement
+```cpp
+switch (day) { case 1: cout << "Monday"; break; ... }
+```
+*Source: programming_lang.md*
+
+### Iterative Data Flow — For Loop
+```cpp
+int sum = 0;
+for (int i = 1; i <= 5; i++) { sum += i; }
+```
+Data `i` flows multiple times through the loop.
+*Source: programming_lang2.md*
+
+---
+
+## Relationships
+
+| From | Relationship | To |
+|------|-------------|-----|
+| Phonology | is a component of | Language Structure |
+| Morphology | is a component of | Language Structure |
+| Syntax | is a component of | Language Structure |
+| Semantics | is a component of | Language Structure |
+| Pragmatics | is a component of | Language Structure |
+| Static Semantics | is checked at | Compile time |
+| Dynamic Semantics | is evaluated at | Runtime |
+| Machine Language | is lower than | Assembly Language |
+| Assembly Language | is lower than | Middle-level Language |
+| Middle-level Language | is lower than | High-level Language |
+| Compilation | translates to | Machine Code (whole program) |
+| Interpretation | translates and executes | Line by line at runtime |
+| JIT | is a hybrid of | Compilation + Interpretation |
+| Primitive Data Types | are building blocks for | Non-Primitive Data Types |
+| Stack Memory | stores | Local variables and function call data |
+| Heap Memory | stores | Dynamically allocated data (new/delete) |
+| Linear Data Structures | arrange data | Sequentially (one level) |
+| Non-linear Data Structures | arrange data | Hierarchically or graph-like (multiple levels) |
+| Control Structures | determine | Order of data flow through program |
+| Sequential Data Flow | is a type of | Data Flow (by execution) |
+| Conditional Data Flow | is a type of | Data Flow (by execution) |
+| Iterative Data Flow | is a type of | Data Flow (by execution) |
+| Procedural Data Flow | is a type of | Data Flow (by execution) |
+| Explicit Data Flow | is a type of | Data Flow (by visibility) |
+| Implicit Data Flow | is a type of | Data Flow (by visibility) |
+| Phonology / Morphology / Syntax | are core concerns of | Lexical Analysis and Parsing |
+| Data Flow | is fundamental to | Compiler Design, OS, AI, Security, Algorithms |
+
+</script>
+
+<script type="text/plain" id="cs-system-analysis-and-design">
+---
+courseName: System Analysis & Design
+courseCode: CMS711
+subjectDomain: Computer Science
+lecturer: Dr. Deedam
+materialsCount: 4
+status: Active
+created: 2026-04-02
+---
+
+# Course Structure: System Analysis & Design
+
+## Materials Index
+
+| # | Title | Type | Status |
+|---|-------|------|--------|
+| 1 | course-outline.md | Direct text | ✓ Processed |
+| 2 | SYSTEM_ANALYSIS.md — Dr. Deedam lecture notes | File | ✓ Processed |
+| 3 | SDLC_Lecture_Notes.md | File | ✓ Processed |
+| 4 | System_Design_Interface_Design.md | File | ✓ Processed |
+
+---
+
+## Topics
+
+### Primary Topics
+
+1. **Overview of Systems and their Components**
+   - Definition of a system
+   - Components: Input, Process, Output, Feedback, Control, Environment, Boundaries, Interface
+   - Types of systems: Open, Closed, Manual, Automated
+   - Information Systems and their components
+
+2. **Introduction to System Analysis & Design**
+   - What is System Analysis & Design
+   - Role of the System Analyst
+   - Roles, responsibilities, skills and types of System Analyst
+
+3. **System Development Life Cycle (SDLC)**
+   - Introduction to SDLC
+   - Four phases: Planning, Analysis, Design, Implementation
+   - Seven steps of SDLC
+   - SDLC as a process of gradual refinement
+   - Deliverables per phase
+
+4. **System Development Methodologies**
+   - Process-Centred Methodology
+   - Data-Centred Methodology
+   - Object-Oriented Methodology
+   - Structured Design (Structured Analysis, OOA&D)
+   - SDLC Models: Waterfall, V-Model, RAD, Iterative, Spiral, Agile
+   - Other: Prototyping, Extreme Prototyping, DevOps, Scrum
+
+5. **Requirements Gathering**
+   - What is a requirement
+   - Business requirements vs System requirements
+   - Functional Requirements
+   - Non-Functional Requirements
+   - Requirements gathering techniques: Interviews, Questionnaires, JAD/RAP, Brainstorming, Workshops
+
+6. **System Design**
+   - What is System Design
+   - Analysis (What?) vs Design (How?)
+   - General/Preliminary approach vs Structured/Detailed approach
+   - Tools & Techniques: Flowcharts, DFD, Database Design, Architectural Diagrams, IPO Specifications
+   - Design guidelines: Effective, Reliable, Maintainable
+
+7. **Interface, Input & Output Design**
+   - What is a User Interface
+   - Parts of a design interface: Navigation, Input, Output mechanisms
+   - Principles of UI Design: Layout, Content Awareness, Aesthetics, UX, Consistency, Minimal Effort
+   - Screen Design types: Menu Display, Dialogue Display, Data Entry Display
+   - UI Evolution: CLI → PCUI → HCI → GUI
+   - Steps for designing an interface
+   - Control functions: Text Box, Number Box, Selection Box, Buttons
+   - Data Validation techniques
+   - Data Verification techniques
+   - Output Design: On-screen reports, Printed reports
+
+8. **Tools & Techniques for System Development**
+   - Data Flow Diagrams (DFD)
+   - Entity Relationship Diagrams (ERD)
+   - Flowcharts
+   - Process Flow Diagrams
+   - Database Design
+
+9. **Security and Maintenance**
+   - Post-deployment maintenance
+   - Bug fixing, system updates, performance tuning
+   - Enhancement specifications
+
+---
+
+## Key Concepts
+
+| Concept | Brief Description | Source Material |
+|---------|------------------|-----------------|
+| System | An organized collection of components working together to achieve specific goals | SYSTEM_ANALYSIS.md |
+| SDLC | Systems Development Life Cycle — structured process for building information systems | SDLC_Lecture_Notes.md |
+| System Analyst | Professional bridging business problems and technology solutions | SDLC_Lecture_Notes.md |
+| Functional Requirements | Requirements describing what a system must do; user needs | SYSTEM_ANALYSIS.md |
+| Non-Functional Requirements | Behavioural properties describing how a system must be built | SYSTEM_ANALYSIS.md |
+| System Design | Planning a new system — defines outputs, inputs, interface, dialogue and data requirements | System_Design_Interface_Design.md |
+| User Interface | The part of the system users interact with; to the user, the interface IS the system | System_Design_Interface_Design.md |
+| Waterfall Model | Linear sequential SDLC model; each phase completes before the next begins | SDLC_Lecture_Notes.md |
+| Agile Model | Iterative SDLC approach emphasizing flexibility, collaboration, and sprints | SDLC_Lecture_Notes.md |
+| RAD | Rapid Application Development — iterative with rapid prototyping, less up-front planning | SDLC_Lecture_Notes.md |
+| V-Model | Extension of Waterfall with corresponding testing phases for each development stage | SDLC_Lecture_Notes.md |
+| Spiral Model | Combines iterative development with risk assessment | SDLC_Lecture_Notes.md |
+| Feedback | Information about system output used to adjust input or process | SYSTEM_ANALYSIS.md |
+| Information System | System designed to manage and process data to produce useful information | SYSTEM_ANALYSIS.md |
+| Data Validation | Checks that entered data is sensible/correct in format, type, range, etc. | System_Design_Interface_Design.md |
+| Data Verification | Confirms data entered matches the intended value (proof reading, double-entry) | System_Design_Interface_Design.md |
+| Legacy System | Outdated computing system including hardware, software, file formats, and programming language | System_Design_Interface_Design.md |
+| Deliverable | Specific document or file produced at the end of an SDLC phase | SDLC_Lecture_Notes.md |
+
+---
+
+## Definitions
+
+### System
+An organized collection of components that work together to achieve a specific or set of goals. Also: a set of interrelated elements that collectively work together to achieve some common goals. Derived from the Greek word *Systema* — an organized relationship amongst functional units and components.
+*Source: SYSTEM_ANALYSIS.md*
+
+### Information System
+A system designed to manage and process data to produce useful information within an organization. A set of interrelated components that stores, processes and distributes information, and supports decision making.
+*Source: SYSTEM_ANALYSIS.md*
+
+### SDLC (Systems Development Life Cycle)
+The process of understanding how an Information System can support business needs by designing a system, building it, and delivering it to users.
+*Source: SDLC_Lecture_Notes.md*
+
+### Requirement
+A statement of what a system must do or what characteristics it must have.
+*Source: SYSTEM_ANALYSIS.md*
+
+### Functional Requirement
+A requirement that relates directly to a process a system must perform or information it needs to obtain. Flows into functional, structural, and behavioural models.
+*Source: SYSTEM_ANALYSIS.md*
+
+### Non-Functional Requirement
+A requirement referring to the behavioural properties the system must have — deals with *how* the system will be developed.
+*Source: SYSTEM_ANALYSIS.md*
+
+### System Design
+The process of planning a new system or replacing/complementing an existing or legacy system. Defines system outputs, inputs, interface, dialogue and data requirements.
+*Source: System_Design_Interface_Design.md*
+
+### User Interface
+The part of the system users interact with. Includes screen displays, forms for capturing data, and reports the system produces.
+*Source: System_Design_Interface_Design.md*
+
+### System Analyst
+A professional who specializes in analyzing, designing, and implementing information systems. Acts as a bridge between business problems and technology solutions.
+*Source: SDLC_Lecture_Notes.md*
+
+### Waterfall Model
+A linear and sequential design process where progress flows steadily downwards; each phase must be completed before the next begins.
+*Source: SDLC_Lecture_Notes.md*
+
+### V-Model (Validation & Verification Model)
+An extension of the Waterfall model with corresponding testing phases for each development stage; emphasizes early defect detection.
+*Source: SDLC_Lecture_Notes.md*
+
+### RAD (Rapid Application Development)
+A methodology favouring iterative development and rapid prototyping over large amounts of up-front planning.
+*Source: SDLC_Lecture_Notes.md*
+
+### Spiral Model
+A model combining iterative development with risk assessment; each iteration involves planning, risk analysis, engineering, and evaluation.
+*Source: SDLC_Lecture_Notes.md*
+
+### Methodology
+A formalized approach to implementing the SDLC — includes a list of steps and deliverables.
+*Source: SDLC_Lecture_Notes.md*
+
+### Legacy System
+An outdated computing system including hardware, software, file formats, and programming language.
+*Source: System_Design_Interface_Design.md*
+
+---
+
+## Examples
+
+### System — Examples by Type
+- Open System: businesses, ecosystems, computer systems connected to the internet
+- Closed System: fully self-contained systems with no external interaction
+- Manual System: controlled by humans
+- Automated System: controlled by machines
+*Source: SYSTEM_ANALYSIS.md*
+
+### System Components — Concrete Examples
+- Input: raw data, user commands, energy, materials
+- Process: data processing, computation, manufacturing
+- Output: processed information, finished product, reports, decisions
+- Control: quality control process, management oversight, automated control systems
+- Environment: external data sources, regulatory constraints, economic conditions
+- Boundary: scope of a project, organizational boundaries, the fence of your house
+*Source: SYSTEM_ANALYSIS.md*
+
+### Requirements Gathering — Techniques in Practice
+- Interviews: structured/unstructured conversations with stakeholders
+- Questionnaires: paper-based or electronic (e.g., Google Forms)
+- JAD/RAP: collaborative workshops
+- Brainstorming: group idea generation
+*Source: SYSTEM_ANALYSIS.md*
+
+### Data Validation vs Verification
+- Validation checks format only: `12/11/1928` passes a date format check
+- Verification catches wrong values: double-entry would flag `12/11/1928` vs intended `12/11/1982`
+*Source: System_Design_Interface_Design.md*
+
+### SDLC Models — Best Fit Use Cases
+- Waterfall: projects with well-defined, stable requirements
+- V-Model: projects where quality and reliability are critical
+- RAD: fast delivery with changing requirements
+- Spiral: large, high-risk projects requiring risk management
+- Agile: dynamic projects where requirements change frequently
+*Source: SDLC_Lecture_Notes.md*
+
+---
+
+## Relationships
+
+| From | Relationship | To |
+|------|-------------|-----|
+| Analysis Phase | precedes and feeds into | Design Phase |
+| Design Phase | precedes and feeds into | Implementation Phase |
+| Functional Requirements | flow directly into | Functional, Structural & Behavioural Models |
+| Business Requirements | evolve into during design | System Requirements |
+| SDLC | is implemented via | Methodology (Waterfall, Agile, RAD, etc.) |
+| Waterfall Model | is extended by | V-Model |
+| Spiral Model | combines | Iterative Development + Risk Assessment |
+| User Interface | is the visible face of | Information System |
+| Data Validation | is complemented by | Data Verification |
+| System Analyst | bridges | Business Problems ↔ Technology Solutions |
+| Input | is transformed by Process into | Output |
+| Output | feeds back via Feedback into | Input / Process (adjustment) |
+| Legacy System | must be considered during | System Design (integration/conversion) |
+| SDLC Planning Phase | produces | Project Charter, Feasibility Study, Project Plan |
+| SDLC Analysis Phase | produces | SRS, Use Cases, Process Diagrams |
+| SDLC Design Phase | produces | Design Documents, Data Models, UI Prototypes |
+| SDLC Implementation Phase | produces | Source Code, Database Schema, System Modules |
+| SDLC Testing Phase | produces | Test Plans, Test Cases, Defect Reports |
+| SDLC Deployment Phase | produces | Deployed System, User Training Materials |
+| SDLC Maintenance Phase | produces | Maintenance Reports, Enhancement Specifications |
+
+</script>
+
+<script>
+    const STORAGE_KEY = 'xara_tutor_v1';
+    const MAX_CHARS = 6000; // ~1500 tokens — conservative for 32k context model
+
+    const COURSE_SLUGS = [
+      'artificial-intelligence',
+      'data-communication-and-networks',
+      'operating-systems',
+      'programming-languages',
+      'compiler-construction',
+      'system-analysis-and-design'
+    ];
+
+    // GitHub URL used only for load_material (requires internet)
+    const COURSES_PATH = 'https://raw.githubusercontent.com/Mbosinwa/xara-university-tutor-google-ai-edge/main/assets/courses';
+
+    // --- Embedded data reader ---
+    function getEmbedded(id) {
+      var el = document.getElementById(id);
+      return el ? el.textContent.trim() : null;
+    }
+
+    // --- Storage helpers ---
+    function getStore() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+      catch (e) { return {}; }
+    }
+    function saveStore(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+    function today() {
+      var d = new Date();
+      return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+    }
+
+    // --- Section extractor ---
+    function extractSection(text, keyword, maxChars) {
+      var lines = text.split('\n');
+      var kw = keyword.toLowerCase();
+      var startIdx = -1, startLevel = 0;
+      for (var i = 0; i < lines.length; i++) {
+        var m = lines[i].match(/^(#{1,6})\s+(.+)/);
+        if (m && m[2].toLowerCase().includes(kw)) { startIdx = i; startLevel = m[1].length; break; }
+      }
+      if (startIdx === -1) {
+        var notice = '[Section "' + keyword + '" not found — showing file start]\n\n';
+        return notice + text.substring(0, maxChars - notice.length);
+      }
+      var content = '';
+      for (var j = startIdx; j < lines.length; j++) {
+        if (j > startIdx) {
+          var next = lines[j].match(/^(#{1,6})\s/);
+          if (next && next[1].length <= startLevel) break;
+        }
+        content += lines[j] + '\n';
+        if (content.length >= maxChars) { content += '\n...[TRUNCATED — request a narrower section]'; break; }
+      }
+      return content;
+    }
+
+    // --- Actions ---
+
+    function listCourses() {
+      var store = getStore();
+      var active = store.activeCourse ? '\n\nCurrently active: **' + store.activeCourse + '**' : '';
+      return { result:
+        'Your enrolled courses:\n\n' +
+        '1. CMS707 — Artificial Intelligence\n' +
+        '2. CMS701 — Operating Systems\n' +
+        '3. CMS703 — Data Communications & Networks\n' +
+        '4. CMS705 — Programming Languages\n' +
+        '5. CMS709 — Compiler Construction\n' +
+        '6. CMS711 — System Analysis & Design' + active +
+        '\n\nType **[LT]** to learn a topic, **[KM]** for a knowledge map, **[GQ]** to take a quiz, or **[TP]** to see your progress.'
+      };
+    }
+
+    function loadCourse(course) {
+      var text = getEmbedded('cs-' + course);
+      if (!text) return { error: 'Course "' + course + '" not found.' };
+      var store = getStore(); store.activeCourse = course; saveStore(store);
+      var truncated = text.length > MAX_CHARS
+        ? text.substring(0, MAX_CHARS) + '\n\n...[TRUNCATED — ask about a specific topic for more detail]'
+        : text;
+      return { result: truncated };
+    }
+
+    function loadKnowledgeMap(course) {
+      var text = getEmbedded('km-' + course);
+      if (!text) return { error: 'Knowledge map for "' + course + '" not found.' };
+      var truncated = text.length > MAX_CHARS
+        ? text.substring(0, MAX_CHARS) + '\n\n...[KNOWLEDGE MAP TRUNCATED — ask about a specific section]'
+        : text;
+      return { result: truncated };
+    }
+
+    async function loadMaterial(course, filename, section) {
+      var url = COURSES_PATH + '/' + course + '/materials/' + filename;
+      var resp;
+      try { resp = await fetch(url); }
+      catch (e) { throw new Error('Material fetch failed (internet required) — ' + e.message); }
+      if (!resp.ok) throw new Error('Material not found: HTTP ' + resp.status + ' — ' + url);
+      var text = await resp.text();
+      if (section) return { result: extractSection(text, section, MAX_CHARS) };
+      var truncated = text.length > MAX_CHARS
+        ? text.substring(0, MAX_CHARS) + '\n\n...[TRUNCATED — use section parameter to load a specific topic]'
+        : text;
+      return { result: truncated };
+    }
+
+    function saveProgress(course, topic, status, notes) {
+      var store = getStore();
+      if (!store.progress) store.progress = {};
+      if (!store.progress[course]) store.progress[course] = {};
+      var ex = store.progress[course][topic] || { sessionCount: 0 };
+      store.progress[course][topic] = {
+        status: status || ex.status || 'in-progress',
+        lastStudied: today(),
+        sessionCount: (ex.sessionCount || 0) + 1,
+        notes: notes || ex.notes || ''
+      };
+      store.activeCourse = course; saveStore(store);
+      return { result: 'Progress saved: **' + topic + '** marked as **' + (status || 'in-progress') + '** (session ' + store.progress[course][topic].sessionCount + ').' };
+    }
+
+    function getProgress(course) {
+      var store = getStore(), progress = store.progress || {};
+      var courses = course ? [course] : COURSE_SLUGS, lines = [];
+      for (var i = 0; i < courses.length; i++) {
+        var c = courses[i], topics = progress[c];
+        if (!topics || Object.keys(topics).length === 0) { lines.push('**' + c + '**: No topics studied yet.'); continue; }
+        lines.push('\n**' + c + ':**');
+        Object.entries(topics).forEach(function(kv) {
+          var icon = kv[1].status === 'complete' ? '✓' : kv[1].status === 'in-progress' ? '→' : '○';
+          lines.push('  ' + icon + ' ' + kv[0] + ' (' + kv[1].status + ', ' + kv[1].sessionCount + ' session' + (kv[1].sessionCount !== 1 ? 's' : '') + ', last: ' + kv[1].lastStudied + ')');
+        });
+      }
+      var weakAreas = [];
+      (store.quizHistory ? courses : []).forEach(function(c) {
+        (store.quizHistory[c] || []).forEach(function(e) {
+          if (e.score < 0.6) weakAreas.push('  - ' + e.topic + ' (' + c + '): ' + Math.round(e.score*100) + '% on ' + e.date);
+        });
+      });
+      if (weakAreas.length > 0) lines.push('\n**Areas needing review (< 60%):**\n' + weakAreas.slice(0,5).join('\n'));
+      return { result: lines.length > 0 ? lines.join('\n') : 'No progress recorded yet. Start a learning session with **[LT]**.' };
+    }
+
+    function logQuiz(course, topic, score, difficulty, questionCount) {
+      var store = getStore();
+      if (!store.quizHistory) store.quizHistory = {};
+      if (!store.quizHistory[course]) store.quizHistory[course] = [];
+      store.quizHistory[course].unshift({ topic: topic, score: parseFloat(score), difficulty: difficulty || 'medium', questionCount: parseInt(questionCount)||0, date: today() });
+      if (store.quizHistory[course].length > 50) store.quizHistory[course] = store.quizHistory[course].slice(0,50);
+      saveStore(store);
+      var pct = Math.round(parseFloat(score)*100);
+      var fb = pct >= 80 ? 'Excellent work!' : pct >= 60 ? 'Good effort — review the weak spots.' : "Keep studying — you'll get there!";
+      return { result: 'Quiz logged: **' + pct + '%** on **' + topic + '** (' + (difficulty||'medium') + ', ' + (questionCount||0) + ' questions). ' + fb };
+    }
+
+    function showDashboard(course) {
+      var url = course ? 'dashboard.html?course=' + encodeURIComponent(course) : 'dashboard.html';
+      return { result: 'Opening your progress dashboard.', webview: { url: url, aspectRatio: 1.6 } };
+    }
+
+    async function debugInfo() {
+      var aiKm = getEmbedded('km-artificial-intelligence');
+      var testUrl = COURSES_PATH + '/artificial-intelligence/knowledge-map.md';
+      var fetchStatus = 'not attempted';
+      try { var r = await fetch(testUrl); fetchStatus = 'HTTP ' + r.status + ' ' + r.statusText; }
+      catch (e) { fetchStatus = 'FETCH ERROR — ' + e.message; }
+      return { result: [
+        '**Xara Debug Info**',
+        'baseURI: ' + document.baseURI,
+        'Embedded AI KM: ' + (aiKm ? 'OK (' + aiKm.length + ' chars)' : 'MISSING'),
+        'GitHub material fetch: ' + fetchStatus,
+        'localStorage: ' + (typeof localStorage !== 'undefined'),
+        'fetch API: ' + (typeof fetch !== 'undefined')
+      ].join('\n') };
+    }
+
+    // --- Main dispatcher ---
+    // Edge Gallery contract: call ai_edge_gallery_get_result(jsonString), do NOT use return
+    window.run_js_action = function(input) {
+      function done(r) { ai_edge_gallery_get_result(JSON.stringify(r)); }
+      try {
+        var data = (typeof input === 'string') ? JSON.parse(input) : input;
+        switch (data.action) {
+          case 'list_courses':      done(listCourses()); break;
+          case 'load_course':       done(loadCourse(data.course)); break;
+          case 'load_knowledge_map':done(loadKnowledgeMap(data.course)); break;
+          case 'load_material':     loadMaterial(data.course, data.filename, data.section).then(done).catch(function(e){done({error:e.message});}); break;
+          case 'save_progress':     done(saveProgress(data.course, data.topic, data.status, data.notes)); break;
+          case 'get_progress':      done(getProgress(data.course)); break;
+          case 'log_quiz':          done(logQuiz(data.course, data.topic, data.score, data.difficulty, data.question_count)); break;
+          case 'show_dashboard':    done(showDashboard(data.course)); break;
+          case 'debug_info':        debugInfo().then(done).catch(function(e){done({error:e.message});}); break;
+          default:                  done({ error: 'Unknown action: ' + data.action });
+        }
+      } catch(e) {
+        ai_edge_gallery_get_result(JSON.stringify({ error: 'Xara Tutor error: ' + e.message }));
+      }
+    };
+</script>
+</body>
+</html>

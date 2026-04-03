@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<head><meta charset="UTF-8"></head>
 <body>
   <script>
     const STORAGE_KEY = 'xara_tutor_v1';
-    const MAX_CHARS = 12000;
+    const MAX_CHARS = 8000; // ~2k tokens — keeps tool results well within the 32k context budget
 
     const COURSE_SLUGS = [
       'artificial-intelligence',
@@ -14,8 +15,8 @@
       'system-analysis-and-design'
     ];
 
-    // Full GitHub raw URL — external fetch works in the sandboxed logic WebView
-    const COURSES_PATH = 'https://raw.githubusercontent.com/Mbosinwa/xara-university-tutor/main/assets/courses';
+    // Local fetch is blocked in the Gallery's sandboxed WebView — use GitHub raw content
+    const COURSES_PATH = 'https://raw.githubusercontent.com/Mbosinwa/xara-university-tutor-google-ai-edge/main/assets/courses';
 
     // --- Storage helpers ---
     function getStore() {
@@ -71,26 +72,30 @@
       return content;
     }
 
-    // --- Actions (return plain Objects, not JSON strings) ---
+    // --- Actions (return plain objects) ---
 
-    function listCourses() {
-      // Hardcoded for instant response — no network calls needed
+    async function listCourses() {
+      const results = await Promise.all(COURSE_SLUGS.map(async (slug) => {
+        try {
+          const resp = await fetch(`${COURSES_PATH}/${slug}/course-structure.md`);
+          if (!resp.ok) return `- ${slug}: [unavailable HTTP ${resp.status}]`;
+          const text = await resp.text();
+          const code = (text.match(/courseCode:\s*(.+)/) || [])[1]?.trim() ?? slug.toUpperCase();
+          const name = (text.match(/courseName:\s*(.+)/) || [])[1]?.trim() ?? slug;
+          const count = (text.match(/materialsCount:\s*(\d+)/) || [])[1] ?? '?';
+          return `- ${code} — ${name} (${count} materials)`;
+        } catch (e) {
+          return `- ${slug}: [error: ${e.message}]`;
+        }
+      }));
+
       const store = getStore();
       const active = store.activeCourse
         ? `\n\nCurrently active: **${store.activeCourse}**`
         : '';
 
       return {
-        result:
-          `Your enrolled courses:\n\n` +
-          `1. CMS707 — Artificial Intelligence\n` +
-          `2. CMS701 — Operating Systems\n` +
-          `3. CMS703 — Data Communications & Networks\n` +
-          `4. CMS705 — Programming Languages\n` +
-          `5. CMS709 — Compiler Construction\n` +
-          `6. CMS711 — System Analysis & Design` +
-          active +
-          `\n\nType **[LT]** to learn a topic, **[KM]** for a knowledge map, **[GQ]** to take a quiz, or **[TP]** to see your progress.`
+        result: `Your enrolled courses:\n\n${results.join('\n')}${active}\n\nType **[LT]** to learn a topic, **[KM]** for a knowledge map, **[GQ]** to take a quiz, or **[TP]** to see your progress.`
       };
     }
 
@@ -100,8 +105,16 @@
       const text = await resp.text();
       const store = getStore();
       store.activeCourse = course;
+      // Cache the full structure for offline reader use
+      if (!store.fileCache) store.fileCache = {};
+      if (!store.fileCache[course]) store.fileCache[course] = {};
+      store.fileCache[course]['course-structure.md'] = text;
       saveStore(store);
-      return { result: text };
+      // Return only Materials Index + Topics — strip Key Concepts/Definitions/Relationships
+      // to stay within the 32k context budget (those sections can be 10k+ chars each)
+      const cutoff = text.search(/^## Key Concepts/m);
+      const trimmed = cutoff > 0 ? text.substring(0, cutoff).trimEnd() : text;
+      return { result: trimmed };
     }
 
     async function loadKnowledgeMap(course) {
@@ -118,6 +131,14 @@
       const resp = await fetch(`${COURSES_PATH}/${course}/materials/${filename}`);
       if (!resp.ok) throw new Error(`Material "${filename}" not found (HTTP ${resp.status})`);
       const text = await resp.text();
+      // Cache for offline reader use (skip very large files >100KB to protect localStorage)
+      if (text.length < 100000) {
+        const store = getStore();
+        if (!store.fileCache) store.fileCache = {};
+        if (!store.fileCache[course]) store.fileCache[course] = {};
+        store.fileCache[course][`materials/${filename}`] = text;
+        saveStore(store);
+      }
 
       if (section) {
         return { result: extractSection(text, section, MAX_CHARS) };
@@ -152,6 +173,7 @@
     function getProgress(course) {
       const store = getStore();
       const progress = store.progress || {};
+
       const courses = course ? [course] : COURSE_SLUGS;
       const lines = [];
 
@@ -209,7 +231,7 @@
       saveStore(store);
 
       const pct = Math.round(parseFloat(score) * 100);
-      const feedback = pct >= 80 ? 'Excellent work!' : pct >= 60 ? 'Good effort — review the weak spots.' : "Keep studying — you'll get there!";
+      const feedback = pct >= 80 ? 'Excellent work!' : pct >= 60 ? 'Good effort — review the weak spots.' : 'Keep studying — you\'ll get there!';
       return {
         result: `Quiz logged: **${pct}%** on **${topic}** (${difficulty}, ${questionCount} questions). ${feedback}`
       };
@@ -219,33 +241,71 @@
       const url = course
         ? `dashboard.html?course=${encodeURIComponent(course)}`
         : 'dashboard.html';
+
       return {
         result: 'Opening your progress dashboard.',
         webview: { url, aspectRatio: 1.6 }
       };
     }
 
-    // --- Main dispatcher ---
-    // Entry point expected by the Edge Gallery runtime
-    window.run_js_action = async (input) => {
-      try {
-        // Handle input as either a pre-parsed Object or a raw JSON string
-        const data = (typeof input === 'string') ? JSON.parse(input) : input;
+    function showReader(course) {
+      const url = course
+        ? `reader.html?course=${encodeURIComponent(course)}`
+        : 'reader.html';
 
-        switch (data.action) {
-          case 'list_courses':    return listCourses();
-          case 'load_course':     return await loadCourse(data.course);
-          case 'load_knowledge_map': return await loadKnowledgeMap(data.course);
-          case 'load_material':   return await loadMaterial(data.course, data.filename, data.section);
-          case 'save_progress':   return saveProgress(data.course, data.topic, data.status, data.notes);
-          case 'get_progress':    return getProgress(data.course);
-          case 'log_quiz':        return logQuiz(data.course, data.topic, data.score, data.difficulty, data.question_count);
-          case 'show_dashboard':  return showDashboard(data.course);
-          default:                throw new Error(`Unknown action: ${data.action}`);
-        }
+      return {
+        result: 'Opening the course reader.',
+        webview: { url, aspectRatio: 1.6 }
+      };
+    }
+
+    // --- Main dispatcher ---
+    // Handles both calling conventions:
+    //   (a) run_js_action({action: "list_courses", ...})  — object input
+    //   (b) run_js_action('{"action":"list_courses",...}') — JSON string input
+    //   (c) run_js_action("list_courses", {})              — (action, params) two-arg style
+    async function dispatch(arg0, arg1) {
+      let input;
+      if (typeof arg0 === 'string' && !arg0.startsWith('{')) {
+        // Two-arg style: dispatch("list_courses", {course: "ai"})
+        input = Object.assign({ action: arg0 }, arg1 || {});
+      } else if (typeof arg0 === 'string') {
+        input = JSON.parse(arg0);
+      } else {
+        input = arg0 || {};
+      }
+
+      switch (input.action) {
+        case 'list_courses':      return await listCourses();
+        case 'load_course':       return await loadCourse(input.course);
+        case 'load_knowledge_map':return await loadKnowledgeMap(input.course);
+        case 'load_material':     return await loadMaterial(input.course, input.filename, input.section);
+        case 'save_progress':     return saveProgress(input.course, input.topic, input.status, input.notes);
+        case 'get_progress':      return getProgress(input.course);
+        case 'log_quiz':          return logQuiz(input.course, input.topic, input.score, input.difficulty, input.question_count);
+        case 'show_dashboard':    return showDashboard(input.course);
+        case 'show_reader':       return showReader(input.course);
+        default:                  throw new Error(`Unknown action: ${input.action}`);
+      }
+    }
+
+    // New Gallery API — returns plain object
+    window.run_js_action = async (arg0, arg1) => {
+      try {
+        return await dispatch(arg0, arg1);
       } catch (e) {
         console.error(e);
         return { error: `Xara Tutor error: ${e.message}` };
+      }
+    };
+
+    // Legacy Gallery API — returns JSON string
+    window['ai_edge_gallery_get_result'] = async (dataStr) => {
+      try {
+        return JSON.stringify(await dispatch(dataStr));
+      } catch (e) {
+        console.error(e);
+        return JSON.stringify({ error: `Xara Tutor error: ${e.message}` });
       }
     };
   </script>
